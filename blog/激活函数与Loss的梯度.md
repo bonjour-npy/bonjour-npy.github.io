@@ -60,20 +60,17 @@
 1. Mean Squared Error 均方误差
 
    - L2范数是对元素求平方和后再开根号，需要.pow(2)后才可作为损失函数
+   - 微小的误差可能对网络性能带来极大的影响
      $$
      Loss_{MSE} = \sum{[{y - f(x)]^2}}
      \tag{1}
      $$
 
      $$
-     \bigg\vert \big\vert y - f(x) \big\vert \bigg\vert_2 = \sqrt[2]{\sum{[y - f(x)]^2}}
+     \Vert y - f(x) \Vert_2 = \sqrt[2]{\sum{[y - f(x)]^2}}
      \tag{2}
      $$
-
-     
-
-   - 微小的误差可能对网络性能带来极大的影响
-
+   
 2. Cross Entropy Loss 交叉熵损失
 
    - binary 二分类问题
