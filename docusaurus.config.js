@@ -170,7 +170,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Peiyang Ni. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Peiyang Ni`,
       },
       prism: {
         theme: lightCodeTheme,
