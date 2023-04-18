@@ -31,7 +31,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh'],
   },
 
   presets: [
@@ -46,16 +46,16 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/bonjour-npy/bonjour-npy.github.io',
         },
         blog: {
           remarkPlugins: [math],
           rehypePlugins: [katex],
-          showReadingTime: true,
+          showReadingTime: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/bonjour-npy/bonjour-npy.github.io',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -63,7 +63,7 @@ const config = {
       }),
     ],
   ],
-  
+
   stylesheets: [
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -73,7 +73,21 @@ const config = {
       crossorigin: 'anonymous',
     },
   ],
-
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        language: ["en", "zh"],
+        // ```
+        // When applying `zh` in language, please install `nodejieba` in your project.
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -86,13 +100,18 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Tutorial',
+          // },
+          // {to: '/blog', label: '笔记', position: 'left'},
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            to: '/blog',
+            label: 'Deep Learning',
             position: 'left',
-            label: 'Tutorial',
           },
-          {to: '/blog', label: '笔记', position: 'left'},
           {
             href: 'https://github.com/bonjour-npy',
             label: 'GitHub',
@@ -104,28 +123,32 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Contact Me',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'TikTok',
+                href: 'https://www.douyin.com/user/self?modal_id=7157246567970360614',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/bonjour-npy',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Link Exchange',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: '学习强国',
+                href: 'https://www.xuexi.cn/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Los Santos',
+                href: 'https://www.rockstargames.com/gta-v',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Star Wars',
+                href: 'https://www.starwars.com/',
               },
             ],
           },
@@ -133,17 +156,21 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: '学习强国',
+                href: 'https://www.xuexi.cn/',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Los Santos',
+                href: 'https://www.rockstargames.com/gta-v',
+              },
+              {
+                label: 'Star Wars',
+                href: 'https://www.starwars.com/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Peiyang Ni. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
