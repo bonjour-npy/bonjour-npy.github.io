@@ -42,7 +42,7 @@ c53.7,-170.3,84.5,-266.8,92.5,-289.5z
 M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5561em"><span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.84em;vertical-align:-0.5561em"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2</span></span><span class="mord">)</span></span></span></span></span></span></div></li></ul></li><li><p>Cross Entropy Loss 交叉熵损失</p><ul><li>binary 二分类问题</li><li>multi-class 多分类问题</li><li>经常与softmax激活函数搭配使用</li></ul></li></ol>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Notes]]></title>
+            <title><![CDATA[理论基础]]></title>
             <link>https://bonjour-npy.github.io/blog/理论知识</link>
             <guid>https://bonjour-npy.github.io/blog/理论知识</guid>
             <pubDate>Tue, 18 Apr 2023 10:22:37 GMT</pubDate>
