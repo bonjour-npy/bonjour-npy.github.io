@@ -37,7 +37,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        “我有温度”
+        聚不是开始，散也不是结束
       </>
     ),
   },
