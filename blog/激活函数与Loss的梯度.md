@@ -22,7 +22,7 @@
    致命问题：在输入值较小或较大时，Sigmoid函数的梯度趋近于零，会导致网络参数长时间得不到更新，即梯度弥散问题
 
    ```python
-   from torch.nm import functional as F
+   from torch.nn import functional as F
    import torch
    x = torch.linspace(-100, 100, 10)
    F.sigmoid(x)  # 当x为100时，sigmoid(x)就接近于0了
@@ -45,13 +45,23 @@
    \end{cases}
    \tag{2}
    $$
-   
+
    ```python
-   from torch.nm import functional as F
+   from torch.nn import functional as F
    import torch
    x = torch.linspace(-100, 100, 10)
    F.relu(x)
    ```
+
+3. Softmax函数
+
+   常用于多分类任务，网络的输出经过Softmax函数后，成为和为1的概率
+   $$
+   S(y_i) = \frac{e^{y_i}}{\sum_{j}^{n}{e^{y^j}}} \tag{1}
+   $$
+   
+
+    
 
 ------
 
