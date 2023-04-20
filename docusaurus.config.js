@@ -155,12 +155,12 @@ const config = {
             title: '友情链接',
             items: [
               {
-                label: '学习强国',
-                href: 'https://www.xuexi.cn/',
-              },
-              {
                 label: '共和国国防部',
                 href: 'http://www.mod.gov.cn/',
+              },
+              {
+                label: '学习强国',
+                href: 'https://www.xuexi.cn/',
               },
               {
                 label: '欢迎来到洛圣都',
