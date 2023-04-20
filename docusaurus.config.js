@@ -162,6 +162,10 @@ const config = {
                 label: '学习强国',
                 href: 'https://www.xuexi.cn/',
               },
+              {
+                label: '联合国维持和平',
+                href: 'https://peacekeeping.un.org/zh',
+              },
             ],
           },
           {
@@ -175,10 +179,14 @@ const config = {
                 label: '星球大战',
                 href: 'https://www.starwars.com/',
               },
+              {
+                label: 'Apple（中国大陆）',
+                href: 'https://www.apple.com.cn/',
+              },
             ],
           },
           {
-            title: '更多',
+            title: 'EDU官网',
             items: [
               {
                 label: '桂林电子科技大学',
