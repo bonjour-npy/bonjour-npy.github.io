@@ -9,7 +9,7 @@ const katex = require('rehype-katex');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '倪培洋的笔记本',
-  tagline: 'May the Force be with you',
+  tagline: '愿原力与你同在',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -163,7 +163,7 @@ const config = {
                 href: 'https://www.rockstargames.com/gta-v',
               },
               {
-                label: 'Star Wars',
+                label: '星球大战',
                 href: 'https://www.starwars.com/',
               },
             ],
@@ -182,7 +182,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Peiyang Ni`,
+        copyright: `Copyright© ${new Date().getFullYear()} by bonjour-npy.github.io. all rights reserved`,
       },
       prism: {
         theme: lightCodeTheme,
