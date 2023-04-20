@@ -18,7 +18,7 @@
 
 ---
 
-感恩[Docusaurus](https://github.com/facebook/docusaurus)给了我写博客的动力！
+感恩[Docusaurus](https://github.com/facebook/docusaurus)提供的各种便利！
 
 感恩[Sonder的宝藏笔记本](https://space.keter.top/)！
 
