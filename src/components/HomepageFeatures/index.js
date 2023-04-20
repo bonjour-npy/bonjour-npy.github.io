@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: '真心',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/1.svg').default,
     description: (
       <>
         我希望有一天，我的心可以清如明镜。而我可以在镜前看到自己两鬓的华发，还有老去的容颜。
@@ -14,7 +14,7 @@ const FeatureList = [
   },
   {
     title: '正义',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/2.svg').default,
     description: (
       <>
         有一天在梦里，为某个渺小的感动，泪流满面。
@@ -23,7 +23,7 @@ const FeatureList = [
   },
   {
     title: '无畏',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/3.svg').default,
     description: (
       <>
         晃晃悠悠地生活，扭扭捏捏地前进。
@@ -34,7 +34,7 @@ const FeatureList = [
   },
   {
     title: '同情',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/4.svg').default,
     description: (
       <>
         聚不是开始，散也不是结束
