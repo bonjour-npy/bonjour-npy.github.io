@@ -109,11 +109,11 @@ const config = {
           // },
           {
             to: '/docs/Deep Learning/intro',
-            label: 'Deep Learning',
+            label: '深度学习',
           },
           {
             to: '/docs/Algorithms/intro',
-            label: 'Algorithms',
+            label: '算法',
           },
           {
             to: '/docs/Linux/intro',
@@ -121,7 +121,7 @@ const config = {
           },
           {
             to: '/docs/others/intro',
-            label: 'Others',
+            label: '其他',
           },
           // {
           //   to: '/blog',
@@ -139,10 +139,10 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Contact Me',
+            title: '联系我',
             items: [
               {
-                label: 'TikTok',
+                label: '抖音',
                 href: 'https://www.douyin.com/user/self?modal_id=7157246567970360614',
               },
               {
@@ -152,14 +152,14 @@ const config = {
             ],
           },
           {
-            title: 'Link Exchange',
+            title: '友情链接',
             items: [
               {
                 label: '学习强国',
                 href: 'https://www.xuexi.cn/',
               },
               {
-                label: 'Los Santos',
+                label: '欢迎来到洛圣都',
                 href: 'https://www.rockstargames.com/gta-v',
               },
               {
@@ -169,19 +169,15 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: '更多',
             items: [
               {
-                label: '学习强国',
-                href: 'https://www.xuexi.cn/',
+                label: '桂林电子科技大学',
+                href: 'https://www.guet.edu.cn',
               },
               {
-                label: 'Los Santos',
-                href: 'https://www.rockstargames.com/gta-v',
-              },
-              {
-                label: 'Star Wars',
-                href: 'https://www.starwars.com/',
+                label: '信阳师范学院',
+                href: 'https://www.xynu.edu.cn',
               },
             ],
           },
