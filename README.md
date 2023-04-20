@@ -1,41 +1,25 @@
-# Website
+# 倪培洋的笔记本
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+---
 
-### Installation
+这里是不太爱写笔记的倪培洋的笔记本
 
-```
-$ yarn
-```
+希望可以在写作的过程中找到原力的平衡
 
-### Local Development
+## 支持我！
 
-```
-$ yarn start
-```
+---
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+如果可以帮到你的话就给个免费的Star吧！
 
-### Build
+![](https://github.com/bonjour-npy/bonjour-npy.github.io/blob/master/static/img/intro_img.png?raw=true)
 
-```
-$ yarn build
-```
+## 鸣谢！
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+---
 
-### Deployment
+感恩[Docusaurus](https://github.com/facebook/docusaurus)给了我写博客的动力！
 
-Using SSH:
+感恩[Sonder的宝藏笔记本](https://space.keter.top/)！
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+感恩蓝天！感恩白云！
