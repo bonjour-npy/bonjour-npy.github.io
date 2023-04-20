@@ -22,7 +22,7 @@
    致命问题：在输入值较小或较大时，Sigmoid函数的梯度趋近于零，会导致网络参数长时间得不到更新，即梯度弥散问题
 
    ```python
-   from torch.nm import functional as F
+   from torch.nn import functional as F
    import torch
    x = torch.linspace(-100, 100, 10)
    F.sigmoid(x)  # 当x为100时，sigmoid(x)就接近于0了
@@ -47,7 +47,7 @@
    $$
    
    ```python
-   from torch.nm import functional as F
+   from torch.nn import functional as F
    import torch
    x = torch.linspace(-100, 100, 10)
    F.relu(x)
