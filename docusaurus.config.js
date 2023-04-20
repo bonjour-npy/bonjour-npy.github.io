@@ -101,11 +101,23 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Deep Learning',
+          // },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Notes',
+            to: '/docs/Deep Learning/intro',
+            label: 'Deep Learning',
+          },
+          {
+            to: '/docs/Linux/intro',
+            label: 'Linux',
+          },
+          {
+            to: '/docs/others/intro',
+            label: 'Others',
           },
           // {
           //   to: '/blog',
