@@ -159,6 +159,10 @@ const config = {
                 href: 'https://www.xuexi.cn/',
               },
               {
+                label: '共和国国防部',
+                href: 'http://www.mod.gov.cn/',
+              },
+              {
                 label: '欢迎来到洛圣都',
                 href: 'https://www.rockstargames.com/gta-v',
               },
