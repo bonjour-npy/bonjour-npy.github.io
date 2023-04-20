@@ -162,6 +162,11 @@ const config = {
                 label: '学习强国',
                 href: 'https://www.xuexi.cn/',
               },
+            ],
+          },
+          {
+            title: '彩蛋',
+            items: [
               {
                 label: '欢迎来到洛圣都',
                 href: 'https://www.rockstargames.com/gta-v',
