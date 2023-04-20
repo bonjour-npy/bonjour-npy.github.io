@@ -94,24 +94,24 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
+        hideOnScroll: true,
         title: '倪培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-          // {to: '/blog', label: '笔记', position: 'left'},
           {
-            to: '/blog',
-            label: 'Deep Learning',
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
             position: 'left',
+            label: 'Notes',
           },
+          // {
+          //   to: '/blog',
+          //   label: 'Deep Learning',
+          //   position: 'left',
+          // },
           {
             href: 'https://github.com/bonjour-npy',
             label: 'GitHub',
