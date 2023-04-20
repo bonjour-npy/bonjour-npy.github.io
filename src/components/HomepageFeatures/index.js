@@ -37,7 +37,7 @@ const FeatureList = [
     Svg: require('@site/static/img/4.svg').default,
     description: (
       <>
-        聚不是开始，散也不是结束
+        聚不是开始，散也不是结束。
       </>
     ),
   },
