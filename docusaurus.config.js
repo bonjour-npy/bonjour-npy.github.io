@@ -186,6 +186,23 @@ const config = {
             ],
           },
           {
+            title: '彩蛋',
+            items: [
+              {
+                label: '欢迎来到洛圣都',
+                href: 'https://www.rockstargames.com/gta-v',
+              },
+              {
+                label: '星球大战',
+                href: 'https://www.starwars.com/',
+              },
+              {
+                label: 'Apple（中国大陆）',
+                href: 'https://www.apple.com.cn/',
+              },
+            ],
+          },
+          {
             title: 'EDU官网',
             items: [
               {
