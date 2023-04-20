@@ -112,6 +112,10 @@ const config = {
             label: 'Deep Learning',
           },
           {
+            to: '/docs/Algorithms/intro',
+            label: 'Algorithms',
+          },
+          {
             to: '/docs/Linux/intro',
             label: 'Linux',
           },
