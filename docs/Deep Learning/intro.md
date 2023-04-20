@@ -12,4 +12,4 @@
 
 如果可以帮到你的话就给个免费的Star吧！
 
-![](https://github.com/bonjour-npy/bonjour-npy.github.io/blob/master/static/img/docusaurus-social-card.jpg?raw=true)
+![](https://raw.githubusercontent.com/bonjour-npy/bonjour-npy.github.io/0508a3b628dd17734b1336cb1cd8410e8a88d871/static/img/intro.svg)
