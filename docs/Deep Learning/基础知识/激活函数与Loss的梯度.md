@@ -35,7 +35,7 @@
    0 & x < 0\\
    x & x \geq 0\\
    \end{cases}
-   \tag{1}
+   \tag{3}
    $$
    $$
    \frac {{\text d}f(x)}{{\text d}x} = 
@@ -43,7 +43,7 @@
    0 & x < 0\\
    1 & x \geq 0\\
    \end{cases}
-   \tag{2}
+   \tag{4}
    $$
    
    ```python
@@ -63,12 +63,12 @@
    - 微小的误差可能对网络性能带来极大的影响
      $$
      Loss_{MSE} = \sum{[{y - f(x)]^2}}
-     \tag{1}
+     \tag{5}
      $$
 
      $$
      \Vert y - f(x) \Vert_2 = \sqrt[2]{\sum{[y - f(x)]^2}}
-     \tag{2}
+     \tag{6}
      $$
    
 2. Cross Entropy Loss 交叉熵损失
