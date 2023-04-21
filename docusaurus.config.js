@@ -152,7 +152,7 @@ const config = {
             ],
           },
           {
-            title: '友情链接',
+            title: '外部链接',
             items: [
               {
                 label: '共和国国防部',
