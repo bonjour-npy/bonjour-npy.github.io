@@ -70,8 +70,23 @@
      \Vert y - f(x) \Vert_2 = \sqrt[2]{\sum{[y - f(x)]^2}}
      \tag{6}
      $$
-   
+
 2. Cross Entropy Loss 交叉熵损失
+
+   **信息熵：**Cross Entropy中的Entropy指的是信息熵，可以理解为不确定性。
+
+   It's a measure of surprise, higher entrpoy means less information and higher uncertainty.
+   $$
+   Information\space Entropy &=& -\sum{P_i}\space{log_2(P_i)} \\
+   &=& \sum{P_i}\space{log_2({\frac{1}{P_i}}}) \tag{7}
+   $$
+   **交叉熵：**对于两个概率分布P和Q，交叉熵的数学表达为
+   $$
+   H(P, \space Q) &=& - \sum{P_i}\space{log_2({Q_i})} \\
+   &=& H(P) + D_{KL}(P\space | \space Q) \\
+   \tag{8}
+   $$
+   
 
    - binary 二分类问题
    - multi-class 多分类问题
