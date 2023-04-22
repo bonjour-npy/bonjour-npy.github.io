@@ -128,6 +128,10 @@ const config = {
             label: '其他',
           },
           {
+            to: '/docs/鸣谢/intro',
+            label: '鸣谢',
+          },
+          {
             href: 'https://github.com/bonjour-npy',
             label: 'GitHub',
             position: 'right',
