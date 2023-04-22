@@ -78,15 +78,15 @@
    It's a measure of surprise, higher entrpoy means less information and higher uncertainty.
    $$
    \begin{align}
-   Information\space Entropy &=& -\sum{P_i}\space{log_2(P_i)} \\
-   &=& \sum{P_i}\space{log_2({\frac{1}{P_i}}}) \tag{7}
+   Information\space Entropy &= -\sum{P_i}\space{log_2(P_i)} \\
+   &= \sum{P_i}\space{log_2({\frac{1}{P_i}}}) \tag{7}
    \end{align}
    $$
    **交叉熵：**对于两个概率分布P和Q，交叉熵的数学表达为
    $$
    \begin{align}
-   H(P, \space Q) &=& - \sum{P_i}\space{log_2({Q_i})} \\
-   &=& H(P) + D_{KL}(P\space | \space Q) \\
+   H(P, \space Q) &= - \sum{P_i}\space{log_2({Q_i})} \\
+   &= H(P) + D_{KL}(P\space | \space Q) \\
    \tag{8}
    \end{align}
    $$

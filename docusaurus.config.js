@@ -120,14 +120,13 @@ const config = {
             label: 'Linux',
           },
           {
+            to: '/docs/LaTex/intro',
+            label: 'LaTex',
+          },
+          {
             to: '/docs/others/intro',
             label: '其他',
           },
-          // {
-          //   to: '/blog',
-          //   label: 'Deep Learning',
-          //   position: 'left',
-          // },
           {
             href: 'https://github.com/bonjour-npy',
             label: 'GitHub',
