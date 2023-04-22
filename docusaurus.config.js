@@ -129,7 +129,7 @@ const config = {
           },
           {
             to: '/docs/鸣谢/intro',
-            label: '鸣谢',
+            label: '饮水思源',
           },
           {
             href: 'https://github.com/bonjour-npy',
