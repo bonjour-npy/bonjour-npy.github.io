@@ -10,4 +10,4 @@
 
 如果可以帮到你的话就给个免费的Star吧！
 
-![](https://github.com/bonjour-npy/bonjour-npy.github.io/blob/master/static/img/intro_img.png?raw=true)
+![](https://github.com/bonjour-npy/bonjour-npy.github.io/blob/master/static/img/star.png?raw=true)
