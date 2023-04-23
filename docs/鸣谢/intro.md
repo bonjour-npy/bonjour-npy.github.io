@@ -1,6 +1,5 @@
 # 鸣谢
 
----
 
 ## 感恩[Docusaurus](https://github.com/facebook/docusaurus)提供的各种便利！
 
