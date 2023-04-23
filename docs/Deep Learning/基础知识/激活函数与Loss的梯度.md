@@ -24,6 +24,7 @@ $$
    ```python
    from torch.nn import functional as F
    import torch
+   
    x = torch.linspace(-100, 100, 10)
    F.sigmoid(x)  # 当x为100时，sigmoid(x)就接近于0了
    ```
@@ -50,6 +51,7 @@ $$
    ```python
    from torch.nn import functional as F
    import torch
+   
    x = torch.linspace(-100, 100, 10)
    F.relu(x)
    ```
@@ -103,8 +105,6 @@ $$
 D_{KL}(P \space || \space Q) = \sum{P_i\space [log_2(P_i)-log_2(Q_i)]}\tag{9}
 $$
 
-
-
 特别的，$D_{KL}(P_{Label} \space | \space Q_{Pred})$表示当用概率分布Q来拟合真实分布P时，产生的信息损耗，其中**P表示真实分布，Q表示P的拟合分布**。
 
 #### 交叉熵
@@ -117,8 +117,25 @@ H(P, \space Q) &= H(P) + D_{KL}(P\space || \space Q) \\
 \end{align}
 $$
 
+#### PyTorch中的CrossEntropyLoss
 
-- binary 二分类问题
-- multi-class 多分类问题
-- 经常与softmax激活函数搭配使用
+torch.nn.CrossEntropyLoss相当于torch.softmax + torch.log + torch.nn.nllloss.
 
+```python
+import torch.nn as nn
+
+# 使用NLLLoss实现
+nllloss = nn.NLLLoss()
+predict = torch.Tensor([[2, 3, 1], [3, 7, 9]])
+predict = torch.log(torch.softmax(predict, dim=-1))
+label = torch.tensor([1, 2])
+nllloss(predict, label)
+# output: tensor(0.2684)
+
+# 使用CrossEntropyLoss实现
+cross_loss = nn.CrossEntropyLoss()
+predict = torch.Tensor([[2, 3, 1], [3, 7, 9]])
+label = torch.tensor([1, 2])
+cross_loss(predict, label)
+# output: tensor(0.2684)
+```
