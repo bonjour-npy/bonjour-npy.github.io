@@ -192,12 +192,16 @@ const config = {
             title: 'EDU官网',
             items: [
               {
-                label: '桂林电子科技大学',
-                href: 'https://www.guet.edu.cn',
+                label: '研招网推免系统',
+                href: 'https://yz.chsi.com.cn/tm/',
               },
               {
-                label: '信阳师范学院',
-                href: 'https://www.xynu.edu.cn',
+                label: '中国高等教育学生信息网(学信网)',
+                href: 'https://www.chsi.com.cn/',
+              },
+              {
+                label: '桂林电子科技大学',
+                href: 'https://www.guet.edu.cn',
               },
             ],
           },
