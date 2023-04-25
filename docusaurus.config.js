@@ -124,6 +124,10 @@ const config = {
             label: 'LaTex',
           },
           {
+            to: '/docs/课程学习笔记/intro',
+            label: '课程学习笔记',
+          },
+          {
             to: '/docs/others/intro',
             label: '其他',
           },
