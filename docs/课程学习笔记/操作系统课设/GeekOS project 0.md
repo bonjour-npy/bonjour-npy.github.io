@@ -21,7 +21,7 @@ void project0(){
                 int asciiCode = keycode & 0xff;//d
                 if((keycode & KEY_CTRL_FLAG)==KEY_CTRL_FLAG && asciiCode=='d')//ctrl+d
                 {
-                    Print("\n---------Adios! Motherfucker!---------\n");
+                    Print("\n---------Adios!---------\n");
                     # 这里需要注意素质
                     Exit(1);
                 }else
