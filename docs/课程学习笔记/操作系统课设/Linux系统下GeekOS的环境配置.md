@@ -129,4 +129,4 @@ yay -S bochs nasm
 
 到此为止, 所有的配置工作已经完成, 可以正常的进行下一步的代码完善.
 
-如果需要验证自己是否配置成功, 可以参照下一篇博客[GeekOS project 0的实现](wait), 在本篇博客中会有完整的C语言代码编写以及编译、使用bochs执行的过程.
+如果需要验证自己是否配置成功, 可以参照下一篇博客[GeekOS project 0的实现](https://bonjour-npy.github.io/docs/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E8%AE%BE/GeekOS%20project%200), 在本篇博客中会有完整的C语言代码编写以及编译、使用bochs执行的过程.
