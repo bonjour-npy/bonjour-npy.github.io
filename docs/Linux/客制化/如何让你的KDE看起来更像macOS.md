@@ -1,4 +1,4 @@
-# 如何让你的KDE看起来更像macOS
+# 如何让你的Kde Plasma看起来更像macOS
 
 ## 一、latte-dock
 
