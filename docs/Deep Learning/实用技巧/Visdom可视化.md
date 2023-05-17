@@ -1,4 +1,4 @@
-# Visdom训练过程可视化
+# Visdom可视化
 
 对于TensorFlow框架，可以使用TensorBoard实现可视化。
 
