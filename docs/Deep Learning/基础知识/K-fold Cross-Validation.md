@@ -1,4 +1,4 @@
-# k-fold cross-validation
+# K-fold cross-validation
 
 ## What is k-fold cross-validation
 
