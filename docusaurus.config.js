@@ -11,7 +11,7 @@ const config = {
   title: '倪培洋的笔记本',
   tagline: '愿原力与你同在',
   favicon: 'img/1.svg',
-
+  
 
   // Set the production url of your site here
   url: 'https://bonjour-npy.github.io',
@@ -95,26 +95,18 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       announcementBar: {
-        id: 'announcement-bar',
+        id: 'announcementBar-3',
         content: 'Welcome to my notebook!',
-        backgroundColor: '#dddddd',
-        textColor: '#',
-        isCloseable: true,
+        isCloseable: false,
       },
       navbar: {
-        hideOnScroll: true,
+        hideOnScroll: false,
         title: '倪培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
           src: 'img/1.svg',
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Deep Learning',
-          // },
           {
             to: '/docs/Deep Learning/intro',
             label: '深度学习',
