@@ -12,6 +12,7 @@ const config = {
   tagline: '愿原力与你同在',
   favicon: 'img/1.svg',
 
+
   // Set the production url of your site here
   url: 'https://bonjour-npy.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -93,6 +94,13 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      announcementBar: {
+        id: 'announcement-bar',
+        content: 'Welcome to my notebook!',
+        backgroundColor: '#dddddd',
+        textColor: '#',
+        isCloseable: true,
+      },
       navbar: {
         hideOnScroll: true,
         title: '倪培洋的笔记本',

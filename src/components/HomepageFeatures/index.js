@@ -65,6 +65,7 @@ export default function HomepageFeatures() {
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
+          // <img src='../../../static/img/star.png' />
         </div>
       </div>
     </section>
