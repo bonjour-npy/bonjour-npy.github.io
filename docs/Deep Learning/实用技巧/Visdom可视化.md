@@ -1,8 +1,10 @@
 # Visdom可视化
 
+:::tip
 对于TensorFlow框架，可以使用TensorBoard实现可视化。
 
 对于PyTorch框架，可以使用Visdom或TensorBoardX实现可视化，本篇主要讲述Visdom。
+:::
 
 ## 一、安装Visdom
 
@@ -32,7 +34,7 @@ from visdom import Visdom
 
 vis = Visdom()  # 实例化
 # 创建一条曲线，前两个参数分别为y轴数据、x轴数据，win参数是窗口的唯一标识，opt可选字典中可以给出窗口的title和legend
-vis.line([0.], [0.], win='win_id', opts=dict(title="win_title", legend="curve_name")
+vis.line([0.], [0.], win='win_id', opts=dict(title="win_title"))
          
 # 在训练过程中的合适位置向初始化的曲线中喂数据
 # viz.line([real_y_data], [global_step], win='win_id', update='append')
