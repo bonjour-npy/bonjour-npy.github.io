@@ -108,6 +108,10 @@ const config = {
         },
         items: [
           {
+            to: '/docs/推免复习/intro',
+            label: '推免复习',
+          },
+          {
             to: '/docs/Deep Learning/intro',
             label: '深度学习',
           },
