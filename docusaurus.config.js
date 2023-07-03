@@ -219,6 +219,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        Languages: ['cpp', 'java', 'python', 'bash', 'c++'],
       },
     }),
 };
