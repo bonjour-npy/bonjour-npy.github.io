@@ -96,7 +96,7 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       announcementBar: {
         id: 'announcementBar-3',
-        content: 'Welcome to my notebook!',
+        content: '为人民服务！',
         isCloseable: false,
       },
       navbar: {
