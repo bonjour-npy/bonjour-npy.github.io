@@ -1,11 +1,11 @@
 # 鸣谢
 
 :::tip
-感恩[Docusaurus](https://github.com/facebook/docusaurus)提供的各种便利！
+Grateful for all the conveniences provided by [Docusaurus](https://github.com/facebook/docusaurus)!
 
-感恩[Sonder的宝藏笔记本](https://space.keter.top/)！
+Grateful for [Sonder's treasure trove of notebooks](https://space.keter.top/)!
 
-感恩蓝天！感恩白云！
+Grateful for the blue sky and also the white clouds!
 :::
 
 ![](https://github.com/bonjour-npy/bonjour-npy.github.io/blob/master/static/img/star.png?raw=true)
