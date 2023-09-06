@@ -47,7 +47,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/bonjour-npy/bonjour-npy.github.io',
+            'https://github.com/bonjour-npy/',
         },
         blog: {
           remarkPlugins: [math],
@@ -56,7 +56,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/bonjour-npy/bonjour-npy.github.io',
+            'https://github.com/bonjour-npy/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
