@@ -124,8 +124,8 @@ const config = {
             label: 'Linux',
           },
           {
-            to: '/docs/课程学习笔记/intro',
-            label: '课程学习笔记',
+            to: '/docs/课程学习/intro',
+            label: '课程学习',
           },
           {
             to: '/docs/others/intro',
