@@ -1,6 +1,6 @@
 # K-fold cross-validation
 
-## What is k-fold cross-validation
+## What is k-fold cross-validation?
 
 K-fold cross-validation is a technique used in machine learning to evaluate the performance of a model. The basic idea behind k-fold cross-validation is to split the dataset into $k$ partitions, or folds, and then train and test the model $k$ times, **using a different fold for testing each time**.
 
