@@ -124,10 +124,6 @@ const config = {
             label: 'Linux',
           },
           {
-            to: '/docs/LaTex/intro',
-            label: 'LaTex',
-          },
-          {
             to: '/docs/课程学习笔记/intro',
             label: '课程学习笔记',
           },
