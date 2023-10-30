@@ -53,3 +53,27 @@ div[class^='announcementBar_'] {
   );
   z-index: auto;
 } */
+
+/*
+@font-face {
+  font-family: 'SourceHanSansCN';
+  src: url('./static/font/SourceHanSansCN-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TimesNewRoman';
+  src: url('./static/font/times.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SourceHanSansCN';
+}
+
+body, h1, h2, h3, p {
+  font-family: 'TimesNewRoman';
+}
+*/
