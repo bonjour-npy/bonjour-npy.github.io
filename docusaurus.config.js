@@ -1,6 +1,6 @@
+const path = require('path');
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const math = require('remark-math');
@@ -8,6 +8,20 @@ const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  customFields: {
+    webpack: {
+      configure: (webpackConfig, { env, paths }) => {
+        webpackConfig.resolve.extensions.push('.ttf');
+        webpackConfig.module.rules.push({
+          test: /\.ttf$/,
+          use: ['file-loader'],
+          include: path.resolve(__dirname, './static/fonts'),
+        });
+
+        return webpackConfig;
+      },
+    },
+  },
   title: '倪培洋的笔记本',
   tagline: '愿原力与你同在',
   favicon: 'img/1.svg',
@@ -59,7 +73,12 @@ const config = {
             'https://github.com/bonjour-npy/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          // customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/header.css'),
+            require.resolve('./src/css/fonts.css'),
+          ]
         },
       }),
     ],
@@ -221,3 +240,4 @@ const config = {
 };
 
 module.exports = config;
+

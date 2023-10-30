@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'SourceHanSansCN';
+    /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
+    src: url('/static/fonts/SourceHanSansCN-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, p {
+    font-family: Helvetica, 'SourceHanSansCN';
+}
