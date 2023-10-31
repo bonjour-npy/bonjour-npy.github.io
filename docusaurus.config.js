@@ -8,6 +8,7 @@ const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  // redefine webpack
   customFields: {
     webpack: {
       configure: (webpackConfig, { env, paths }) => {
@@ -15,13 +16,14 @@ const config = {
         webpackConfig.module.rules.push({
           test: /\.ttf$/,
           use: ['file-loader'],
-          include: path.resolve(__dirname, './static/fonts'),
+          include: path.resolve(__dirname, 'static/fonts'),
         });
 
         return webpackConfig;
       },
     },
   },
+  // redefine ends here
   title: '倪培洋的笔记本',
   tagline: '愿原力与你同在',
   favicon: 'img/1.svg',
@@ -45,8 +47,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -55,6 +57,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          // breadcrumbs: false,
           remarkPlugins: [math],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
@@ -115,8 +118,18 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       announcementBar: {
         id: 'announcementBar-3',
-        content: '为人民服务！',
+        content: '求实求真，大气大为',
         isCloseable: false,
+      },
+      // 调整sidebar为可收回
+      docs: {
+        sidebar: {
+          hideable: true,
+        }
+      },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
       },
       navbar: {
         hideOnScroll: false,
