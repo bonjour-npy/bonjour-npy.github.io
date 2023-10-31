@@ -24,9 +24,9 @@ const config = {
     },
   },
   // redefine ends here
-  title: '倪培洋的笔记本',
-  tagline: '愿原力与你同在',
-  favicon: 'img/1.svg',
+  title: '培洋的笔记本',
+  tagline: 'Bonjour',
+  favicon: 'img/apple.svg',
   
 
   // Set the production url of your site here
@@ -133,10 +133,11 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '倪培洋的笔记本',
+        title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/1.svg',
+          src: 'img/UESTC_logo.jpg',
+          // src: 'img/policecar.svg',
         },
         items: [
           {
@@ -232,8 +233,8 @@ const config = {
                 href: 'https://yz.chsi.com.cn/tm/',
               },
               {
-                label: '中国高等教育学生信息网(学信网)',
-                href: 'https://www.chsi.com.cn/',
+                label: '电子科技大学',
+                href: 'https://www.uestc.edu.cn/',
               },
               {
                 label: '桂林电子科技大学',
