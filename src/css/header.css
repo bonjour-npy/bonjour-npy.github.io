@@ -1,3 +1,7 @@
+h1 {
+    color: var(--ifm-color-primary);
+}
+
 h2, h3, h4, h5, h6 {
-    color: #40B8FA;
+    color: var(--ifm-color-primary-light);
 }

@@ -71,3 +71,14 @@ div[class^='announcementBar_'] {
   );
   font-weight: 700;
 }
+
+
+/* 修改页脚的背景颜色 */
+/* .footer {
+  background-color: var(--ifm-color-primary-lightest);
+} */
+
+/* 修改页脚文字的颜色 */
+/* .footer a {
+  color: white;
+} */
