@@ -11,14 +11,20 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-color-primary-lighter); /* 明亮模式下的背景颜色 */
-  -webkit-text-fill-color: black; /* 明亮模式下的文字颜色 */
+  /* background-color: var(--ifm-color-primary-lighter)； */
+  background-color: white; /* 明亮模式下的背景颜色 */
+  -webkit-text-fill-color: rgb(18, 12, 12); /* 明亮模式下的文字颜色 */
 }
 
 /* 在暗黑模式下修改 .heroBanner 的颜色 */
 [data-theme='dark'] {
   .heroBanner {
-    background-color: var(--ifm-color-primary-lighter); /* 暗黑模式下的背景颜色 */
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* background-color: var(--ifm-color-primary-lighter); */
+    background-color: #1b1b1d; /* 暗黑模式下的背景颜色 */
     -webkit-text-fill-color: white; /* 暗黑模式下的文字颜色 */
   }
 }

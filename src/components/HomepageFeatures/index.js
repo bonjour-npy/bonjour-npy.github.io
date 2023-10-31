@@ -8,7 +8,8 @@ const FeatureList = [
     Svg: require('@site/static/img/1.svg').default,
     description: (
       <>
-        我希望有一天，我的心可以清如明镜。而我可以在镜前看到自己两鬓的华发，还有老去的容颜。
+        {/* 我希望有一天，我的心可以清如明镜。而我可以在镜前看到自己两鬓的华发，还有老去的容颜。 */}
+        正德厚学，笃行致新
       </>
     ),
   },
@@ -17,7 +18,8 @@ const FeatureList = [
     Svg: require('@site/static/img/2.svg').default,
     description: (
       <>
-        有一天在梦里，为某个渺小的感动，泪流满面。
+        {/* 有一天在梦里，为某个渺小的感动，泪流满面。 */}
+        饮水思源，爱国荣校
       </>
     ),
   },
@@ -26,9 +28,10 @@ const FeatureList = [
     Svg: require('@site/static/img/3.svg').default,
     description: (
       <>
-        晃晃悠悠地生活，扭扭捏捏地前进。
+        {/* 晃晃悠悠地生活，扭扭捏捏地前进。
         新的月刊被送来的时候，你也来了。
-        从此一个一个月都有了意义非凡的开端和美丽的渴望。
+        从此一个一个月都有了意义非凡的开端和美丽的渴望。 */}
+        求实创造，为人师表
       </>
     ),
   },
@@ -37,7 +40,8 @@ const FeatureList = [
     Svg: require('@site/static/img/4.svg').default,
     description: (
       <>
-        聚不是开始，散也不是结束。
+        {/* 聚不是开始，散也不是结束。 */}
+        自强不息，止于至善
       </>
     ),
   },
