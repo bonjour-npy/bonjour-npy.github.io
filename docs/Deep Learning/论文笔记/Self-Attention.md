@@ -56,3 +56,6 @@ CNN的设计理念认为：在图像任务中，局部结构通常更为重要�
 
 原文链接：[Illustrated: Self-Attention](https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a#570c)
 
+$$
+Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V
+$$
