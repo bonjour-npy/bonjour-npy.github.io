@@ -1,5 +1,15 @@
 # Self-Attention
 
+:::important
+
+参考链接：
+
+[Illustrated: Self-Attention](https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a#570c)
+
+[动图轻松理解Self-Attention(自注意力机制)](https://zhuanlan.zhihu.com/p/619154409)
+
+:::
+
 ## CNN的局限性
 
 ### 输入与输出的局限性
@@ -52,10 +62,12 @@ CNN的设计理念认为：在图像任务中，局部结构通常更为重要�
 ### 什么是Self-Attention
 
 > A self-attention module takes in $n$ inputs and returns $n$ outputs. What happens in this module? In layman’s terms, the self-attention mechanism allows the inputs to interact with each other (“self”) and find out who they should pay more attention to (“attention”). The outputs are aggregates of these interactions and attention scores.
->
 
-原文链接：[Illustrated: Self-Attention](https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a#570c)
+Self-Attention接受**任意向量数量**的向量序列的输入，输出**每一个向量所有向量（包括自身）的注意力分数**。这使得Self-Attention在捕捉**长距离依赖**和处理序列中的**全局关系**时非常有效。
 
+### Self-Attention的核心思想
+
+自注意力机制的核心思想是为序列中的每个向量分配一个权重（即注意力分数），该权重表示该元素与其他元素的关联强度。这个权重是通过计算输入序列中所有元素与当前元素之间的关系来确定的。通常，这个计算过程使用一个可学习的权重矩阵来完成，即用来生成Key，Query以及Value的权重矩阵。
 $$
-Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V
+Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V \tag{1}
 $$
