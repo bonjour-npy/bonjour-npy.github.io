@@ -67,7 +67,147 @@ Self-Attention接受**任意向量数量**的向量序列的输入，输出**每
 
 ### Self-Attention的核心思想
 
-自注意力机制的核心思想是为序列中的每个向量分配一个权重（即注意力分数），该权重表示该元素与其他元素的关联强度。这个权重是通过计算输入序列中所有元素与当前元素之间的关系来确定的。通常，这个计算过程使用一个可学习的权重矩阵来完成，即用来生成Key，Query以及Value的权重矩阵。
+自注意力机制的核心思想是为序列中的每个向量分配一个权重（即注意力分数），该权重表示该元素与其他元素的关联强度。这个权重是通过计算输入序列中所有元素与当前元素之间的关系来确定的。通常，这个计算过程使用一个**可学习的权重矩阵**来完成，即用来生成Key，Query以及Value的权重矩阵。
 $$
 Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V \tag{1}
 $$
+
+### Self-Attention的实现
+
+#### 定义输入
+
+Self-Attention的输入是向量序列，其向量数量是任意的，计算每个输入向量之间的注意力分数。在本例中输入向量个数为3，同时为了统一性分析，计输入向量个数为$batch$个。
+
+```python
+# define the input, which has a shape of (3, 4)
+inputs = [[1, 0, 1, 0], [0, 2, 0, 2], [1, 1, 1, 1]]
+inputs = torch.tensor(inputs, dtype=torch.float32)
+```
+
+![img](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_images1*hmvdDXrxhJsGhOQClQdkBA.png)
+
+#### 初始化权重矩阵
+
+每个输入向量都会与3个权重向量做乘法得到3个新的向量，分别为key，query以及value。在本例中将新的向量维度设为3，由于输入大小为$(3, 3)$，因此每个权重矩阵的形状应该是$(4, 3)$。为了统一性分析，计key，query以及value各向量维度为$num$。
+
+>In a neural network setting, these weights are usually small numbers, initialised randomly using an appropriate random distribution like Gaussian, Xavier and Kaiming distributions. This initialisation is done once before training.
+
+在实际应用中，权重通常是较小的数字，通过适当的随机分布（比如高斯、Xavier和Kaiming分布）进行随机初始化。
+
+```python
+# define the weights for keys, queries and values
+w_key = torch.tensor([[0, 0, 1], [1, 1, 0], [0, 1, 0], [1, 1, 0]], dtype=torch.float32)
+w_query = torch.tensor([[1, 0, 1], [1, 0, 0], [0, 0, 1], [0, 1, 1]], dtype=torch.float32)
+w_value = torch.tensor([[0, 2, 0], [0, 3, 0], [1, 0, 3], [1, 1, 0]], dtype=torch.float32)
+```
+
+#### 计算key，query以及value
+
+```python
+# compute keys, queries and values
+keys = inputs @ w_key
+queries = inputs @ w_query
+values = inputs @ w_value
+print("keys:\n", keys)  # (3, 3)
+print("queries:\n", queries)  # (3, 3)
+print("values:\n", values)  # (3, 3)
+```
+
+![image-20231106192612109](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106192612109.png)
+
+#### 计算原始的注意力分数
+
+我们要为每一个输入向量计算它对所有向量的注意力分数，包括对自身的。
+
+原始注意力分数的计算方式为，使用自身的query分别与所有向量的key做内积（dot product），得到的scalar数量与输入向量个数相同，都为$batch$，即scores矩阵的形状应为$(batch, batch)$。
+
+```python
+# compute raw self-attention scores
+scores = queries @ keys.T
+print("attention scores:\n", scores)
+```
+
+注意，代码中提供的是计算所有向量的注意力分数，而图中演示的只是计算input #1的注意力分数。
+
+![image-20231106193506733](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106193506733.png)
+
+#### 对每一个向量计算出的注意力分数做softmax
+
+```python
+# normalize the attention score
+score_softmax = F.softmax(scores, dim=-1)  # select the highest dimension
+print("attention scores after normalization:\n", score_softmax)
+```
+
+![image-20231106195231034](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106195231034.png)
+
+#### 将注意力分数与对应的value相乘
+
+每一个输入向量对所有$batch$个向量计算得到的注意力分数，都要与其对应的value向量相乘，计算加权的注意力分数。最终的注意力分数矩阵的形状应为$(batch, num)$。
+
+```python
+# compute the weighted values by doting score_softmax with values
+# please be advised, this is dot product
+weighted_values = values[:, None] * score_softmax.T[:, :, None]
+print("weighted scores: \n", weighted_values)
+```
+
+![image-20231106195316815](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106195316815.png)
+
+#### 加权注意力分数求和
+
+最后一步，对于每个向量得到的加权注意力分数进行求和，得到维度为$num$的注意力分数向量，考虑到有$batch$个输入向量，因此最终的注意力分数矩阵的形状为$(batch, num)$。
+
+根据推导，显然，最终**Self-Attention的输出向量维度与value向量的维度相同，输出向量的数量与输入向量的数量相同**。
+
+```python
+# compute outputs
+outputs = weighted_values.sum(dim=0)
+```
+
+![image-20231106200506260](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106200506260.png)
+
+#### 完整代码
+
+```python
+# simple code for Self-Attention
+import torch
+import torch.nn.functional as F
+import numpy as np
+import matplotlib.pyplot as plot
+
+# define the input, which has the shape of (3, 4)
+inputs = [[1, 0, 1, 0], [0, 2, 0, 2], [1, 1, 1, 1]]
+inputs = torch.tensor(inputs, dtype=torch.float32)
+
+# initialize the weights for keys, queries and values
+w_key = torch.tensor([[0, 0, 1], [1, 1, 0], [0, 1, 0], [1, 1, 0]], dtype=torch.float32)
+w_query = torch.tensor([[1, 0, 1], [1, 0, 0], [0, 0, 1], [0, 1, 1]], dtype=torch.float32)
+w_value = torch.tensor([[0, 2, 0], [0, 3, 0], [1, 0, 3], [1, 1, 0]], dtype=torch.float32)
+
+# compute keys, queries and values
+keys = inputs @ w_key
+queries = inputs @ w_query
+values = inputs @ w_value
+print("keys:\n", keys)  # (3, 3)
+print("queries:\n", queries)  # (3, 3)
+print("values:\n", values)  # (3, 3)
+
+# compute raw self-attention score
+scores = queries @ keys.T
+print("attention scores:\n", scores)
+
+# normalize the attention score
+score_softmax = F.softmax(scores, dim=-1)  # select the highest dimension
+print("attention scores after normalization:\n", score_softmax)
+
+# compute the weighted values by doting score_softmax with values
+# please be advised, this is dot product
+weighted_values = values[:, None] * score_softmax.T[:, :, None]
+print("weighted scores: \n", weighted_values)
+
+# compute outputs
+outputs = weighted_values.sum(dim=0)
+
+```
+
