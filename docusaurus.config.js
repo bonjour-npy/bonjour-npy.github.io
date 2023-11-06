@@ -5,6 +5,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const math = require('remark-math');
 const katex = require('rehype-katex');
+const rehypeKatex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -48,13 +49,14 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    locales: ['en', 'zh-Hans'],
   },
 
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
+      /** @type {import rehypeSlug from 'rehype-slug'} */
       ({
         docs: {
           // breadcrumbs: false,
@@ -127,7 +129,7 @@ const config = {
           hideable: true,
         }
       },
-      colorMode: {
+      colorMode: { 
         defaultMode: 'light',
         disableSwitch: true,
       },
@@ -141,11 +143,11 @@ const config = {
         },
         items: [
           {
-            to: '/docs/Deep Learning/intro',
+            to: '/docs/DeepLearning/intro',
             label: '深度学习',
           },
           {
-            to: '/docs/推免/intro',
+            to: '/docs/Tuimian/intro',
             label: '推免',
           },
           {
@@ -157,15 +159,15 @@ const config = {
             label: 'Linux',
           },
           {
-            to: '/docs/课程学习/intro',
+            to: '/docs/Curriculum/intro',
             label: '课程学习',
           },
           {
-            to: '/docs/others/intro',
+            to: '/docs/Others/intro',
             label: '其他',
           },
           {
-            to: '/docs/鸣谢/intro',
+            to: '/docs/Acknowledgement/intro',
             label: '饮水思源',
           },
           {
