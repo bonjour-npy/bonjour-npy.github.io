@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknpy_notebook=self.webpackChunknpy_notebook||[]).push([[2877],{1378:o=>{o.exports=JSON.parse('{"permalink":"/npy-blog/en/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":5,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
