@@ -6,6 +6,31 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'PingFang';
+    /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
+    src: url('/static/fonts/PingFang-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PingFangM';
+    /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
+    src: url('/static/fonts/PingFang-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFPro';
+    /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
+    src: url('/static/fonts/SF-Pro-Text-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, h1, h2, h3, h4, h5, h6, p {
-    font-family: Helvetica, 'SourceHanSansCN';
+    /* font-family: Helvetica, 'SourceHanSansCN'; */
+    font-family: 'SFPro', 'PingFangM';
 }

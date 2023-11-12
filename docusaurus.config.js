@@ -133,6 +133,10 @@ const config = {
         defaultMode: 'light',
         disableSwitch: true,
       },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
       navbar: {
         hideOnScroll: false,
         title: '培洋的笔记本',

@@ -1,8 +1,45 @@
-/* h1 {
-    color: #40b8fa;
-} */
-
 h2, h3, h4, h5, h6 {
     /* color: var(--ifm-color-primary-light); */
     color: #40b8fa;
+}
+
+/* p, h4, h5, h6 {
+    font-size: 120%;
+} */
+
+body {
+    font-size: 1.125em;
+
+}
+
+h1 {
+    font-size: 3.0em;
+}
+
+h2 {
+    font-size: 2.0em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1.20;
+}
+
+h6 {
+    font-size: 1.15em;
+}
+
+.navbar {
+    font-size: 1.0rem;
+}
+
+.table-of-contents {
+    font-size: 0.85rem;
 }
