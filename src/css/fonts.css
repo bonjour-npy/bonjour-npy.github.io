@@ -7,14 +7,6 @@
 }
 
 @font-face {
-    font-family: 'PingFang';
-    /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
-    src: url('/static/fonts/PingFang-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'PingFangM';
     /* src: './static/fonts/SourceHanSansCN-Regular.ttf' format('truetype'); */
     src: url('/static/fonts/PingFang-Medium.ttf') format('truetype');
