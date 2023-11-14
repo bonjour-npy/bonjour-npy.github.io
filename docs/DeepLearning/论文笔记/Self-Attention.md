@@ -219,6 +219,6 @@ outputs = weighted_values.sum(dim=0)
 
 ## Self-Attention与CNN的对比
 
-Self-Attention可以看作是复杂化的CNN，CNN的
+Self-Attention可以看作是复杂化的CNN，CNN只能在感受野范围内考虑上下文信息，而Self-Attention可以自己学习感受野。
 
 ![image-20231114191518095](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231114191518095.png)
