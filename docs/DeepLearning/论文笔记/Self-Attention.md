@@ -2,7 +2,7 @@
 
 :::important
 
-参考链接：
+参考链接:
 
 [Illustrated: Self-Attention](https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a#570c)
 
@@ -10,7 +10,7 @@
 
 :::
 
-## CNN的局限性
+## 认识CNN的局限性
 
 ### 输入与输出的局限性
 
@@ -37,8 +37,6 @@ CNN模型的输入向量的形状是固定的，其输出向量的形状也是�
 - 建议： 对于通道数不匹配的情况，可以考虑进行通道的适当组合或调整。这可能包括降低通道数（例如，只使用前 3 个通道），或者通过某种方式将 6 个通道映射到 3 个通道，例如通过某种特定的数据预处理。
 
 :::
-
-<img src="https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagestypora_images202310301052535.png"  />
 
 当模型的输入更复杂（sophisticated），是`长度不定`的向量序列（sequence）时，CNN不能很好地处理，且不能解决输出由输入和模型自行决定的下游任务，如生成类任务。
 
@@ -211,3 +209,16 @@ outputs = weighted_values.sum(dim=0)
 
 ```
 
+## Multi-Head Self-Attention
+
+ 多头自注意力机制是对自注意力机制的扩展，假设扩展成为$n$ -head self-attention，则对每个输入向量生成对应的key，query和value后，再次使用$n$个可学习的权重矩阵生成$n$个不同的$key^{0}, ..., key^{n-1}$,$query^{0}, ..., query^{n-1}$以及$value^{0}, ..., value^{n-1}$。
+
+在计算attention score时，使用每一个query查询对应的key，即$query^{0}$只与其他每一个输入向量的$key^{0}$做dot product。
+
+![image-20231114190847109](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231114190847109.png)
+
+## Self-Attention与CNN的对比
+
+Self-Attention可以看作是复杂化的CNN，CNN的
+
+![image-20231114191518095](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231114191518095.png)
