@@ -1,4 +1,4 @@
-# Self-Attention
+#  Self-Attention
 
 :::important
 
@@ -66,9 +66,7 @@ Self-Attention接受**任意向量数量**的向量序列的输入，输出**每
 ### Self-Attention的核心思想
 
 自注意力机制的核心思想是为序列中的每个向量分配一个权重（即注意力分数），该权重表示该元素与其他元素的关联强度。这个权重是通过计算输入序列中所有元素与当前元素之间的关系来确定的。通常，这个计算过程使用一个**可学习的权重矩阵**来完成，即用来生成Key，Query以及Value的权重矩阵。
-$$
-Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V \tag{1}
-$$
+
 
 ### Self-Attention的实现
 
@@ -164,6 +162,16 @@ outputs = weighted_values.sum(dim=0)
 ```
 
 ![image-20231106200506260](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231106200506260.png)
+
+#### 总结
+
+>As mentioned in the above paragraph, we don’t only use dot product to find relevance. But we scale it as well by a factor of the square root of key dimension **dk**. This helps in making sure that the dot-products between query and key don’t grow too large for **dk**. If the dot product becomes too large then the softmax output will be very small. To avoid this, we scale the dot product.
+
+在计算dot product后，为了避免点积运算经过softmax后的输出太小，在点积后除以key向量维度的平方根来进行缩放。
+$$
+Attention(Q,K,V)=\textit{softmax}(\frac{QK^T}{\sqrt{d_k}})V \tag{1}
+$$
+![img](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_images1*tfYD93-NrGOTr6LG2WH3bQ.png)
 
 #### 完整代码
 
