@@ -13,20 +13,16 @@ Transformer是Sequence-to-Sequence (Seq2Seq) 模型，模型的输入是向量�
 
 ## 整体结构
 
-Transformer由Encoder和Decoder组成，编码器和解码器都包含6个Block。
+Transformer由Encoder和Decoder组成，编码器和解码器都包含6个Block，整体结构如下图所示。
 
-<figure>
-  <img src="https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115163430121.png" >
-  <figcaption style="text-align:center;">Seq2Seq模型结构</figcaption>
-</figure>
-
+![image-20231115164324713](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115163430121.png)
 
 ## Encoder
 
-<figure>
-  <img src="https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115165100210.png" >
-  <figcaption style="text-align:center;">Transformer Encoder结构。其中，Add指的是残差连接Residual Connection，Norm指的是Layer Normalization。</figcaption>
-</figure>
+Transformer Encoder结构如下图所示。其中，Add指的是残差连接Residual Connection，Norm指的是Layer Normalization。
+
+![image-20231115164324713](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115165100210.png)
+
 
 Encoder的具体结构如下图。
 
