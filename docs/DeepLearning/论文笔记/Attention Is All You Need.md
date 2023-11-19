@@ -97,13 +97,21 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 #### 掩码多头自注意力机制（Masked Multi-Head Self-Attention）
 
+:::important
+
+掩码多头自注意力与Transformer训练时采取的Teacher Forcing策略有很大的关系，具体分析见下文专题分析。
+
+[Teacher Forcing与Masked Multi-Head Self-Attention](###Teacher Forcing与Masked Multi-Head Self-Attention)
+
+:::
+
 观察Decoder的整体结构，掩码多头自注意力的输入是添加位置编码之后的Decoder**当前时间步之前的所有输出单词经过嵌入后的向量表示**。
 
 掩码多头自注意力机制用于确保在生成序列的过程中，每个位置只能关注到该位置及其之前的位置。这是通过在Self-Attention的计算中应用一个掩码（mask）来实现的。这确保了在生成序列时，每个位置只能查看到它之前的信息，而不能查看到未来的信息，从而实现了自回归性质。
 
 具体来说，添加掩码后的自注意力机制在生成注意力分数时不再考虑输入序列的所有向量。如在输入向量$a^i$在计算注意力分数时，只将$a^i$的query向量与$a^1$至$a^{i}$的$i$个key向量做dot product，而不考虑$a^i$之后的输入的key。
 
-:::important
+:::tip
 
 对于第$s$个时间步，Masked Mutil-Head Self-Attention的输入是时间步$s$之前Decoder生成的所有输出单词的嵌入表示。
 
@@ -129,12 +137,62 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 ## 训练（Training）
 
-#### 损失函数
+### 损失函数
 
-在训练中使用Cross Entropy作为损失函数，计算Decoder的输出向量的
+在 Transformer 中，Encoder 不像 Decoder 需要生成序列，因此它通常不涉及标签的预测。Encoder 的训练通常是在整个模型中的联合训练中进行的，通过优化整个模型的损失函数来进行。
+
+Transformer 的整体训练过程一般分为以下几个步骤：
+
+1. **编码器（Encoder）的正向传播：** 输入序列经过编码器的正向传播，产生一组上下文表示。
+2. **解码器（Decoder）的正向传播：** 解码器接收上下文表示，并生成目标序列。
+3. **计算损失：** 通过比较生成的目标序列与实际目标序列，计算损失。在 Decoder 中，通常使用交叉熵损失函数。
+4. **反向传播：** 根据损失，进行反向传播，更新模型参数。这个过程中，梯度通过整个模型传播，包括 Encoder 和 Decoder。
+
+整个模型的参数（包括 Encoder 和 Decoder）都是通过最小化整体损失来进行联合训练的。这是因为整体模型需要协同工作，Encoder 的表示对于 Decoder 的性能至关重要。在训练过程中，梯度从损失函数传播回整个模型，包括 Encoder 和 Decoder，从而更新它们的参数。
+
+需要注意的是，Transformer 模型通常使用的是端到端的训练方式，整个模型的参数是一次性更新的。在某些场景下，你可能会看到对 Encoder 或 Decoder 进行微调（fine-tuning）的情况，但这是在特定应用场景下的调整，不是 Transformer 模型的标准训练方式。
 
 ### Teacher Forcing
 
-在训练阶段，使用正确答案作为Decoder的输入，
+在Transformer的推理阶段，自回归类型的Decoder根据分词方式的不同，一个词汇一个词汇的输出，将当前时间步之前生成的所有词汇作为输入load进入Decoder中。但在训练时如果遵从同样的生成范式会大大降低效率，并且面临则一步错步步错的风险（Error Propagation）。
+
+因此使用Teacher Forcing策略，将Ground Truth一次性喂到Decoder中，使模型更快收敛并且避免误差积累的问题。
 
 ![image-20231119155803489](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119155803489.png)
+
+但是，自回归Decoder在推理时是一个一个词汇产生的，在产生第$i$个词汇时其后续的词汇是未知的，更不用说进行注意力分数的就算了，而在训练过程中使用Teacher Forcing时却可以得到第$i+1$个及其之后词汇的注意力信息，如果不添加其他策略显然会对模型的泛化能力造成很大的影响，而且这并不符合自回归（Autoregression）的特性。为了解决这个问题，掩码多头注意力机制应运而生，在训练阶段将模型在时间发展顺序的右侧的输入masked掉，防止模型学习到不该学习的注意力。
+
+### Teacher Forcing与Masked Multi-Head Self-Attention
+
+参考文献：[MultiHead-Attention和Masked-Attention的机制和原理](http://t.csdnimg.cn/c8QA2)
+
+与Encoder的多头自注意力不同，在Decoder中，为注意力机制应用了掩码，使模型只能关注到当前位置及其之前的位置，而不能访问未来的信息。这解决了引入Teacher Forcing出现的问题，避免了训练与推理阶段的Mismatch，维护了自回归的特性。
+
+具体来说，模拟推理过程中第一个词汇时的场景。当模型只有$voc_1$词汇向量输入时，在Decoder中，$voc_1$与自身计算注意力分数，于是有
+$$
+\begin{bmatrix}o_1\end{bmatrix}=\begin{bmatrix}\alpha_{1,1}^{\prime}\end{bmatrix}\begin{bmatrix}v_1\end{bmatrix}\tag{5}
+$$
+我们再模拟训练过程中使用Teacher Forcing，一次性输入为两个词汇$voc_1$与$voc_2$的情况，于是有
+$$
+\begin{bmatrix}o_1\\o_2\end{bmatrix}=\begin{bmatrix}\alpha_{1,1}^{\prime}&\alpha_{2,1}^{\prime}\\\alpha_{1,2}^{\prime}&\alpha_{2,2}^{\prime}\end{bmatrix}\begin{bmatrix}v_1\\v_2\end{bmatrix} \tag{6}
+$$
+然而，为了使训练过程中符合推理时自回归的特性，理想的输出应该是
+$$
+\begin{bmatrix}o_1\\o_2\end{bmatrix}=\begin{bmatrix}\alpha_{1,1}^{\prime}&0\\\alpha_{1,2}^{\prime}&\alpha_{2,2}^{\prime}\end{bmatrix}\begin{bmatrix}v_1\\v_2\end{bmatrix} \tag{7}
+$$
+继续扩展，当有$n$个输入词汇时，应该有
+$$
+\begin{bmatrix}o_1\\o_2\\\vdots\\o_n\end{bmatrix}=\begin{bmatrix}\alpha'_{1,1}&0&\cdots&0\\\alpha'_{1,2}&\alpha'_2&\cdots&0\\\vdots&\vdots&&\vdots\\\alpha'_{1,n}&\alpha'_{2,n}&\cdots&\alpha'_{n,n}\end{bmatrix}\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}\tag{8}
+$$
+因此，我们需要将当前时间步计算的词汇的时间顺序右侧的输入词汇全部掩码，置为0。
+
+在源码中，有如下片段实现掩码：
+
+```python
+if mask is not None:
+    scores = scores.masked_fill(mask == 0, -1e9)
+
+p_attn = scores.softmax(dim=-1)
+```
+
+在源码中，将mask置为负无穷是因为这是在经过Softmax之前进行的掩码，在经过Softmax之后负无穷小就变成了0。
