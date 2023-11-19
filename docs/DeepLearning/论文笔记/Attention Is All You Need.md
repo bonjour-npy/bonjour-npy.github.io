@@ -38,9 +38,13 @@ $$
 PE_{(pos,2i+1)}=cos(\frac{pos}{10000^{2i/d_{\mathrm{model}}}}) \tag{2}
 $$
 
+根据三角函数的性质，对于$pos+k$位置的嵌入向量的某一维度（$2i$或$2i+1$）而言，可以表示为$pos$位置与$k$位置的嵌入向量的$2i$与$2i+1$维度的线性组合，使得位置向量中蕴含了相对位置的信息。
+$$
+\begin{array}{l}PE(pos+k,2i)=PE(pos,2i)\times PE(k,2i+1)+PE(pos,2i+1)\times PE(k,2i)\\PE(pos+k,2i+1)=PE(pos,2i+1)\times PE(k,2i+1)-PE(pos,2i)\times PE(k,2i)\end{array} \tag{3}
+$$
 最终，位置编码向量的维度与词汇的嵌入维度相同，进行element-wise的相加操作。
 $$
-InputEmbedding(pos,i)=WordEmbedding(pos,i)+PositionEncoding(pos,i) \tag{3}
+InputEmbedding(pos,i)=WordEmbedding(pos,i)+PositionEncoding(pos,i) \tag{4}
 $$
 
 ### 具体结构
@@ -122,3 +126,15 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 ### Non-Autoregressive Decoder（NAT）
 
 ![image-20231119103112168](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119103112168.png)
+
+## 训练（Training）
+
+#### 损失函数
+
+在训练中使用Cross Entropy作为损失函数，计算Decoder的输出向量的
+
+### Teacher Forcing
+
+在训练阶段，使用正确答案作为Decoder的输入，
+
+![image-20231119155803489](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119155803489.png)
