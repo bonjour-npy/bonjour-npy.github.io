@@ -19,12 +19,31 @@ Transformer由Encoder和Decoder组成，编码器和解码器都包含6个Block�
 
 ## Encoder
 
+### 整体结构
+
 Transformer Encoder结构如下图所示。其中，Add指的是残差连接Residual Connection，Norm指的是Layer Normalization。
 
 ![image-20231115164324713](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115165100210.png)
 
+### 位置编码（Positional Encoding）
 
-Encoder的具体结构如下图。
+对于输入的句子，对一个词汇的嵌入向量的奇数维度使用sine函数进行编码，对偶数维度使用cosine函数计算编码。
+
+公式如下所示，其中$pos$指的是该词汇在整个输入句子中的位置，$2i$以及$2i+1$指的是该词汇的嵌入向量中的维度，$d_{model}$指的是在嵌入层之后嵌入向量的总维度。即对于每个输入词汇，都要计算$d_{model}$次位置编码。
+$$
+PE_{(pos,2i)}=sin(\frac{pos}{10000^{2i/d_{\mathrm{model}}}}) \tag{1}
+$$
+
+$$
+PE_{(pos,2i+1)}=cos(\frac{pos}{10000^{2i/d_{\mathrm{model}}}}) \tag{2}
+$$
+
+最终，位置编码向量的维度与词汇的嵌入维度相同，进行element-wise的相加操作。
+$$
+InputEmbedding(pos,i)=WordEmbedding(pos,i)+PositionEncoding(pos,i) \tag{3}
+$$
+
+### 具体结构
 
 ![image-20231115164324713](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231115164324713.png)
 
