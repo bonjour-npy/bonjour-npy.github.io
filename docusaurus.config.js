@@ -247,7 +247,8 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright© ${new Date().getFullYear()} by bonjour-npy.github.io. all rights reserved`,
+        // Copyright© 2023 你的姓名或公司名. All rights reserved.
+        copyright: `Copyright© ${new Date().getFullYear()} bonjour-npy. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
