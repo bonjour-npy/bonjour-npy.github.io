@@ -7,7 +7,7 @@
 
 /* 修改 .heroBanner 的背景颜色和文字颜色 */
 .heroBanner {
-  padding: 18rem 0;
+  padding: 12rem 0;
   text-align: center;
   position: relative;
   overflow: auto;
