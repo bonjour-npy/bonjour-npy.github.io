@@ -137,7 +137,7 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '培洋的笔记本🌈',
+        title: '培洋的笔记本🎯',
         logo: {
           alt: 'My Site Logo',
           src: 'img/UESTC_logo.jpg',
@@ -158,7 +158,7 @@ const config = {
           },
           {
             to: '/docs/Linux/intro',
-            label: '🌸Linux',
+            label: '🎰Linux',
           },
           {
             to: '/docs/Curriculum/intro',
@@ -183,7 +183,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '联系我',
+            title: '🤟联系我',
             items: [
               {
                 label: '抖音',
@@ -196,7 +196,7 @@ const config = {
             ],
           },
           {
-            title: '外部链接',
+            title: '🚨外部链接',
             items: [
               {
                 label: '共和国国防部',
@@ -213,7 +213,7 @@ const config = {
             ],
           },
           {
-            title: '彩蛋',
+            title: '🎂彩蛋',
             items: [
               {
                 label: '欢迎来到洛圣都',
@@ -230,12 +230,8 @@ const config = {
             ],
           },
           {
-            title: 'EDU官网',
+            title: '🪬教育官网',
             items: [
-              {
-                label: '研招网推免系统',
-                href: 'https://yz.chsi.com.cn/tm/',
-              },
               {
                 label: '电子科技大学',
                 href: 'https://www.uestc.edu.cn/',
@@ -243,6 +239,10 @@ const config = {
               {
                 label: '桂林电子科技大学',
                 href: 'https://www.guet.edu.cn',
+              },
+              {
+                label: '平顶山市第一中学',
+                href: 'http://pdsyz.cn//',
               },
             ],
           },
