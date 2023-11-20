@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://bonjour-npy.github.io/blog</id>
-    <title>培洋的笔记本 Blog</title>
+    <title>🎉培洋的笔记本🎊 Blog</title>
     <updated>2023-04-18T10:22:37.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://bonjour-npy.github.io/blog"/>
-    <subtitle>培洋的笔记本 Blog</subtitle>
+    <subtitle>🎉培洋的笔记本🎊 Blog</subtitle>
     <icon>https://bonjour-npy.github.io/img/apple.svg</icon>
     <entry>
         <title type="html"><![CDATA[PyTorch基础]]></title>
