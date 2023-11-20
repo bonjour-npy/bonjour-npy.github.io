@@ -26,7 +26,7 @@ const config = {
   },
   // redefine ends here
   title: '培洋的笔记本',
-  tagline: 'Bonjour',
+  // tagline: 'Bonjour',
   favicon: 'img/apple.svg',
   
 
