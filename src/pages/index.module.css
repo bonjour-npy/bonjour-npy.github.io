@@ -7,19 +7,22 @@
 
 /* 修改 .heroBanner 的背景颜色和文字颜色 */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 12rem 0;
+  font-size: 200%;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
   /* background-color: var(--ifm-color-primary-lighter)； */
   background-color: white; /* 明亮模式下的背景颜色 */
-  -webkit-text-fill-color: rgb(18, 12, 12); /* 明亮模式下的文字颜色 */
+  background-image: url(../../static/img/heroBanner.jpg);
+  background-position: center;
+  -webkit-text-fill-color: #FFFF; /* 明亮模式下的文字颜色 */
 }
 
 /* 在暗黑模式下修改 .heroBanner 的颜色 */
 [data-theme='dark'] {
   .heroBanner {
-    padding: 4rem 0;
+    padding: 10rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;

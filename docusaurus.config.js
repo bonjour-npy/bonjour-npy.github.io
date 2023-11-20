@@ -115,7 +115,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: './static/img/intro.png',
       announcementBar: {
         id: 'announcementBar-3',
         content: '求实求真，大气大为',
@@ -140,7 +140,7 @@ const config = {
         title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/UESTC_logo.jpg',
+          src: 'img/UESTC_LOGO.jpg',
           // src: 'img/policecar.svg',
         },
         items: [

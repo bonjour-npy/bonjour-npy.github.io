@@ -10,8 +10,14 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      {/* '../../static/img/intro_img.png' */}
+    <header 
+      className={clsx('hero hero--primary', styles.heroBanner)}
+      style={{
+        background: `url(${require('../../static/img/intro.png')})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
+      {/* {'../../static/img/intro.png'} */}
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
