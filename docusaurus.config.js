@@ -25,7 +25,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: '培洋的笔记本',
+  title: '🎉培洋的笔记本🎊',
   // tagline: 'Bonjour',
   favicon: 'img/apple.svg',
   
@@ -118,7 +118,7 @@ const config = {
       image: './static/img/intro.png',
       announcementBar: {
         id: 'announcementBar-3',
-        content: '求实求真，大气大为',
+        content: '🏫求实求真，大气大为📚',
         isCloseable: false,
       },
       // 调整sidebar为可收回
@@ -137,40 +137,40 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '培洋的笔记本',
+        title: '培洋的笔记本🌈',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/UESTC_LOGO.jpg',
+          src: 'img/UESTC_logo.jpg',
           // src: 'img/policecar.svg',
         },
         items: [
           {
             to: '/docs/DeepLearning/intro',
-            label: '深度学习',
+            label: '👨🏻‍💻深度学习',
           },
           {
             to: '/docs/Tuimian/intro',
-            label: '推免',
+            label: '💯推免',
           },
           {
             to: '/docs/Algorithms/intro',
-            label: '算法',
+            label: '📑算法',
           },
           {
             to: '/docs/Linux/intro',
-            label: 'Linux',
+            label: '🌸Linux',
           },
           {
             to: '/docs/Curriculum/intro',
-            label: '课程学习',
+            label: '📗课程学习',
           },
           {
             to: '/docs/Others/intro',
-            label: '其他',
+            label: '📜其他',
           },
           {
             to: '/docs/Acknowledgement/intro',
-            label: '饮水思源',
+            label: '🎊饮水思源',
           },
           {
             href: 'https://github.com/bonjour-npy',

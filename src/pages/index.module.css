@@ -7,7 +7,7 @@
 
 /* 修改 .heroBanner 的背景颜色和文字颜色 */
 .heroBanner {
-  padding: 11rem 0;
+  padding: 15rem 0;
   text-align: center;
   position: relative;
   overflow: auto;
@@ -22,7 +22,7 @@
 /* 在暗黑模式下修改 .heroBanner 的颜色 */
 [data-theme='dark'] {
   .heroBanner {
-    padding: 10rem 0;
+    padding: 15rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
