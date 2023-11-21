@@ -9,7 +9,6 @@ h2, h3, h4, h5, h6 {
 
 body {
     font-size: 1.125em;
-
 }
 
 h1 {
@@ -29,7 +28,7 @@ h4 {
 }
 
 h5 {
-    font-size: 1.20;
+    font-size: 1.20em;
 }
 
 h6 {

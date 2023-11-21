@@ -137,7 +137,7 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '培洋的笔记本🎯',
+        title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
           src: 'img/UESTC_logo.jpg',
