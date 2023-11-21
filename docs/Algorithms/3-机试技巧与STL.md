@@ -1,5 +1,11 @@
 # 机试技巧与STL
 
+:::important
+
+转载自[Sonder的笔记本](https://space.keter.top/)
+
+:::
+
 [TOC]
 
 ## vs2018 快捷键

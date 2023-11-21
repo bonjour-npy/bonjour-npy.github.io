@@ -1,5 +1,11 @@
 # STL模板
 
+:::important
+
+转载自[Sonder的笔记本](https://space.keter.top/)
+
+:::
+
 - vector：变长数组，倍增的思想
 - pair：存储一对数
 - string：字符串，substr(), c_str()
