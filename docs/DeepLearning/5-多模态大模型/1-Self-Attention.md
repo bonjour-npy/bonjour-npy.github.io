@@ -1,4 +1,4 @@
-#  Self-Attention
+#  自注意力（Self-Attention）
 
 :::important
 

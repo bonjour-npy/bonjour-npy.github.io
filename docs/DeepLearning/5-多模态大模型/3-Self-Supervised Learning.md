@@ -1,4 +1,4 @@
-# Self-Supervised Learning
+# 自监督学习（Self-Supervised Learning）
 
 :::tip
 
@@ -19,6 +19,10 @@
 ## BERT（Bidirectional Encoder Representation from Transformers）
 
 下面以BERT为例，介绍自监督模型。
+
+### 结构
+
+BERT的结构其实是Transformer的Encoder部分，仅使用Encoder做特征抽取器。
 
 BERT（Bidirectional Encoder Representations from Transformers）本身是一种预训练的模型架构，通常是在大规模无标签数据上进行预训练，然后在特定任务上进行微调。BERT并不是一个用于特定任务的模型，而是一个通用的语言表示模型。
 
@@ -123,3 +127,11 @@ BERT在大规模语料库（Corpus）上预训练后，输出的向量表示了�
 > 总之，BERT 可以被视为一种**上下文感知词嵌入**技术，但它的实现方式比传统的词嵌入方法要复杂得多。
 >
 > ——来自腾讯混元大模型
+
+## GPT: Generative Pre-trained Transformer
+
+GPT的结构是Transformer的Decoder部分，可以承担生成的任务。
+
+GPT的自监督学习的特征体现在：在训练过程中，GPT根据输入的token预测输入的下一个token应该是什么，对输出的distribution与Ground Truth做Cross Entropy Loss来更新参数。
+
+![image-20231122093825510](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231122093825510.png)
