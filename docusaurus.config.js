@@ -8,6 +8,7 @@ const katex = require('rehype-katex');
 const rehypeKatex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
+
 const config = {
   // redefine webpack
   customFields: {
@@ -60,6 +61,9 @@ const config = {
       ({
         docs: {
           // breadcrumbs: false,
+          // showReadingTime: true,
+          // readingTime: ({content, frontMatter, defaultReadingTime}) =>
+          //   defaultReadingTime({content, options: {wordsPerMinute: 300}}),
           remarkPlugins: [math],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
@@ -68,6 +72,7 @@ const config = {
           // editUrl: 'https://github.com/bonjour-npy/',
         },
         blog: {
+          showReadingTime: true,
           remarkPlugins: [math],
           rehypePlugins: [katex],
           showReadingTime: false,
@@ -112,6 +117,7 @@ const config = {
     ],
   ],
   themeConfig:
+  
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
@@ -253,7 +259,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        Languages: ['cpp', 'java', 'python', 'bash', 'c++'],
+        additionalLanguages: ['cpp'],
+        additionalLanguages: ['c'],
+        additionalLanguages: ['c'],
+        additionalLanguages: ['powershell'],
+        additionalLanguages: ['makefile'],
       },
     }),
 };

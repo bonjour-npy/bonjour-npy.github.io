@@ -8,7 +8,7 @@
 
 编写函数project0实现检测键盘输入Ctrl+d结束线程。
 
-```c
+```cpp
 void project0(){
     Print("To Exit hit Ctrl + d.\n");
     Keycode keycode;
@@ -36,14 +36,14 @@ void project0(){
 
 在main函数中添加以下代码，实现自定义函数的调用，创建线程。
 
-```c
+```cpp
     struct Kernel_Thread *thread;
     thread = Start_Kernel_Thread(&project0,0,PRIORITY_NORMAL,false);
 ```
 
 总体代码
 
-```C
+```cpp
 /*
  * GeekOS C code entry point
  * Copyright (c) 2001,2003,2004 David H. Hovemeyer <daveho@cs.umd.edu>
@@ -179,7 +179,7 @@ bochs
 
 可能会出现黑屏情况，这是因为进入了调试模式，终端正在等待命令，在终端输入
 
-```
+```bash
 c
 ```
 

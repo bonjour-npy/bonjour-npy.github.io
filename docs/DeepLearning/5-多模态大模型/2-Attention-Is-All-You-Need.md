@@ -55,13 +55,13 @@ $$
 
 ## Decoder
 
-Decoder的任务是生成输出，可以根据是否一次性生成输出分为Autoregressive（自回归，abbr. AT）以及Non-Autoregressive（非自回归，abbr. NAT）两种模式。
+Decoder的任务是生成输出，可以根据是否一次性生成输出分为Autoregressive（自回归，abbr. AR）以及Non-Autoregressive（非自回归，abbr. NAR）两种模式。
 
 自回归类型的Decoder需要**逐步生成**输出，并将**之前自身输出的所有词汇经过嵌入层后生成token作为下一次的输入**，通常每次生成一个词或一个符号。这种方式的缺点是需要保存和更新词表中的所有可能选项，因此在大词汇表上可能会变得非常慢。然而，它的优点是能够利用上下文信息来生成输出，这有助于提高翻译的质量。
 
-非自回归类型的Decoder试图在一次操作中生成整个输出序列。这通常通过使用诸如注意力机制等策略来实现，这些策略允许解码器关注输入序列的不同部分，同时生成输出序列的不同部分。NAT的优点在于其高效性，因为它不需要保存和更新大量的可能选项。然而，由于它不能利用上下文信息来生成输出，因此其生成的输出质量普遍会低于AT。
+非自回归类型的Decoder试图在一次操作中生成整个输出序列。这通常通过使用诸如注意力机制等策略来实现，这些策略允许解码器关注输入序列的不同部分，同时生成输出序列的不同部分。NAR的优点在于其高效性，因为它不需要保存和更新大量的可能选项。然而，由于它不能利用上下文信息来生成输出，因此其生成的输出质量普遍会低于AR。
 
-### Autoregressive Decoder（AT）
+### Autoregressive Decoder（AR）
 
 #### 整体结构
 
@@ -131,7 +131,7 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 ![image-20231119142212757](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119142212757.png)
 
-### Non-Autoregressive Decoder（NAT）
+### Non-Autoregressive Decoder（NAR）
 
 ![image-20231119103112168](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119103112168.png)
 
