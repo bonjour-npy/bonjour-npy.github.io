@@ -151,7 +151,7 @@ const config = {
         },
         items: [
           {
-            to: '/docs/DeepLearning/intro',
+            to: '/docs/Deep-Learning/intro',
             label: '👨🏻‍💻深度学习',
           },
           {
@@ -189,7 +189,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '🤟联系我',
+            title: '👋联系我',
             items: [
               {
                 label: '抖音',
@@ -202,7 +202,7 @@ const config = {
             ],
           },
           {
-            title: '🚨外部链接',
+            title: '✈️外部链接',
             items: [
               {
                 label: '共和国国防部',
@@ -219,7 +219,7 @@ const config = {
             ],
           },
           {
-            title: '🎂彩蛋',
+            title: '🎅彩蛋',
             items: [
               {
                 label: '欢迎来到洛圣都',
@@ -236,7 +236,7 @@ const config = {
             ],
           },
           {
-            title: '🪬教育官网',
+            title: '🦄教育官网',
             items: [
               {
                 label: '电子科技大学',
@@ -254,7 +254,7 @@ const config = {
           },
         ],
         // Copyright© 2023 你的姓名或公司名. All rights reserved.
-        copyright: `Copyright© ${new Date().getFullYear()} bonjour-npy. All rights reserved.`,
+        copyright: `Copyright © ${new Date().getFullYear()} bonjour-npy. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
