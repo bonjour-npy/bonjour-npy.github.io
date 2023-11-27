@@ -26,7 +26,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: '🎉培洋的笔记本🎊',
+  title: '培洋的笔记本📒',
   // tagline: 'Bonjour',
   favicon: 'img/apple.svg',
   
@@ -176,7 +176,7 @@ const config = {
           },
           {
             to: '/docs/Acknowledgement/intro',
-            label: '🎊饮水思源',
+            label: '🌈饮水思源',
           },
           {
             href: 'https://github.com/bonjour-npy',
