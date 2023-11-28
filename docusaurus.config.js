@@ -155,8 +155,8 @@ const config = {
             label: '👨🏻‍💻深度学习',
           },
           {
-            to: '/docs/Tuimian/intro',
-            label: '💯推免',
+            to: '/docs/Tui-Mian/intro',
+            label: '🤡推免',
           },
           {
             to: '/docs/Algorithms/intro',
@@ -164,11 +164,11 @@ const config = {
           },
           {
             to: '/docs/Linux/intro',
-            label: '🎰Linux',
+            label: '🍎Linux',
           },
           {
             to: '/docs/Curriculum/intro',
-            label: '📗课程学习',
+            label: '📖课程学习',
           },
           {
             to: '/docs/Others/intro',
