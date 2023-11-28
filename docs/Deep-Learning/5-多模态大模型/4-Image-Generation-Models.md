@@ -62,7 +62,7 @@ GAN模型的结构分为Generator和Discriminator，其中Generator接受来自�
 
 ![image-20231127113242641](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127113242641.png)
 
-## Stable Diffusion速览
+## 生成模型讲解
 
 Stable Diffusion是目前图像生成的SOTA模型之一，在本章中我们快速的了解一下Stable Diffusion的大致框架以及原理。
 
@@ -71,7 +71,9 @@ Stable Diffusion是目前图像生成的SOTA模型之一，在本章中我们快
 目前，如Stable Diffusion等SOTA图像生成模型都具备以下所示的三个模块，通常情况下这三个模块分开训练，最终通过特殊的逻辑和规则组合在一起。
 
 - Text Encoder：根据输入的text prompt进行嵌入表示
-- Generation Model：接受Text Encoder输出的prompt表示以及随机分布sample出的向量，得到“中间产物”，这个中间产物可以是具有视觉意义但比较模糊的图像，也可以是不具备视觉特征的矩阵，是图像被压缩的版本
+- Generation Model：接受Text Encoder输出的prompt表示以及随机分布sample出的向量，得到“中间产物”，中间产物有以下两种情况：
+  1. **具有视觉意义但经过压缩比较模糊的图像**
+  2. **不具备视觉特征的矩阵（Latent Representation）**
 - Decoder：以上述的“中间产物”作为输入，生成出高清图像
 
 通用框架的三个组成部分如下图所示：
@@ -80,13 +82,15 @@ Stable Diffusion是目前图像生成的SOTA模型之一，在本章中我们快
 
 再附上Stable Diffusion、DALL-E系列以及Google的Imagen的结构说明。
 
+其中Imagen将压缩版本的图片作为Generation Model的中间产物，Stable Diffusion以及DALL-E将Latent Representation作为中间产物。
+
 ![image-20231127195336960](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127195336960.png)
 
 ![image-20231127195527792](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127195527792.png)
 
 ![img](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127200044147.png)
 
-根据Imagen的实验结果，相对于DecoderDiffusion Model的模型大小，Text Encoder的模型大小对图像生成模型的影响是非常大的。Text Encoder可以帮助模型理解prompt中在训练资料的文字-图像对中没有出现的新的词汇，从而提高图像生成的表现。
+根据Imagen的实验结果，相对于Decoder即Diffusion Model的模型大小，Text Encoder的模型大小对图像生成模型的影响是非常大的。Text Encoder可以帮助模型理解prompt中在训练资料的文字-图像对中没有出现的新的词汇，从而提高图像生成的表现。
 
 > Scaling text encoder size is more important than U-Net size. While scaling the size of the diffusion model U-Net improves sample quality, we found scaling the text encoder size to be significantly more impactful than the U-Net size.
 >
@@ -116,3 +120,30 @@ $$
 
 #### CLIP Score
 
+CLIP Score中的CLIP指的就是[OpenAI的CLIP（Contrastive Language-Image Pre-Training）模型](https://arxiv.org/abs/2103.00020)。
+
+具体来说，CLIP Score的计算方式是将用于生成图像的文字prompt输入至CLIP的Text Encoder中得到一个Representation，再将对应prompt生成的图像输入至CLIP的Image Encoder中得到对应的Representation，计算二者之间的距离，即得到CLIP Score。分数越小，代表文字和图像更align。
+
+![image-20231128143336879](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231128143336879.png)
+
+### Generation Model
+
+
+
+### Decoder
+
+Generation Model的训练需要大量成对的（Pair）文字-图像资料。而对于Decoder来说，它的输入是中间产物（即Generation Model生成的压缩的图片或Latent Representation），输出的是还原出的高分辨率的图像，它的训练是**不需要额外pair的文字-图像资料**。
+
+#### 中间产物是压缩图像
+
+当Generation Model的输出是压缩版本的图像时，Decoder的训练资料可以将从互联网上fetch到的图像作为label，并对这些图像做Down Sampling来获得压缩版本的图像作为Decoder训练时的输出。
+
+![image-20231128145010346](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231128145010346.png)
+
+#### 中间产物是Latent Representation
+
+当中间产物是Latent Representation时，需要训练一个Auto-Encoder，使用Encoder-Decoder的结构训练生成模型的Decoder。
+
+具体来讲，向Encoder中输入数据集中的高清图片label，Encoder将其转换为某种Latent Representation，Decoder再吃Encoder的输出，最终输出还原出的高清label图片，训练的方向是让输出的图片与输入的图片越接近越好。**在这个过程中，不需要额外的标注，Auto-Encoder和生成模型的Decoder一起更新参数。**
+
+![image-20231128150641374](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231128150641374.png)
