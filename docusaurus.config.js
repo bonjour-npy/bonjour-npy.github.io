@@ -152,11 +152,11 @@ const config = {
         items: [
           {
             to: '/docs/Deep-Learning/intro',
-            label: '👨🏻‍💻深度学习',
+            label: '🤡深度学习',
           },
           {
             to: '/docs/Tui-Mian/intro',
-            label: '🤡推免',
+            label: '🃏推免',
           },
           {
             to: '/docs/Algorithms/intro',
