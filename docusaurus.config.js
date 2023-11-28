@@ -156,7 +156,7 @@ const config = {
           },
           {
             to: '/docs/Tui-Mian/intro',
-            label: '🃏推免',
+            label: '🚬推免',
           },
           {
             to: '/docs/Algorithms/intro',
