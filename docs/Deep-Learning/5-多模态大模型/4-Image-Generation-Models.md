@@ -94,9 +94,17 @@ CLIP Score中的CLIP指的就是[OpenAI的CLIP（Contrastive Language-Image Pre-
 
 #### Generation Model
 
-Generation Model其实就是一步一步Denoise的过程。具体来讲，输入文字Prompt以及从随机分布中sample出的与预期生成图像大小相同的噪声矩阵，预测出输入图片中的噪声，在输入图像中减去噪声，输出去噪后的图像。
+Generation Model是一步一步Denoise的过程。具体来讲，输入文字Prompt以及从随机分布中sample出的与预期生成图像具有相同大小的噪声矩阵，预测出输入图片中的噪声分布，在输入图像中减去噪声，输出去噪后的图像。Generation Model的最终输出是中间产物，这个中间产物可以是图像的压缩版本，也可以是一个Latent Representation。因此，训练Generation Model其实就是训练一个**Noise Predictor**的。
 
-Generation Model的最终输出是中间产物，这个中间产物可以是图像的压缩版本，也可以是一个Latent Representation。
+##### 中间产物是压缩图像
+
+当Generation Model的中间产物是压缩图像时，如Diffusion模型，在训练Generation Model时的训练资料可以通过对数据集中的原始图片一步一步地添加与图像大小一致地从已知随机分布中sample出的噪声来获得。此时加入噪声后的图像可以作为压缩图像输入至Noise Predictor中，而需要预测出的噪声分布的Ground Truth就是sample出的噪声。
+
+##### 中间产物是Latent Representation
+
+中间产物是Latent Representation时，同样采取从已知随机分布中sample出噪声再添加到网络的输入作为生成Ground Truth的策略，但是还**额外需要一个Encoder来产生Latent Representation**。
+
+这里的Encoder使用数据集中的图片（即期待模型最终输出的图片）作为输入，输出该图片的某种Latent Representation，经过从随机分布中sample出的噪声的加入，输入至Noise Predictor中。从随机分布中sample出的噪声就是Noise Predictor的Ground Truth。
 
 #### Decoder
 
