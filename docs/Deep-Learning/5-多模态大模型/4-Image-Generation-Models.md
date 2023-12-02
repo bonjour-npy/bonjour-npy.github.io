@@ -24,6 +24,12 @@ VAE、GAN以及Diffusion Model等生成模型，都不只是单独使用文字�
 
 大致的思想如下图所示，由于**期待生成的图像并不是固定的**，可以将预期输出看作是一个分布，即$P(x|y)$，而图像生成模型需要完成的任务就是将输入的从某一随机分布中sample出的向量对应到图像预期输出分布中的某一个图像。
 
+:::important
+
+总结：由于根据文字prompt期待生成的图像并不是固定的，可以将生成的图片在目标域（Target Domain）的分布符合某种随机分布（如Gaussian Distribution）。因此目前的SOTA模型除了将文字Prompt作为输入，还从该随机分布中sample出图片shape的随机向量（矩阵）作为输入，期待模型根据prompt将源域（Source Domain）输入的随机向量对应到目标域的图片。
+
+:::
+
 ![image-20231127104041455](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127104041455.png)
 
 ## 生成模型的共同结构
