@@ -20,7 +20,7 @@ Transformer-based的文字生成模型有很多，如GPT模型，大多使用自
 
 ### 目前图像生成模型的共同点
 
-VAE、GAN以及Diffusion Model等生成模型，都不只是单独使用文字作为输入来生成图像，而是使用了**从已知的随机分布（e.g. Normal Disrtibution etc.）中sample出向量作为模型额外输入**的方法。
+VAE、GAN以及Diffusion Model等生成模型，都不只是单独使用文字作为输入来生成图像，而是使用了**从已知的随机分布（e.g. Normal Distribution）中sample出向量作为模型额外输入**的方法。
 
 大致的思想如下图所示，由于**期待生成的图像并不是固定的**，可以将预期输出看作是一个分布，即$P(x|y)$，而图像生成模型需要完成的任务就是将输入的从某一随机分布中sample出的向量对应到图像预期输出分布中的某一个图像。
 
@@ -100,11 +100,11 @@ CLIP Score中的CLIP指的就是[OpenAI的CLIP（Contrastive Language-Image Pre-
 
 #### Generation Model
 
-Generation Model是一步一步Denoise的过程。具体来讲，输入文字Prompt以及从随机分布中sample出的与预期生成图像具有相同大小的噪声矩阵，预测出输入图片中的噪声分布，在输入图像中减去噪声，输出去噪后的图像。Generation Model的最终输出是中间产物，这个中间产物可以是图像的压缩版本，也可以是一个Latent Representation。因此，训练Generation Model其实就是训练一个**Noise Predictor**的。
+Generation Model的生成过程其实就是Denoise的过程。具体来讲，输入文字Prompt以及从随机分布中sample出的与预期生成图像具有相同大小的噪声矩阵，预测出输入图片中的噪声分布，在输入图像中减去噪声，输出去噪后的图像。Generation Model的最终输出是中间产物，这个中间产物可以是图像的压缩版本，也可以是一个Latent Representation。因此，训练Generation Model其实就是训练一个**Noise Predictor**。
 
 ##### 中间产物是压缩图像
 
-当Generation Model的中间产物是压缩图像时，如Diffusion模型，在训练Generation Model时的训练资料可以通过对数据集中的原始图片一步一步地添加与图像大小一致地从已知随机分布中sample出的噪声来获得。此时加入噪声后的图像可以作为压缩图像输入至Noise Predictor中，而需要预测出的噪声分布的Ground Truth就是sample出的噪声。
+当Generation Model的中间产物是压缩图像时，如Diffusion模型，在训练Generation Model时的训练资料可以通过对数据集中的原始图片添加与图像大小一致地从已知随机分布中sample出的噪声来获得。此时加入噪声后的图像可以作为压缩图像输入至Noise Predictor中，而需要预测出的噪声分布的Ground Truth就是sample出的噪声。
 
 ##### 中间产物是Latent Representation
 
@@ -162,11 +162,11 @@ GAN模型的结构分为Generator和Discriminator，其中Generator接受来自�
 
 ### 扩散模型（Diffusion Model）
 
-扩散模型的核心思想是对输入的图片不断加入噪声直至图片成为符合某一随机分布的向量集合；在生成图片时，输入从该随机分布中sample出的向量，不断地denoise从而期待获得生成的图片。
+扩散模型的核心思想是对输入的图片加入噪声使其成为从某一随机分布sample出的向量，并在这个过程中训练出Noise Predictor；在生成图片时，输入从该随机分布中sample出的向量，使用训练出的Noise Predictor对噪声denoise从而获得生成的图片。
 
 ![image-20231127112447752](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231127112447752.png)
 
-以[DDPM（Denoising Diffusion Probabilistic Models）](https://arxiv.org/abs/2006.11239)模型为例，模型Denoise的次数是固定的，并为每个denoise步骤赋予一个编号，越早进行denoise的步骤编号越大，因此，这个编号也代表着图像中噪声的严重程度。在Denoise模块中，模型根据输入的带有噪声的图片、文字prompt以及噪声的严重程度（即denoise的步骤）预测出该图片中噪声的分布，然后将输入的图片中减去预测出的噪声得到denoise后的图片。
+以[DDPM（Denoising Diffusion Probabilistic Models）](https://arxiv.org/abs/2006.11239)模型为例，模型在denoise时为每个denoise步骤赋予一个编号，越早进行denoise的步骤编号越大，因此，这个编号也代表着图像中噪声的严重程度。在Denoise模块中，模型根据输入的带有噪声的图片、文字prompt以及噪声的严重程度（即denoise的步骤）预测出该图片中噪声的分布，然后将输入的图片中减去预测出的噪声得到denoise后的图片。
 
 Denoise模块的目标是预测出输入的噪声图片中的噪声，其资料可以通过对数据集中的图片不断加入从Gaussian Distribution中sample出的噪声的方法来获得，这个**加噪声的过程我们称为Forward Process or Diffusion Process**。此时将加入噪声后的图片、文字prompt以及denoise的步骤序号作为输入，sample出的噪声作为Ground Truth对noise predictor进行训练。
 

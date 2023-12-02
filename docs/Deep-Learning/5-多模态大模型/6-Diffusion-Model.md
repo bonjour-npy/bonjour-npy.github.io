@@ -1,4 +1,4 @@
-# Diffusion Model
+# 扩散模型（Diffusion Model）
 
 :::tip
 
@@ -29,3 +29,23 @@
 ![image-20231202222644684](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231202222644684.png)
 
 在下面的文章中我们也会学习一下VAE的数学原理，从VAE到Diffusion Model的具体数学推导，可以参考胡老师推荐的论文[Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/abs/2208.11970)。
+
+![image-20231202232526449](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231202232526449.png)
+
+训练过程：
+
+1. 首先从数据集中sample出原始图像$\mathbf{x}_0$
+
+2. $t$是从指定范围中sample出的一个integer
+
+3. $\epsilon$是从Normal Distribution中sample出的与$\mathbf{x}_0$相同大小的噪声
+
+4. 根据如下规则进行梯度下降：
+   $$
+   \nabla_{\theta}\left\|\boldsymbol{\epsilon}-\boldsymbol{\epsilon}_{\theta}(\sqrt{\bar{\alpha}_{t}}\mathbf{x}_{0}+\sqrt{1-\bar{\alpha}_{t}}\boldsymbol{\epsilon},t)\right\|^{2}\tag{1}
+   $$
+   首先对$\mathbf{x}_0$和$\epsilon$根据规定好的权重$\bar{\alpha}_1,\bar{\alpha}_2,...\bar{\alpha}_T$做weighted sum产生加入噪声后的图像。通常来说，$\bar{\alpha}_1$至$\bar{\alpha}_T$是递减的，当在第2步中sample到的$t$越大，则原始图像$\mathbf{x}_0$对新图像的贡献越大。
+
+   $\epsilon_{\theta}$是Noise Predictor，其输入是加入噪声的图像以及sample出的$t$，而Nosie Predictor $\epsilon_\theta$的Ground Truth就是第3步中sample出的噪声$\epsilon$。
+
+![image-20231202235322516](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231202235322516.png)
