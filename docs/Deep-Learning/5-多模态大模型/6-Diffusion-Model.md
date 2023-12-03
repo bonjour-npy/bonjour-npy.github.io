@@ -75,3 +75,4 @@
 6. 当$t=1$时，得到$\mathbf{x}_0$，即最终降噪后的图像。
 
 ![image-20231203133323788](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231203133323788.png)
+
