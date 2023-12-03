@@ -26,7 +26,7 @@ VAE、GAN以及Diffusion Model等生成模型，都不只是单独使用文字�
 
 :::important
 
-总结：由于根据文字prompt期待生成的图像并不是固定的，可以将生成的图片在目标域（Target Domain）的分布符合某种随机分布（如Gaussian Distribution）。因此目前的SOTA模型除了将文字Prompt作为输入，还从该随机分布中sample出图片shape的随机向量（矩阵）作为输入，期待模型根据prompt将源域（Source Domain）输入的随机向量对应到目标域的图片。
+总结：由于根据文字prompt期待生成的图像并不是固定的，可以认为生成的图片在目标域（Target Domain）符合某种分布。因此目前的SOTA模型除了将文字Prompt作为输入，还从某随机分布中sample出图片shape的随机向量（矩阵）作为输入，期待模型根据prompt将源域（Source Domain）输入的随机向量映射到目标域的分布，生成对应的图片。
 
 :::
 
