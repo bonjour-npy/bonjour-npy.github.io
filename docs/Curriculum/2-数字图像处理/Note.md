@@ -63,12 +63,13 @@
    D_8(p,q)=max(\vert x-s\vert,\vert y-t\vert)\tag{3}
    $$
    
-4. 
 
 ### 图像质量评价
 
 - MSE越小代表待测图像与参考图像越接近
 - SNR、PSNR、SSIM越大代表图像质量越好
+- SNR：参考图像像素值的平方均值与均方误差的比值的对数的10倍
+- PSNR：峰值信噪比，图像所允许的最大像素值的平方与均方误差的比值的对数的10倍，这是信噪比的改良版本，消除了图像自身像素值对评价指标的影响
 
 ![image-20231204175437763](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231204175437763.png)
 
