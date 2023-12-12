@@ -1,5 +1,13 @@
 # 生成式对抗网络（GAN）
 
+:::tip
+
+How to pronounce Adversarial?
+
+/ˌædvərˈseriəl/
+
+:::
+
 ## 引言
 
 ### 将随机分布作为输入
