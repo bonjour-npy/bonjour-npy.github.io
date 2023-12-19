@@ -26,7 +26,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: '培洋的笔记本📒',
+  title: '🐏培洋的笔记本📒',
   // tagline: 'Bonjour',
   favicon: 'img/apple.svg',
   
@@ -156,7 +156,7 @@ const config = {
           },
           {
             to: '/docs/Tui-Mian/intro',
-            label: '🚬推免',
+            label: '🌊推免',
           },
           {
             to: '/docs/Algorithms/intro',

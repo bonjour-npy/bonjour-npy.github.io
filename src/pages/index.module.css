@@ -17,6 +17,8 @@
   background-image: url(../../static/img/NYPD_Truck_with_officers.jpg);
   background-position: center;
   -webkit-text-fill-color: white; /* 明亮模式下的文字颜色 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影 */
+  /* -webkit-text-stroke: 0.1px white; */
   background-size: contain;
 }
 
