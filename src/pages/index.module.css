@@ -7,7 +7,8 @@
 
 /* 修改 .heroBanner 的背景颜色和文字颜色 */
 .heroBanner {
-  padding: 13rem 0;
+  /* padding: 13rem 0; */
+  padding: 11%;
   text-align: center;
   position: relative;
   overflow: auto;
@@ -33,11 +34,11 @@
 }
 
 
-@media screen and (max-width: 996px) {
+/* @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
-}
+} */
 
 .buttons {
   display: flex;
