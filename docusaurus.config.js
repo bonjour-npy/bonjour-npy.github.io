@@ -146,7 +146,7 @@ const config = {
         title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/UESTC_logo.jpg',
+          src: 'img/UESTC_logo.png',
           // src: 'img/policecar.svg',
         },
         items: [
