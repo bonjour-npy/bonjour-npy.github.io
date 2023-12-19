@@ -26,7 +26,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: '🐏培洋的笔记本📒',
+  title: '🌊培洋的笔记本📋',
   // tagline: 'Bonjour',
   favicon: 'img/apple.svg',
   
@@ -152,11 +152,11 @@ const config = {
         items: [
           {
             to: '/docs/Deep-Learning/intro',
-            label: '🤡深度学习',
+            label: '🤖深度学习',
           },
           {
             to: '/docs/Tui-Mian/intro',
-            label: '☃️推免',
+            label: '🎖️推免',
           },
           {
             to: '/docs/Algorithms/intro',
@@ -164,7 +164,7 @@ const config = {
           },
           {
             to: '/docs/Linux/intro',
-            label: '🍎Linux',
+            label: '🤠Linux',
           },
           {
             to: '/docs/Curriculum/intro',
@@ -172,11 +172,11 @@ const config = {
           },
           {
             to: '/docs/Others/intro',
-            label: '📜其他',
+            label: '☃️其他',
           },
           {
             to: '/docs/Acknowledgement/intro',
-            label: '🌈饮水思源',
+            label: '🍺饮水思源',
           },
           {
             href: 'https://github.com/bonjour-npy',
