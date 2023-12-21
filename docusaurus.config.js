@@ -192,7 +192,11 @@ const config = {
             title: '👋联系我',
             items: [
               {
-                label: '抖音',
+                label: 'WeChat',
+                href: 'https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/WeChat_QR_Code.jpg',
+              },
+              {
+                label: 'TikTok',
                 href: 'https://www.douyin.com/user/self?modal_id=7157246567970360614',
               },
               {

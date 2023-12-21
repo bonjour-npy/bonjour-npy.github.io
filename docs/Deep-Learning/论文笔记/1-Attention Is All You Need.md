@@ -2,11 +2,10 @@
 
 :::tip
 
-参考资料：
+论文链接：[arXiv](https://arxiv.org/pdf/1706.03762.pdf)
 
-[Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)
+参考资料：[Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)，[【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
 
-[【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
 :::
 
 Transformer是Sequence-to-Sequence (Seq2Seq) 模型，模型的输入是向量序列，输出同样是向量序列，且输出的长度由模型经过学习决定。
