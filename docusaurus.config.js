@@ -20,15 +20,14 @@ const config = {
           use: ['file-loader'],
           include: path.resolve(__dirname, 'static/fonts'),
         });
-
         return webpackConfig;
       },
     },
   },
   // redefine ends here
-  title: '🌊培洋的笔记本📋',
+  title: '培洋的笔记本📒',
   // tagline: 'Bonjour',
-  favicon: 'img/apple.svg',
+  favicon: 'img/Tesla.svg',
   
 
   // Set the production url of your site here
