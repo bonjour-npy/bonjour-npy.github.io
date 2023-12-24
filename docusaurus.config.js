@@ -136,7 +136,7 @@ const config = {
         disableSwitch: true,
       },
       tableOfContents: {
-        minHeadingLevel: 1,
+        minHeadingLevel: 2,
         maxHeadingLevel: 5,
       },
       navbar: {
