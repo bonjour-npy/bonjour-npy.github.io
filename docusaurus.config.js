@@ -29,7 +29,6 @@ const config = {
   // tagline: 'Bonjour',
   favicon: 'img/Tesla.svg',
   
-
   // Set the production url of your site here
   url: 'https://bonjour-npy.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -137,7 +136,7 @@ const config = {
         disableSwitch: true,
       },
       tableOfContents: {
-        minHeadingLevel: 2,
+        minHeadingLevel: 1,
         maxHeadingLevel: 5,
       },
       navbar: {
@@ -146,7 +145,6 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/UESTC_logo.png',
-          // src: 'img/policecar.svg',
         },
         items: [
           {
@@ -256,7 +254,6 @@ const config = {
             ],
           },
         ],
-        // Copyright© 2023 你的姓名或公司名. All rights reserved.
         copyright: `Copyright © ${new Date().getFullYear()} bonjour-npy. All rights reserved.`,
       },
       prism: {
@@ -272,4 +269,3 @@ const config = {
 };
 
 module.exports = config;
-
