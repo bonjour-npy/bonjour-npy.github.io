@@ -1,11 +1,8 @@
-/**
+/*
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
-
-/* src/css/custom.css */
-
-/* 修改 .heroBanner 的背景颜色和文字颜色 */
+/* 定义两个背景图像 */
 .heroBanner {
   /* padding: 13rem 0; */
   padding: 11%;
@@ -13,16 +10,17 @@
   position: relative;
   overflow: auto;
   /* background-color: var(--ifm-color-primary-lighter)； */
-  background-color: white; /* 明亮模式下的背景颜色 */
-  background-image: url(../../static/img/NYPD_Truck_with_officers.jpg);
+  background-color: white;
+  background-image: url(../../static/img/From_NUMMI_to_Tesla_\(5122119787\).jpg);
+  /* background-image: url(../../static/img/NYPD_Truck_with_officers.jpg); */
   background-position: center;
-  -webkit-text-fill-color: white; /* 明亮模式下的文字颜色 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影 */
+  -webkit-text-fill-color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   /* -webkit-text-stroke: 0.1px white; */
   background-size: contain;
 }
 
-/* 在暗黑模式下修改 .heroBanner 的颜色 */
+/* Dark Mode */
 [data-theme='dark'] {
   .heroBanner {
     padding: 15rem 0;
@@ -30,17 +28,10 @@
     position: relative;
     overflow: hidden;
     /* background-color: var(--ifm-color-primary-lighter); */
-    background-color: #1b1b1d; /* 暗黑模式下的背景颜色 */
-    -webkit-text-fill-color: white; /* 暗黑模式下的文字颜色 */
+    background-color: #1b1b1d;
+    -webkit-text-fill-color: white;
   }
 }
-
-
-/* @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-} */
 
 .buttons {
   display: flex;

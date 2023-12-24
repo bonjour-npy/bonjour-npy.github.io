@@ -4,7 +4,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -13,7 +12,7 @@ function HomepageHeader() {
     <header 
       className={clsx('hero hero--primary', styles.heroBanner)}
       style={{
-        background: `url(${require('../../static/img/intro.png')})`,
+        background: `url(${require('../../static/img/From_NUMMI_to_Tesla_\(5122119787\).jpg')})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
@@ -25,7 +24,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/Deep-Learning/intro">
-            从深度学习开始
+              从深度学习开始浏览  
           </Link>
         </div>
       </div>

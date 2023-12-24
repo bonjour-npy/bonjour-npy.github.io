@@ -43,15 +43,28 @@ Generative Model Adaption的任务是使在大规模源域图片上训练的生�
 
 #### zero-shot
 
-对于零样本的图像生成模型的适应任务，[NADA](https://arxiv.org/pdf/2108.00946.pdf)率先引入了CLIP模型来获取必须的先验知识。即**在目标域只需要文字标签**而不需要图片，将源域和目标域之间的差距编码为在CLIP空间上文字引导的适应方向。
+对于零样本的图像生成模型的适应任务，[NADA](https://arxiv.org/pdf/2108.00946.pdf)率先引入了CLIP模型来获取必须的先验知识，通过预训练大模型的语言理解能力实现**在目标域只需要文字标签**而不需要图片，将源域和目标域之间的差距编码为在CLIP空间上文字引导的适应方向。
 
-此后，CVPR 2022发表的[DiffusionCLIP](https://arxiv.org/pdf/2110.02711.pdf)使用了Diffusion模型代替NADA中的StyleGANs来获得更好的特征保存能力。
+此后，CVPR 2022发表的[DiffusionCLIP](https://arxiv.org/pdf/2110.02711.pdf)使用了Diffusion模型代替NADA中的StyleGANs，获得了更好的特征保存能力。
 
-然而
+然而这些方法都是采用了固定的适应方向，只包含基础的域知识，而不是图片特定的特征。在本文中，作者发现这种共享的、固定的适应方向会导致Mode Collapse（模式坍塌），因此提出了从每个源域图像中学习出多样且准确的prompt，为生成模型向目标域的适应提供更精确的方向。
+
+![image-20231221214755712](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231221214755712.png)
 
 ### Prompt Learning
 
+Prompt工程最初是一种Knowledge Probing（知识探测）方法，给定完形填空类的prompt，引导模型产生相对应的答案。
 
+然而人工设计的prompt通常不是最优的，可能提供不准确的适应方向。为了解决这个问题，在NLP领域的Prompt Learning发展迅速，并随着视觉-语言大模型的发展，应用在了视觉任务中。
+
+Kaiyang Zhou等人首先在图像分类任务中采用上下文优化，在词嵌入空间中对具有连续向量的上下文词进行建模。随后Prompt Learning在计算机视觉中的许多下游任务都得到了探索，例如目标检测、视频理解和迁移学习等。
 
 ## 主要方法
 
+IPL方法分两个阶段。
+
+第一阶段的主要任务是训练latent mapper来为每一个训练集的源域图片生成一组prompt。latent  mapper接收源域图像的latent  representation，生成一组prompt向量，每个prompt向量的维度与CLIP空间的词嵌入维度相同。第一阶段的训练由两部分构成，第一部分是latent mapper输出的prompt与目标域标签concat后送入来自CLIP的Text Encoder，并与目标域标签经过Text  Encoder的输出共同作为domain loss的输入来约束从源域中学习到的prompt适合目标域。第二部分是latent  mapper输出的prompt与源域标签concat后送入来自CLIP的Text  Encoder得到源域图片的prompt描述在CLIP空间的表示，源域图像的latent  representation经过来自CLIP的源域生成器后得到图像，图像再经过来自CLIP的Image  Encoder后得到源域图像在CLIP空间的表示，将这两种表示作为contrastive learning  loss的输入，确保学习到的prompt可以包含图像的特征。
+
+第二阶段是最小化改进的Directional CLIP  Loss来训练目标域生成器的过程，需要输入源域以及目标域图像、源域以及目标域的prompt描述。源域图像的latent  representation分别输入至源域生成器和目标域生成器中得到对应的图像；指导风格迁移方向的prompt描述由latent  mapper接收源域图像的latent representation分别与源域和目标域标签concat得到。
+
+![image-20231221231045323](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231221231045323.png)
