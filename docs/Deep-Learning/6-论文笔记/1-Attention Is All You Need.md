@@ -1,6 +1,6 @@
 # 2017 NIPS: Attention Is All You Need
 
-:::tip
+:::tip相关链接
 
 论文链接：[arXiv](https://arxiv.org/pdf/1706.03762.pdf)
 
@@ -78,7 +78,7 @@ Decoder每一步的输出是一个经过Softmax的Probability Distribution（概
 
 解码器（Decoder）在每个时间步（或每个解码步骤）的输入都来自于前一个时间步自身的输出以及编码器（Encoder）的输出。特别地，首个时间步的输入是Begin符号以及编码器（Encoder）的输出，在每个后续的时间步，解码器的输入会是前一个时间步自身的输出以及编码器（Encoder）的输出，直到生成序列的结束。
 
-:::tip
+:::tip特殊符号
 
 Begin符号是在Lexicon中添加的特殊符号，用来表示Decoder生成的开始。Begin符号通常被嵌入到一个低维的连续向量空间中，这个向量空间是通过嵌入层（Embedding Layer）学习得到的，在嵌入层中，离散的符号被映射到一个实数向量。
 
@@ -96,11 +96,9 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 #### 掩码多头自注意力机制（Masked Multi-Head Self-Attention）
 
-:::important
+:::important为什么使用掩码多头自注意力
 
-掩码多头自注意力与Transformer训练时采取的Teacher Forcing策略有很大的关系，具体分析见下文专题分析。
-
-[Teacher Forcing与Masked Multi-Head Self-Attention](###Teacher Forcing与Masked Multi-Head Self-Attention)
+掩码多头自注意力与Transformer训练时采取的Teacher Forcing策略有很大的关系，具体分析见下文《Teacher Forcing与Masked Multi-Head Self-Attention》的讨论环节：[Teacher Forcing与Masked Multi-Head Self-Attention](https://bonjour-npy.github.io/docs/Deep-Learning/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Attention%20Is%20All%20You%20Need#teacher-forcing%E4%B8%8Emasked-multi-head-self-attention)
 
 :::
 

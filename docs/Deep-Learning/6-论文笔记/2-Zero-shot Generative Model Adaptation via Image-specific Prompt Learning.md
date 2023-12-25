@@ -1,10 +1,10 @@
 # 2023 CVPR: Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
 
-:::tip
+:::tip相关链接
 
-论文链接：[CVPR 2023 open access](https://openaccess.thecvf.com/content/CVPR2023/papers/Guo_Zero-Shot_Generative_Model_Adaptation_via_Image-Specific_Prompt_Learning_CVPR_2023_paper.pdf)
+论文：[CVPR 2023 open access](https://openaccess.thecvf.com/content/CVPR2023/papers/Guo_Zero-Shot_Generative_Model_Adaptation_via_Image-Specific_Prompt_Learning_CVPR_2023_paper.pdf)
 
-代码链接：[Piscart-AI-Research](https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation)
+代码：[Piscart-AI-Research](https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation)
 
 文章的命名风格借鉴了CVPR 2022的文章[Few Shot Generative Model Adaption via Relaxed Spatial Structural Alignment](https://openaccess.thecvf.com/content/CVPR2022/papers/Xiao_Few_Shot_Generative_Model_Adaption_via_Relaxed_Spatial_Structural_Alignment_CVPR_2022_paper.pdf)
 
@@ -30,9 +30,7 @@ Generative Model Adaption的任务是使在大规模源域图片上训练的生�
 
 然而，fine-tune通常会导致过拟合。为了解决过拟合问题，通常使用的方法是施加强正则化、使用扰动法、跨域对齐或数据增强。
 
-:::info
-
-相关方法文献：
+:::info相关文献方法
 
 - 强正则化：Han Zhang, Zizhao Zhang, Augustus Odena, and Honglak Lee. Consistency regularization for generative adversarial networks. In ICLR, 2019.
 - 扰动法：Sangwoo Mo, Minsu Cho, and Jinwoo Shin. Freeze the discriminator: a simple baseline for fine-tuning GANs. In CVPR Workshops, 2020.
@@ -53,7 +51,7 @@ Generative Model Adaption的任务是使在大规模源域图片上训练的生�
 
 ### Prompt Learning
 
-Prompt工程最初是一种Knowledge Probing（知识探测）方法，给定完形填空类的prompt，引导模型产生相对应的答案。
+Prompt工程最初是一种Knowledge Probing（知识探测）方法，给定完形填空（cloze-style）类的prompt，引导模型产生相对应的答案。
 
 然而人工设计的prompt通常不是最优的，可能提供不准确的适应方向。为了解决这个问题，在NLP领域的Prompt Learning发展迅速，并随着视觉-语言大模型的发展，应用在了视觉任务中。
 
@@ -68,3 +66,4 @@ IPL方法分两个阶段。
 第二阶段是最小化改进的Directional CLIP  Loss来训练目标域生成器的过程，需要输入源域以及目标域图像、源域以及目标域的prompt描述。源域图像的latent  representation分别输入至源域生成器和目标域生成器中得到对应的图像；指导风格迁移方向的prompt描述由latent  mapper接收源域图像的latent representation分别与源域和目标域标签concat得到。
 
 ![image-20231221231045323](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231221231045323.png)
+
