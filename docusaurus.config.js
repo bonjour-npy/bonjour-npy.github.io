@@ -122,7 +122,7 @@ const config = {
       image: './static/img/intro.png',
       announcementBar: {
         id: 'announcementBar-3',
-        content: '🎉求实求真，大气大为🎊',
+        content: '求实求真，大气大为',
         isCloseable: false,
       },
       // 调整sidebar为可收回

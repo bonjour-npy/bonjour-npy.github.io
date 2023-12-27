@@ -12,7 +12,7 @@ function HomepageHeader() {
     <header 
       className={clsx('hero hero--primary', styles.heroBanner)}
       style={{
-        background: `url(${require('../../static/img/From_NUMMI_to_Tesla_\(5122119787\).jpg')})`,
+        // background: `url(${require('../../static/img/From_NUMMI_to_Tesla_\(5122119787\).jpg')})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>

@@ -9,15 +9,6 @@ import ECNULogo from '@site/static/img/ECNU_logo.png';
 import XMULogo from '@site/static/img/XMU_logo.png';
 
 const FeatureList = [
-  // {
-  //   title: '桂林电子科技大学',
-  //   img: GUETLogo,
-  //   description: (
-  //     <>
-  //       正德厚学，笃行致新
-  //     </>
-  //   ),
-  // },
   {
     title: '华东师范大学',
     img: ECNULogo,
