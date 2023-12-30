@@ -14,9 +14,9 @@
 
    Forward Process又叫做Diffusion Process，在这一步中产生的噪声-加入噪声的图像对可以用来训练Noise Predictor，即从有噪声的图像中预测出其中的噪声，再从输入中减去噪声得到降噪后的图片。
 
-   :::important
+   :::important图像生成的原理
 
-   这一步的目的也同样在之前的文章[图像生成模型](./4-Image-Generation-Models.md)中提到过：由于根据文字prompt期待生成的图像并不是固定的，可以认为生成的图片在目标域（Target Domain）符合某种分布。因此目前的SOTA模型除了将文字Prompt作为输入，还从某随机分布中sample出图片shape的随机向量（矩阵）作为输入，期待模型根据prompt将源域（Source Domain）输入的随机向量映射到目标域的分布，生成对应的图片。
+   这一步的目的也同样在之前的文章[图像生成模型](./4-Image-Generation-Models.md)中提到过：由于根据文字prompt期待生成的图像并不是固定的，可以认为生成的图片在目标域（Target Domain）符合某种分布。因此目前的SOTA模型除了将文字prompt作为输入，还从某随机分布中sample出图片shape的随机向量（矩阵）作为输入，期待模型根据prompt将源域（Source Domain）输入的随机向量映射到目标域的分布，生成对应的图片。
 
    :::
 
