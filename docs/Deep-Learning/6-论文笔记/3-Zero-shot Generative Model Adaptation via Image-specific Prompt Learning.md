@@ -1,4 +1,4 @@
-# 2023 CVPR: Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
+# CVPR 2023: Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
 
 :::tip相关链接
 
@@ -59,9 +59,11 @@ Kaiyang Zhou等人首先在图像分类任务中采用上下文优化，在词�
 
 ## 主要方法
 
+### 概述
+
 IPL方法分两个阶段。
 
-### 第一阶段：训练Latent Mapper
+#### 第一阶段：训练Latent Mapper
 
 第一阶段的主要任务是训练Lantent Mapper来为每一个训练集的源域图片生成一组prompt。Latent Mapper接收源域图像的latent representation，生成一组prompt向量。第一阶段需要解决两个问题，即在zero-shot的背景下，如何实现prompt与源域图像特征的对齐以及prompt与目标域空间的对齐，因此第一阶段的训练分两部分进行。
 
@@ -71,9 +73,11 @@ IPL方法分两个阶段。
 
 ![prompt产生策略](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesprompt产生策略.jpg)
 
-### 第二阶段
+#### 第二阶段：将Latent Mapper插入目标域生成器的训练过程
 
 第二阶段利用Directional CLIP Loss来训练目标域生成器，使源于生成器向目标域迁移学习。需要输入源域以及目标域图像、源域以及目标域的prompt描述。源域图像的latent representation分别输入至源域生成器和目标域生成器中得到对应的图像，同时指导风格迁移方向的源域以及目标域的prompt描述由Latent Mapper接收源域图像的隐式表示后输出再分别与源域和目标域标签concat而得到。分别将源域图像、生成的目标域图像以及源域、目标域的图片prompt描述一起输入至Directional CLIP Loss，从而约束由源域图像生成器初始化的目标域图像生成器向目标域的迁移学习。
 
 ![image-20231221231045323](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231221231045323.png)
+
+### Image-specific Prompt Learning
 

@@ -1,4 +1,4 @@
-# 2017 NIPS: Attention Is All You Need
+# NeurIPS 2017: Attention Is All You Need
 
 :::tip相关链接
 
