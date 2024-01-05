@@ -2,11 +2,9 @@
 
 :::tip相关链接
 
-[arXiv论文原文](https://arxiv.org/pdf/2006.11239.pdf)
+论文：[arXiv](https://arxiv.org/pdf/2006.11239.pdf)
 
-[Bilibili：54、Probabilistic Diffusion Model概率扩散模型理论与完整PyTorch代码详细解读](https://www.bilibili.com/video/BV1b541197HX/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
-
-[Bilibili：【论文精读】Diffusion Model 开山之作DDPM](https://www.bilibili.com/video/BV1WD4y157u3/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
+参考资料：[54、Probabilistic Diffusion Model概率扩散模型理论与完整PyTorch代码详细解读](https://www.bilibili.com/video/BV1b541197HX/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)、[【论文精读】Diffusion Model 开山之作DDPM](https://www.bilibili.com/video/BV1WD4y157u3/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
 
 :::
 
@@ -94,6 +92,6 @@ $$
 
 这样做的好处是因为：
 
-1. 由于线性变化，采样过程中对其他参数都有明确的导数，**可导性**对算法非常重要
+1. 由于线性变化，采样过程中对其他参数都有**明确的导数**，可以进行反向传播
 2. 可以通过**线性变换**来**控制参数化的采样**
 3. 标准正态分布具有**易采样**的性质
