@@ -248,8 +248,8 @@ const config = {
                 href: 'https://www.guet.edu.cn',
               },
               {
-                label: '全国推荐免试攻读研究生信息公开管理服务系统',
-                href: 'https://yz.chsi.com.cn/tm/',
+                label: '未来媒体研究中心',
+                href: 'https://cfm.uestc.edu.cn/index',
               },
             ],
           },
