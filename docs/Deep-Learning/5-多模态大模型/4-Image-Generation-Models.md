@@ -8,6 +8,12 @@
 
 Transformer-based的文字生成模型有很多，如GPT模型，大多使用自回归（Autoregressive, abbr. AR）的方法逐token生成。
 
+:::tip什么是ARM
+
+ARM（Autoregressive Model，自回归模型）是一类用于建模时间序列数据的统计模型，其中当前时刻的观测值被认为是过去时刻观测值的线性组合，加上一个随机误差项。这类模型的核心思想是，当前时刻的数据依赖于先前时刻的数据。
+
+:::
+
 ![image-20231125212727371](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231125212727371.png)
 
 若把文字生成的AR方法对应到图像生成中的使用，即一个一个像素生成图像。由于当前对高清图像像素的需求越来越高，自回归的生成方式导致速度非常缓慢，但优点是后面生成的每一个像素都考虑了之前的所有像素，从而使生成的图像更清晰、更细腻、更加符合预期。
