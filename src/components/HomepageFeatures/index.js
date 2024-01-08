@@ -10,20 +10,11 @@ import XMULogo from '@site/static/img/XMU_logo.png';
 
 const FeatureList = [
   {
-    title: '华东师范大学',
-    img: ECNULogo,
+    title: '电子科技大学',
+    img: UESTCLogo,
     description: (
       <>
-        求实创造，为人师表
-      </>
-    ),
-  },
-  {
-    title: '厦门大学',
-    img: XMULogo,
-    description: (
-      <>
-        自强不息，止于至善
+        求实求真，大气大为
       </>
     ),
   },
@@ -37,11 +28,20 @@ const FeatureList = [
     ),
   },
   {
-    title: '电子科技大学',
-    img: UESTCLogo,
+    title: '厦门大学',
+    img: XMULogo,
     description: (
       <>
-        求实求真，大气大为
+        自强不息，止于至善
+      </>
+    ),
+  },
+  {
+    title: '华东师范大学',
+    img: ECNULogo,
+    description: (
+      <>
+        求实创造，为人师表
       </>
     ),
   },
