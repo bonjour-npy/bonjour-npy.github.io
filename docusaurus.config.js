@@ -248,8 +248,8 @@ const config = {
                 href: 'https://www.guet.edu.cn',
               },
               {
-                label: '平顶山市第一中学',
-                href: 'http://pdsyz.cn//',
+                label: '全国推荐免试攻读研究生信息公开管理服务系统',
+                href: 'https://yz.chsi.com.cn/tm/',
               },
             ],
           },
