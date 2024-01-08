@@ -20,6 +20,15 @@ const FeatureList = [
     ),
   },
   {
+    title: '桂林电子科技大学',
+    img: GUETLogo,
+    description: (
+      <>
+        正德厚学，笃行致新
+      </>
+    ),
+  },
+  {
     title: '西安电子科技大学',
     img: XDULogo,
     description: (
@@ -34,15 +43,6 @@ const FeatureList = [
     description: (
       <>
         笃学、力行、守正、求新
-      </>
-    ),
-  },
-  {
-    title: '桂林电子科技大学',
-    img: GUETLogo,
-    description: (
-      <>
-        正德厚学，笃行致新
       </>
     ),
   },
@@ -85,6 +85,9 @@ const FeatureList = [
 ];
 
 function Feature({ img, title, description }) {
+  // 判断是否加粗
+  const isBoldTitle = title === "电子科技大学" || title === "桂林电子科技大学";
+
   return (
     <div className={clsx('col col--3')}>
       <div className="text--center">
@@ -92,7 +95,7 @@ function Feature({ img, title, description }) {
         {/* <img src={img} alt="Image" style={{ width: 200, height: 'auto' }} /> */}
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+      <h3 className={clsx({ 'bold-title': isBoldTitle })}>{title}</h3>
         <p>{description}</p>
       </div>
     </div>
