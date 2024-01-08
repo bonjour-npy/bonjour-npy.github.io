@@ -25,3 +25,10 @@
   height: auto; /* 保持宽高比例 */
   max-width: 200px; /* 设置图片的最大宽度，防止过度放大 */
 }
+
+/* styles.module.css */
+
+.feature-image {
+  display: block;
+  margin: 0 auto; /* 设置左右外边距为auto，使图片水平居中 */
+}
