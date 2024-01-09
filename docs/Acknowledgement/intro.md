@@ -10,6 +10,4 @@
 
 本网站的所有信息`仅供参考`，`不构成法律或商业建议`。
 
-![](./static/img/intro.png)
-
 ![](../../static/img/intro.png)
