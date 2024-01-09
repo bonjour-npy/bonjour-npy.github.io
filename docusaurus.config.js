@@ -255,7 +255,9 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} bonjour-npy. All rights reserved.`,
+        copyright: `<br />本网站展示的所有标识和链接仅属于个人喜好，不代表国家的立场或企业、组织的行为。<br />
+                    本网站的所有信息仅供参考，不构成法律或商业建议。<br /><br />
+                    Copyright © ${new Date().getFullYear()} bonjour-npy. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
