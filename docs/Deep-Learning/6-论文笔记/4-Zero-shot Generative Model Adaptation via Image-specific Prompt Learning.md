@@ -2,11 +2,11 @@
 
 :::tip相关链接
 
-论文：[CVPR 2023 open access](https://openaccess.thecvf.com/content/CVPR2023/papers/Guo_Zero-Shot_Generative_Model_Adaptation_via_Image-Specific_Prompt_Learning_CVPR_2023_paper.pdf)
+- 论文：[CVPR 2023 open access](https://openaccess.thecvf.com/content/CVPR2023/papers/Guo_Zero-Shot_Generative_Model_Adaptation_via_Image-Specific_Prompt_Learning_CVPR_2023_paper.pdf)
 
-代码：[Piscart-AI-Research](https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation)
+- 代码：[Piscart-AI-Research](https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation)
 
-文章的命名风格借鉴了CVPR 2022的文章[Few Shot Generative Model Adaption via Relaxed Spatial Structural Alignment](https://openaccess.thecvf.com/content/CVPR2022/papers/Xiao_Few_Shot_Generative_Model_Adaption_via_Relaxed_Spatial_Structural_Alignment_CVPR_2022_paper.pdf)
+- 文章的命名风格借鉴了CVPR 2022的文章[Few Shot Generative Model Adaption via Relaxed Spatial Structural Alignment](https://openaccess.thecvf.com/content/CVPR2022/papers/Xiao_Few_Shot_Generative_Model_Adaption_via_Relaxed_Spatial_Structural_Alignment_CVPR_2022_paper.pdf)
 
 :::
 

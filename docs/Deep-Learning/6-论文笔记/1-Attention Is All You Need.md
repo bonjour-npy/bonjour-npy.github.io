@@ -2,9 +2,11 @@
 
 :::tip相关链接
 
-论文：[arXiv](https://arxiv.org/pdf/1706.03762.pdf)
+- 论文：[arXiv](https://arxiv.org/pdf/1706.03762.pdf)
 
-参考资料：[Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)，[【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
+- 参考资料：
+  1. [Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)
+  2. [【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
 
 :::
 
