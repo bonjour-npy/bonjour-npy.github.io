@@ -2,13 +2,13 @@
 
 :::tip相关链接
 
-- 论文：[arXiv](https://arxiv.org/pdf/2006.11239.pdf)
+论文：[arXiv](https://arxiv.org/pdf/2006.11239.pdf)
 
-- 代码：[GitHub](https://github.com/hojonathanho/diffusion)
+代码：[GitHub](https://github.com/hojonathanho/diffusion)
 
-- 参考资料：
-  1. [54、Probabilistic Diffusion Model概率扩散模型理论与完整PyTorch代码详细解读](https://www.bilibili.com/video/BV1b541197HX/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
-  2. [【论文精读】Diffusion Model 开山之作DDPM](https://www.bilibili.com/video/BV1WD4y157u3/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
+参考资料：
+- [54、Probabilistic Diffusion Model概率扩散模型理论与完整PyTorch代码详细解读](https://www.bilibili.com/video/BV1b541197HX/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
+- [【论文精读】Diffusion Model 开山之作DDPM](https://www.bilibili.com/video/BV1WD4y157u3/?spm_id_from=333.337.search-card.all.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
 
 :::
 
