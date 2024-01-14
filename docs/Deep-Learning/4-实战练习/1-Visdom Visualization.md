@@ -6,17 +6,15 @@
 对于PyTorch框架，可以使用Visdom或TensorBoardX实现可视化，本篇主要讲述Visdom。
 :::
 
-## 一、安装Visdom
+## 安装Visdom
 
 ```
 pip install visdom
 ```
 
----
+## Visdom的使用
 
-## 二、Visdom的使用
-
-### 0. Visdom的启动
+### Visdom的启动
 
 首先要通过终端启动Visdom，使用本机端口运行服务器。
 
@@ -27,7 +25,7 @@ visdom
 python -m visdom.server
 ```
 
-### 1. 单窗口单曲线的可视化
+### 单窗口单曲线的可视化
 
 ```python
 from visdom import Visdom
@@ -43,7 +41,7 @@ vis.line([loss.item()], [epoch], win='win_id', update='append')
 # 对于非image数据，在传入visdom时仍需要先转化为numpy类型
 ```
 
-### 2. 单窗口多曲线的可视化
+### 单窗口多曲线的可视化
 
 ```python
 from visdom import Visdom
