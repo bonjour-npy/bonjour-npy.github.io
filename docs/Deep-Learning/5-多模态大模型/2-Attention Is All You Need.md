@@ -1,12 +1,14 @@
-# 2017 NIPS: Attention Is All You Need
+# NeurIPS 2017: Attention Is All You Need
 
-:::tip
+:::tip相关链接
+
+论文：[arXiv](https://arxiv.org/pdf/1706.03762.pdf)
 
 参考资料：
 
-[Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)
+- [Transformer模型详解（图解最完整版）](https://zhuanlan.zhihu.com/p/338817680)
+- [【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
 
-[【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g&list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&index=13)
 :::
 
 Transformer是Sequence-to-Sequence (Seq2Seq) 模型，模型的输入是向量序列，输出同样是向量序列，且输出的长度由模型经过学习决定。
@@ -55,13 +57,13 @@ $$
 
 ## Decoder
 
-Decoder的任务是生成输出，可以根据是否一次性生成输出分为Autoregressive（自回归，abbr. AR）以及Non-Autoregressive（非自回归，abbr. NAR）两种模式。
+Decoder的任务是生成输出，可以根据是否一次性生成输出分为Autoregressive（自回归，abbr. AT）以及Non-Autoregressive（非自回归，abbr. NAT）两种模式。
 
 自回归类型的Decoder需要**逐步生成**输出，并将**之前自身输出的所有词汇经过嵌入层后生成token作为下一次的输入**，通常每次生成一个词或一个符号。这种方式的缺点是需要保存和更新词表中的所有可能选项，因此在大词汇表上可能会变得非常慢。然而，它的优点是能够利用上下文信息来生成输出，这有助于提高翻译的质量。
 
-非自回归类型的Decoder试图在一次操作中生成整个输出序列。这通常通过使用诸如注意力机制等策略来实现，这些策略允许解码器关注输入序列的不同部分，同时生成输出序列的不同部分。NAR的优点在于其高效性，因为它不需要保存和更新大量的可能选项。然而，由于它不能利用上下文信息来生成输出，因此其生成的输出质量普遍会低于AR。
+非自回归类型的Decoder试图在一次操作中生成整个输出序列。这通常通过使用诸如注意力机制等策略来实现，这些策略允许解码器关注输入序列的不同部分，同时生成输出序列的不同部分。NAT的优点在于其高效性，因为它不需要保存和更新大量的可能选项。然而，由于它不能利用上下文信息来生成输出，因此其生成的输出质量普遍会低于AT。
 
-### Autoregressive Decoder（AR）
+### Autoregressive Decoder（AT）
 
 #### 整体结构
 
@@ -79,7 +81,7 @@ Decoder每一步的输出是一个经过Softmax的Probability Distribution（概
 
 解码器（Decoder）在每个时间步（或每个解码步骤）的输入都来自于前一个时间步自身的输出以及编码器（Encoder）的输出。特别地，首个时间步的输入是Begin符号以及编码器（Encoder）的输出，在每个后续的时间步，解码器的输入会是前一个时间步自身的输出以及编码器（Encoder）的输出，直到生成序列的结束。
 
-:::tip
+:::tip特殊符号
 
 Begin符号是在Lexicon中添加的特殊符号，用来表示Decoder生成的开始。Begin符号通常被嵌入到一个低维的连续向量空间中，这个向量空间是通过嵌入层（Embedding Layer）学习得到的，在嵌入层中，离散的符号被映射到一个实数向量。
 
@@ -97,11 +99,9 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 #### 掩码多头自注意力机制（Masked Multi-Head Self-Attention）
 
-:::important
+:::important为什么使用掩码多头自注意力
 
-掩码多头自注意力与Transformer训练时采取的Teacher Forcing策略有很大的关系，具体分析见下文专题分析。
-
-[Teacher Forcing与Masked Multi-Head Self-Attention](###Teacher Forcing与Masked Multi-Head Self-Attention)
+掩码多头自注意力与Transformer训练时采取的Teacher Forcing策略有很大的关系，具体分析见下文《Teacher Forcing与Masked Multi-Head Self-Attention》的讨论环节：[Teacher Forcing与Masked Multi-Head Self-Attention](https://bonjour-npy.github.io/docs/Deep-Learning/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/Attention%20Is%20All%20You%20Need#teacher-forcing%E4%B8%8Emasked-multi-head-self-attention)
 
 :::
 
@@ -131,7 +131,7 @@ Begin符号又叫Start符号或SOS符号（**S**tart **O**f **S**entence），�
 
 ![image-20231119142212757](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119142212757.png)
 
-### Non-Autoregressive Decoder（NAR）
+### Non-Autoregressive Decoder（NAT）
 
 ![image-20231119103112168](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20231119103112168.png)
 
