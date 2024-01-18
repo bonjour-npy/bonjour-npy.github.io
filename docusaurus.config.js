@@ -161,10 +161,6 @@ const config = {
             label: '🎰算法',
           },
           {
-            to: '/docs/Linux/intro',
-            label: '🎯Linux',
-          },
-          {
             to: '/docs/Curriculum/intro',
             label: '📖课程学习',
           },
