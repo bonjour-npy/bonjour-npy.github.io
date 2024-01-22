@@ -24,7 +24,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/Deep-Learning/intro">
-              从深度学习开始浏览  
+            📖 从深度学习开始浏览 🚀
           </Link>
         </div>
       </div>

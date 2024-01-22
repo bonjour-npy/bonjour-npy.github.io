@@ -3,11 +3,9 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 import GUETLogo from '@site/static/img/GUET_logo.png';
-import HDULogo from '@site/static/img/HDU_logo.png';
-import XDULogo from '@site/static/img/XDU_logo.png';
 import UESTCLogo from '@site/static/img/UESTC_logo.png';
-import ECNULogo from '@site/static/img/ECNU_logo.png';
-import XMULogo from '@site/static/img/XMU_logo.png';
+import KEXIELogo from '@site/static/img/KEXIE_logo.png';
+import CFMLogo from '@site/static/img/CFM_Circle.png';
 
 const FeatureList = [
   {
@@ -15,7 +13,16 @@ const FeatureList = [
     img: UESTCLogo,
     description: (
       <>
-        🧑‍💻求实求真，大气大为
+        求实求真，大气大为
+      </>
+    ),
+  },
+  {
+    title: '未来媒体研究中心',
+    img: CFMLogo,
+    description: (
+      <>
+        CENTER FOR FUTURE MEDIA
       </>
     ),
   },
@@ -24,83 +31,39 @@ const FeatureList = [
     img: GUETLogo,
     description: (
       <>
-        👮‍♂️正德厚学，笃行致新
+        正德厚学，笃行致新
       </>
     ),
   },
   {
-    title: '西安电子科技大学',
-    img: XDULogo,
+    title: '大学生科技协会',
+    img: KEXIELogo,
     description: (
       <>
-        💂‍♂️厚德、求真、砺学、笃行
+        木起青绿，梦绘初蓝
       </>
     ),
   },
-  {
-    title: '杭州电子科技大学',
-    img: HDULogo,
-    description: (
-      <>
-        🧙‍♂️笃学、力行、守正、求新
-      </>
-    ),
-  },
-  // {
-  //   title: '电子科技大学',
-  //   img: UESTCLogo,
-  //   description: (
-  //     <>
-  //       求实求真，大气大为
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: '西安电子科技大学',
-  //   img: XDULogo,
-  //   description: (
-  //     <>
-  //       红色西电，创新广研
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: '厦门大学',
-  //   img: XMULogo,
-  //   description: (
-  //     <>
-  //       自强不息，止于至善
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: '华东师范大学',
-  //   img: ECNULogo,
-  //   description: (
-  //     <>
-  //       求实创造，为人师表
-  //     </>
-  //   ),
-  // },
 ];
 
 function Feature({ img, title, description }) {
-  // 判断是否加粗
-  const isBoldTitle = title === "电子科技大学" || title === "桂林电子科技大学";
+  // 使用三元运算符来判断 title 是否等于特定的值
+  // 如果是，则使用 bold 类，否则不使用
+  const titleClass = title === '电子科技大学' || title === '未来媒体研究中心' ? 'bold' : 'regular';
 
   return (
     <div className={clsx('col col--3')}>
       <div className="text--center">
-        <img src={img} alt="Image" />
-        {/* <img src={img} alt="Image" style={{ width: 200, height: 'auto' }} /> */}
+        <img src={img} alt="Image" style={{ width: 175, height: 'auto', marginBottom: '0.5rem' }} />
       </div>
       <div className="text--center padding-horiz--md">
-      <h3 className={clsx({ 'bold-title': isBoldTitle })}>{title}</h3>
+        <h3 className={clsx(titleClass)}>{title}</h3>
         <p>{description}</p>
       </div>
     </div>
   );
 }
+
 
 export default function HomepageFeatures() {
   return (

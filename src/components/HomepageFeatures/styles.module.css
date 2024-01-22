@@ -1,38 +1,3 @@
 .features {
   margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.features .row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-}
-
-.features .col--3 {
-  flex: 1; /* Make each column take equal space */
-  margin: 0.5rem; /* Add some margin between columns */
-  width: 60%; /* 设置父容器宽度为100% */
-}
-
-.features .text--center {
-  width: 60%; /* 设置父容器的容器宽度为100% */
-}
-
-.features img {
-  width: 60%; /* 图片宽度占据其容器的100% */
-  height: auto; /* 保持宽高比例 */
-  max-width: 200px; /* 设置图片的最大宽度，防止过度放大 */
-}
-
-/* styles.module.css */
-
-.feature-image {
-  display: block;
-  margin: 0 auto; /* 设置左右外边距为auto，使图片水平居中 */
-}
-
-.features .bold-title {
-  font-weight: bolder;
 }

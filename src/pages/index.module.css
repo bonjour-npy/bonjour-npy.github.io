@@ -5,18 +5,17 @@
 /* 定义两个背景图像 */
 .heroBanner {
   /* padding: 13rem 0; */
-  padding: 11%;
+  padding: 11rem;
   text-align: center;
   position: relative;
   overflow: auto;
   /* background-color: var(--ifm-color-primary-lighter)； */
   background-color: white;
   background-image: url(../../static/img/spaceX_1.jpg);
-  /* background-image: url(../../static/img/From_NUMMI_to_Tesla_\(5122119787\).jpg); */
   /* background-image: url(../../static/img/NYPD_Truck_with_officers.jpg); */
   background-position: center;
   -webkit-text-fill-color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); */
   /* -webkit-text-stroke: 0.1px white; */
   background-size: contain;
 }
