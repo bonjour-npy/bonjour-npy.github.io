@@ -144,8 +144,8 @@ const config = {
         title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
-          // src: 'img/UESTC_logo.png',
-          src: 'img/CFM_Circle.png',
+          src: 'img/UESTC_logo.png',
+          // src: 'img/CFM_Circle.png',
           // src: 'img/OpenAI.svg',
         },
         items: [
