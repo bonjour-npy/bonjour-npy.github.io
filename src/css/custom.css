@@ -62,6 +62,7 @@
   );
   z-index: auto;
 } */
+
 div[class^='announcementBar_'] {
   background: repeating-linear-gradient(
     -35deg,
