@@ -16,6 +16,7 @@ const FeatureList = [
         求实求真，大气大为
       </>
     ),
+    link: 'https://www.uestc.edu.cn/'
   },
   {
     title: '未来媒体研究中心',
@@ -25,6 +26,7 @@ const FeatureList = [
         CENTER FOR FUTURE MEDIA
       </>
     ),
+    link: 'https://cfm.uestc.edu.cn/index'
   },
   {
     title: '桂林电子科技大学',
@@ -34,30 +36,35 @@ const FeatureList = [
         正德厚学，笃行致新
       </>
     ),
+    link: 'https://www.guet.edu.cn/'
   },
   {
-    title: '大学生科技协会',
+    title: '桂电三院科协',
     img: KEXIELogo,
     description: (
       <>
         木起青绿，梦绘初蓝
       </>
     ),
+    link: 'https://hello.kexie.space/'
   },
 ];
 
-function Feature({ img, title, description }) {
-  // 使用三元运算符来判断 title 是否等于特定的值
-  // 如果是，则使用 bold 类，否则不使用
-  const titleClass = title === '电子科技大学' || title === '未来媒体研究中心' ? 'bold' : 'regular';
+function Feature({ img, title, description, link }) {
 
   return (
     <div className={clsx('col col--3')}>
       <div className="text--center">
-        <img src={img} alt="Image" style={{ width: 175, height: 'auto', marginBottom: '0.5rem' }} />
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          <img src={img} alt="Image" style={{ width: 175, height: 'auto', marginBottom: '1.2rem' }} />
+        </a>
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 className={clsx(titleClass)}>{title}</h3>
+        <h3 className={clsx('title')}>
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
+        </h3>
         <p>{description}</p>
       </div>
     </div>
