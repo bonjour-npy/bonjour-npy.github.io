@@ -252,9 +252,9 @@ const config = {
             ],
           },
         ],
-        copyright: `<br />本网站展示的所有标识和链接仅属于个人喜好，不代表国家的立场或企业、组织的行为。<br />
-                    本网站的所有信息仅供参考，不构成法律或商业建议。<br /><br />
-                    Copyright © ${new Date().getFullYear()} bonjour-npy. Built with Docusaurus.`,
+        copyright: `<br />本网站所展示的标识、链接均属于个人创作和喜好表达，不代表任何国家、政府、企业或组织的官方立场或行为。<br />
+                    尽管本网站努力确保信息的准确性和时效性，但所有信息仅供参考，并不构成任何形式的法律、财务或商业建议。<br />
+                    <br />Copyright © ${new Date().getFullYear()} bonjour-npy. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
