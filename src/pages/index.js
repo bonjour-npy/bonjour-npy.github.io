@@ -22,7 +22,7 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx("button button--secondary button--lg", styles.buttonFonts)}
             to="/docs/Deep-Learning/intro">
             📖 从深度学习开始浏览 🚀
           </Link>
@@ -31,6 +31,7 @@ function HomepageHeader() {
     </header>
   );
 }
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
