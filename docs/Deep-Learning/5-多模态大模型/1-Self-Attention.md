@@ -84,7 +84,7 @@ inputs = torch.tensor(inputs, dtype=torch.float32)
 
 #### 初始化权重矩阵
 
-每个输入向量都会与3个权重向量做乘法得到3个新的向量，分别为key，query以及value。在本例中将新的向量维度设为3，由于输入大小为$(3, 3)$，因此每个权重矩阵的形状应该是$(4, 3)$。为了统一性分析，计key，query以及value各向量维度为$num$。
+每个输入向量都会与3个权重向量做乘法得到3个新的向量，分别为key，query以及value。在本例中将新的向量维度设为3，由于输出的k、q、v矩阵大小均为$(3, 3)$，因此每个权重矩阵的形状应该是$(4, 3)$。为了统一性分析，计key，query以及value各向量维度为$num$。
 
 >In a neural network setting, these weights are usually small numbers, initialised randomly using an appropriate random distribution like Gaussian, Xavier and Kaiming distributions. This initialisation is done once before training.
 
