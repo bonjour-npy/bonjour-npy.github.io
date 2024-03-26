@@ -1,7 +1,5 @@
 # 本科毕业论文：基于 Prompt Learning 的视觉-语言大模型在图像生成中的应用与研究
 
-[中文](./README.md) | [English](./README_en-us.md)
-
 本篇论文主要基于 [IPL](https://arxiv.org/pdf/2304.03119.pdf) 的思想实现。本仓库大部分从 [IPL-Zero-Shot-Generative-Model-Adaptation](https://github.com/Picsart-AI-Research/IPL-Zero-Shot-Generative-Model-Adaptation) fork 而来并做出了一定修改。
 
 ## 依赖
