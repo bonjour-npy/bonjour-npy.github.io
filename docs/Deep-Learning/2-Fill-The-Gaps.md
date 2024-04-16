@@ -153,6 +153,6 @@ https://www.jianshu.com/p/41c15d301542
 
 因为cuDNN中RNN的API就是batch_size在第二维度。进一步讲，`batch first`意味着模型的输入（一个Tensor）在内存中存储时，先存储第一个sequence，再存储第二个，而如果是`seq_len first`，模型的输入在内存中，先存储每一个sequence的第一个元素，然后是第二个元素，两种区别如下图所示：
 
-![img](https://upload-images.jianshu.io/upload_images/9136879-3948ad90daaf094a.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
+![img](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_images9136879-3948ad90daaf094a.png)
 
 **`seq_len first`意味着不同序列中同一个时刻对应的输入单元在内存中是毗邻的，这样才能做到真正的batch计算。**

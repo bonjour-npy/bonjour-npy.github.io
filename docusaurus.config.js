@@ -27,7 +27,7 @@ const config = {
   // redefine ends here
   title: '培洋的笔记本📒',
   // tagline: 'Bonjour',
-  favicon: 'img/General_Electric.svg',
+  favicon: 'img/RedBull.svg',
   
   // Set the production url of your site here
   url: 'https://bonjour-npy.github.io',
