@@ -37,7 +37,7 @@ $$
 
 1. **gradient = 0** if accuracy unchanged but weights changed:
 
-   由于阈值的存在，下一轮迭代输出的概率可能仍小于阈值，从而导致分类结果与上一次迭代相同，此时acc并无变化，**出现梯度为0**的情况。
+   xxxxxxxxxx19 1a = torch.tensor([1, 2, 3])2b = torch.tensor([4, 5, 6])3c = zip(a, b)4for i in c:5    print(i)6'''7(tensor(1), tensor(4))8(tensor(2), tensor(5))9(tensor(3), tensor(6))10'''11a = torch.tensor([[1, 2, 3], [3, 2, 1]])12b = torch.tensor([[4, 5, 6], [6, 5, 4]])13c = zip(a, b)14for i in c:15    print(i)16'''17(tensor([1, 2, 3]), tensor([4, 5, 6]))18(tensor([3, 2, 1]), tensor([6, 5, 4]))19'''python
 
 2. **gradient not continuous** since the number of correct is not continunous:
 
