@@ -10,13 +10,13 @@
 
 ### Text-To-Image 生成范式
 
-#### 1. GAN
+#### GAN
 
 使用对抗生成策略，判别器根据真实图像判断生成器生成的图像是否逼真，二者交替训练。
 
 ![GAN](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesGAN.png)
 
-#### 2. Autoregressive（AR）
+#### Autoregressive（AR）
 
 自回归生成范式，利用输入自身之前各期 $[x_1,...,x_{t-1}]$ 来预测本期 $x_t$​ 的表现。在图像生成中，自回归模型可以逐像素或逐块生成图像，每一步的生成基于之前已经生成的部分。自回归模型的优点在于能够捕捉图像中的复杂依赖关系，从而生成更加逼真的图像。
 
@@ -36,7 +36,7 @@
 
 ![image-20240705103947258](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240705103947258.png)
 
-#### 3. Non-AR Transformer
+#### Non-AR Transformer
 
 :::tip参考资料
 
@@ -58,7 +58,7 @@
 
 ##### 代表模型：[MAGE: MAsked Generative Encoder to Unify Representation Learning and Image Synthesis](https://arxiv.org/pdf/2211.09117)
 
-#### 4.Diffusion Model
+#### Diffusion Model
 
 :::tip参考链接
 
@@ -91,5 +91,3 @@ VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示�
 原文 URL：[Video and 3D Generation](https://datarelease.blob.core.windows.net/tutorial/vision_foundation_models_2024/Kevin_Video_3D_Generation.pdf)
 
 :::
-
-先驱性工作：

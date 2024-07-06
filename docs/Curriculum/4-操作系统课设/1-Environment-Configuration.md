@@ -1,8 +1,8 @@
-# Linux系统下GeekOS的环境配置
+# Linux 系统下 GeekOS 的环境配置
 
-## 一、必须要知道的原理
+## 必须要知道的原理
 
-### 1. GeekOS:
+### GeekOS:
 
 GeekOS是一个基于x86体系结构的微操作系统内核. 由美国马理兰大学的教师开发, 主要用于操作系统课程设计的教育. 出于教学目的, 这个系统内核设计简单, 却又兼备实用性, 它可以运行在真正的X86 PC硬件平台.
 
@@ -10,13 +10,13 @@ GeekOS是一个基于x86体系结构的微操作系统内核. 由美国马理兰
 
 在环境搭建完成之后, 我们进行的每一个项目的代码编写几乎都在geekos-version/src/projecti/src/geekos/文件夹下, 每一个项目的编译都在geekos-version/src/projecti/build文件夹下进行, 即要在终端中通过``cd``进入该目录, 再执行``make depend``和``make``命令.
 
-### 2. bochs:
+### bochs:
 
 bochs是一个x86硬件平台的模拟器. GeekOS运行依托于bochs. 
 
 在安装好Linux操作系统后需要安装bochs以及nasm, 以完成GeekOS环境的搭建.
 
-### 3. **二者之间的关系**
+### **二者之间的关系**
 
 GeekOS的开发环境可分为两部分, 一部分是编译环境, 一部分是运行环境. 
 
@@ -24,11 +24,11 @@ GeekOS的开发环境可分为两部分, 一部分是编译环境, 一部分是�
 
 在编译过程中, 使用Linux自带的编译环境以及编译命令对特定的GeekOS project进行编译即可. 首先在终端中通过``cd``命令进入geekos-version/src/projecti/build目录, 再执行make depend和make命令. 编译后生成bochs的镜像文件fd.img, 这是bochs运行所必须的文件,也是GeekOS运行环境的前置配置. 
 
-## 二、安装与配置
+## 安装与配置
 
 安装其实非常简单, 这里主要花篇幅介绍安装后解决报错的配置.
 
-### 1. 安装
+### 安装
 
 需要下载[GeekOS Files](https://sourceforge.net/projects/geekos/files/), 安装bochs, nasm等.
 
@@ -42,7 +42,7 @@ yay -S bochs nasm
 
 其他发行版的安装方法这里不再赘述, 可选择从群文件里下载源文件并编译安装, 师兄师姐也在群文件里给了一些教程指导.
 
-### 2. 配置
+### 配置
 
 完成安装后, 我们就可以开始对project0中的代码进行完善了, 并在geekos-version/src/project0/build目录下执行``make depend``以及``make``命令, 目的是编译project0的代码, 生成bochs的镜像文件fd.img以构建GeekOS的运行环境.
 

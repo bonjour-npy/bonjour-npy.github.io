@@ -60,11 +60,11 @@ function Feature({ img, title, description, link }) {
         </a>
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 className={clsx('title')}>
+        <div className={clsx('title')} style={{ fontSize: '1.5em', marginBottom: '0.5em'}}>
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title}
           </a>
-        </h3>
+        </div>
         <p>{description}</p>
       </div>
     </div>

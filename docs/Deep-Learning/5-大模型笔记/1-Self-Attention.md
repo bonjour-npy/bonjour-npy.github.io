@@ -297,3 +297,4 @@ Self-Attention可以看作是复杂化的CNN，CNN只能在感受野范围内考
 - 防止注意力机制关注填充（padding）标记
 - 实现因果注意力（causal attention），即每个位置只能关注它自己和之前的位置，**常用于 Decoder 中**
 - 在特定任务中屏蔽某些不相关的输入
+

@@ -2,7 +2,7 @@
 
 ## 饮水思源
 
-该网站的搭建离不开[Docusaurus](https://github.com/facebook/docusaurus)的支持以及对[Sonder的宝藏笔记本](https://space.keter.top/)的参考。
+该网站的搭建离不开 [Docusaurus](https://github.com/facebook/docusaurus) 的支持以及对 [Sonder的宝藏笔记本](https://space.keter.top/) 的参考。
 
 ## Disclaimer
 

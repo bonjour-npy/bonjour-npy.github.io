@@ -1,7 +1,7 @@
 # 关于Logistic Regression
 
 
-## 一、什么是Logistic Regression
+## 什么是Logistic Regression
 
 Logistic Regression直译为逻辑回归，是一种用来解决二分类问题的机器学习方法，用于估计某种事物的可能性。
 
@@ -9,7 +9,7 @@ Logistic Regression直译为逻辑回归，是一种用来解决二分类问题�
 
 ---
 
-## 二、逻辑回归（Logistic Regression）和线性回归（Linear Regression）
+## 逻辑回归（Logistic Regression）和线性回归（Linear Regression）
 
 - 线性回归要求因变量是连续性数值变量，而逻辑回归要求因变量是离散的变量。
 - 逻辑回归以线性回归为理论支持，通过Sigmoid函数引入了非线性因素。
@@ -17,13 +17,13 @@ Logistic Regression直译为逻辑回归，是一种用来解决二分类问题�
 
 ---
 
-## 三、逻辑回归到底是回归任务（Regression）还是分类任务（Classification）？
+## 逻辑回归到底是回归任务（Regression）还是分类任务（Classification）？
 
 从历史角度方面看，逻辑回归在诞生时使用MSE作为损失函数，其目标是让输出的概率更接近于1，与回归任务的目标相似。
 
 ---
 
-## 四、为什么逻辑回归或其他分类任务不使用分类准确率作为损失函数？
+## 为什么逻辑回归或其他分类任务不使用分类准确率作为损失函数？
 
 逻辑回归以及其他分类任务在测试角度上的目标让提高分类准确率acc，但并不会将maximize accuracy作为数学上的训练方法，即在训练过程中不使用与acc有关的损失函数。
 

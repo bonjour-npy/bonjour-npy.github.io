@@ -1,6 +1,6 @@
 # 卷积层
 
-## 一、1x1卷积
+## 1x1 卷积
 
 $k_h=k_w=1$的卷积不识别空间模式，丢弃了空间信息，只是融合通道
 
@@ -8,7 +8,7 @@ $k_h=k_w=1$的卷积不识别空间模式，丢弃了空间信息，只是融合
 
 ---
 
-## 二、二维卷积层
+## 二维卷积层
 
 - 输入：$c_i \times H \times W$
 
@@ -23,7 +23,6 @@ $k_h=k_w=1$的卷积不识别空间模式，丢弃了空间信息，只是融合
   shape_{output} = \frac{shape_{input}-size_{kernel}+2*padding}{stride}+1 \tag{1}
   $$
   
-
 - 计算复杂度：$O(c_o \times c_i \times H \times W \times H' \times W')$
 
 - 总结：

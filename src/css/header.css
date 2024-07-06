@@ -3,36 +3,55 @@ h2, h3, h4, h5, h6 {
     color: #40b8fa;
 }
 
-/* p, h4, h5, h6 {
-    font-size: 120%;
-} */
-
 body {
-    font-size: 1.125em;
+    font-size: 1.1em;
 }
 
 h1 {
     font-size: 3.0em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 h2 {
     font-size: 2.0em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 h3 {
     font-size: 1.5em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 h4 {
     font-size: 1.25em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 h5 {
     font-size: 1.20em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 h6 {
     font-size: 1.15em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.university_title {
+    font-size: 100px;
+    line-height: 1.5;
 }
 
 .navbar {
@@ -40,5 +59,57 @@ h6 {
 }
 
 .table-of-contents {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+}
+
+/* Add List Number for each Heder here. */
+
+h1 {
+    counter-reset: h2;
+}
+
+h2 {
+    counter-reset: h3;
+}
+
+h3 {
+    counter-reset: h4;
+}
+
+h4 {
+    counter-reset: h5;
+}
+
+h5 {
+    counter-reset: h6;
+}
+
+h2:before {
+    counter-increment: h2;
+    content: counter(h2);
+    margin-right: 0.5em;
+}
+  
+h3:before, h3.md-focus.md-heading:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3);
+    margin-right: 0.5em;
+}
+  
+h4:before, h4.md-focus.md-heading:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4);
+    margin-right: 0.5em;
+}
+  
+h5:before, h5.md-focus.md-heading:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+    margin-right: 0.5em;
+}
+  
+h6:before, h6.md-focus.md-heading:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
+    margin-right: 0.5em;
 }

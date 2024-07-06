@@ -1,7 +1,7 @@
 # PyTorch基础
 
 
-## 一、常用函数部分
+## 常用函数部分
 
 1. concat与stack函数
 

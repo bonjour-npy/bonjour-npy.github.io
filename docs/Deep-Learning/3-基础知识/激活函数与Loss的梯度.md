@@ -1,9 +1,9 @@
 # 激活函数与Loss的梯度
 
 
-## 一、激活函数
+## 激活函数
 
-### 1. Sigmoid函数 / Logistic函数
+### Sigmoid函数 / Logistic函数
 
 $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
@@ -28,7 +28,7 @@ $$
    F.sigmoid(x)  # 当x为100时，sigmoid(x)就接近于0了
    ```
 
-### 2. 线性整流单元（Rectified Linear Unit, ReLU）
+### 线性整流单元（Rectified Linear Unit, ReLU）
 
 $$
    f(x) = 
@@ -57,9 +57,9 @@ $$
 
 ------
 
-## 二、损失函数
+## 损失函数
 
-### 1. Mean Squared Error 均方误差
+### Mean Squared Error 均方误差
 
 - L2范数是对元素求平方和后再开根号，需要.pow(2)后才可作为损失函数
 - 微小的误差可能对网络性能带来极大的影响
@@ -73,7 +73,7 @@ $$
   \tag{6}
   $$
 
-### 2. Cross Entropy Loss 交叉熵损失
+### Cross Entropy Loss 交叉熵损失
 
 #### 信息熵
 

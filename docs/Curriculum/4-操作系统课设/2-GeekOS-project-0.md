@@ -2,7 +2,7 @@
 
 在上一篇博客中我们完成了GeekOS环境的配置，下面我们来验证环境配置的成功与否以及project 0的实现。
 
-## 1. 编写C语言代码
+## 编写C语言代码
 
 编写geekos-version/src/projecti/src/geekos/main.c文件
 
@@ -123,7 +123,7 @@ void Main(struct Boot_Info* bootInfo)
 }
 ```
 
-## 2. 使用Linux的编译系统对C语言代码进行编译
+## 使用Linux的编译系统对C语言代码进行编译
 
 每一个项目的编译都在geekos-version/src/projecti/build文件夹下进行，即要在终端中通过``cd``进入该目录。
 

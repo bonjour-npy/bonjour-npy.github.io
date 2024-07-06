@@ -120,6 +120,9 @@ const config = {
     ({
       // Replace with your project's social card
       image: './static/img/intro.png',
+      title: {
+        autoNumberHeadings: true,
+      },
       announcementBar: {
         id: 'announcementBar-3',
         content: '求实求真，大气大为',
