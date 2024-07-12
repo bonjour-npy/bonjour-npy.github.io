@@ -8,7 +8,7 @@
 
 :::
 
-### Text-To-Image 生成范式
+### 四种生成范式
 
 #### GAN
 
@@ -18,15 +18,35 @@
 
 #### Autoregressive（AR）
 
-自回归生成范式，利用输入自身之前各期 $[x_1,...,x_{t-1}]$ 来预测本期 $x_t$​ 的表现。在图像生成中，自回归模型可以逐像素或逐块生成图像，每一步的生成基于之前已经生成的部分。自回归模型的优点在于能够捕捉图像中的复杂依赖关系，从而生成更加逼真的图像。
+自回归生成范式，利用输入自身之前各期 $[x_1,...,x_{t-1}]$ 来预测本期 $x_t$​​ 的表现。在图像生成中，自回归模型可以逐像素或逐块生成图像，每一步的生成基于之前已经生成的部分。自回归模型的优点在于能够捕捉图像中的复杂依赖关系，从而生成更加逼真的图像。
 
-##### 代表模型：[ViT-VQGAN](https://arxiv.org/pdf/2110.04627)
+##### 代表模型：VAE、VQVAE（2017）
+
+:::tip参考资料
+
+[VQ-VAE 的简明介绍：量子化子编码器](https://www.spaces.ac.cn/archives/6760)
+
+[Variant AutoEncoder（VAE）和 VQ-VAE 学习笔记和代码](https://blog.csdn.net/Je1zvz/article/details/136398797)
+
+:::
+
+VAE 和 VQ-VAE 都通过学习数据分布的潜在表示来生成新的样本。VAE 使用高斯分布来表示潜在空间，而 VQ-VAE 使用离散的代码簿来表示潜在空间。
+
+具体来说，VAE 的工作原理是通过一个编码器将输入数据映射到一个潜在空间，然后通过一个解码器将潜在空间中的向量重构为原始数据。在训练过程中，VAE 会学习到数据分布的潜在表示，并能够生成与训练数据类似的新样本。
+
+VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示潜在空间。VQ-VAE 首先将编码器输出的向量进行量化，将其映射到代码簿中的最近向量。然后，解码器使用代码簿中的向量来重构原始数据。VQ-VAE 的优势在于，它可以学习到数据中的离散结构和语义信息，并可以避免过拟合。
+
+##### 代表模型：VQGAN（2021）
+
+##### 代表模型：[ViT-VQGAN](https://arxiv.org/pdf/2110.04627)（2022）
 
 ![image-20240705102041673](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240705102041673.png)
 
 **VQ (Vector Quantization) 的改进**：在原有的 VQ-VAE 基础上进行了改进，通过引入更复杂的量化器和更强大的解码器，使得生成的图像质量得到了显著提升。
 
-**GAN (Generative Adversarial Network) 的结合**：将 VQ 和 GAN 结合，利用 GAN 的判别器来提升生成图像的细节和逼真度。
+**GAN (Generative Adversarial Network) 的结合**：将 VQ 和 GAN 结合，利用 Style-GAN 的判别器来提升生成图像的细节和逼真度。
+
+**Transformer 的使用：**将 VQ-VAE 和 VQGAN 的 Encoder、Decoder 中原来使用的 CNN 结构替换为 ViT。一是因为数据量丰富，二是 CNN 的归纳偏置对模型的约束是有限的，三是计算效率和重建质量更显著。
 
 ##### 代表模型：[VAR](https://arxiv.org/pdf/2404.02905)
 
@@ -36,7 +56,7 @@
 
 ![image-20240705103947258](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240705103947258.png)
 
-#### Non-AR Transformer
+#### Masked-prediction model（Non-AR）
 
 :::tip参考资料
 
@@ -65,16 +85,6 @@
 [深度理解变分自编码器(VAE) | 从入门到精通 ](https://www.cnblogs.com/wxkang/p/17128108.html)
 
 :::
-
-##### 代表模型：VAE
-
-VAE 和 VQ-VAE 都通过学习数据分布的潜在表示来生成新的样本。VAE 使用高斯分布来表示潜在空间，而 VQ-VAE 使用离散的代码簿来表示潜在空间。
-
-具体来说，VAE 的工作原理是通过一个编码器将输入数据映射到一个潜在空间，然后通过一个解码器将潜在空间中的向量重构为原始数据。在训练过程中，VAE 会学习到数据分布的潜在表示，并能够生成与训练数据类似的新样本。
-
-VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示潜在空间。VQ-VAE 首先将编码器输出的向量进行量化，将其映射到代码簿中的最近向量。然后，解码器使用代码簿中的向量来重构原始数据。VQ-VAE 的优势在于，它可以学习到数据中的离散结构和语义信息，并可以避免过拟合。
-
-##### 代表模型：VQ-VAE
 
 ### 如何训练优秀的生成基座模型？
 
