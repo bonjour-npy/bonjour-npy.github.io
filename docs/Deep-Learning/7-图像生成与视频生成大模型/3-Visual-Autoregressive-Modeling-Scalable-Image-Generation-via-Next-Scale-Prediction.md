@@ -104,7 +104,7 @@ $$
 
 ![image-20240712091839372](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240712091839372.png)
 
-在训练完 VQ tokenizer 后，需要在离散化后的序列上训练生成模型，上图中 $r_1,...,r_k$ 分别表示不同尺度的离散序列。作者将传统的单向自回归模型修改为双向与单向混合的模式，同一个尺度的图片内部使用双向 attention，token 彼此可见，不同尺度的图片之间使用单向 attention ，具有从粗粒度到细粒度的 casual dependency，保证了满足 Autoregressive 假设的数学前提。
+在训练完 VQ tokenizer 后，需要在离散化后的序列上训练生成模型，上图中 $r_1,...,r_k$ 分别表示不同尺度的离散序列。作者将传统的单向自回归模型修改为双向与单向混合的模式，同一个尺度的图片内部使用双向 attention，token 彼此可见，不同尺度的图片之间使用单向 attention ，具有从粗粒度到细粒度的 causal dependency，保证了满足 Autoregressive 假设的数学前提。
 
 单个尺度的图片可以一步生成，生成所需的迭代步数取决于 VQ tokenizer 设计的尺度层数 $K$​。
 
@@ -124,7 +124,7 @@ $$
 
 对文章开篇提出的问题的解决：
 
-1. 使用 casual attention 对自注意力进行掩码，从而满足 Autoregressive 模型对时间序列的数学假设。
+1. 使用 causal attention 对自注意力进行掩码，从而满足 Autoregressive 模型对时间序列的数学假设。
 2. 在 quantization 步骤使用二维的方式存储整个 image token map，保证了结构的完整性。
 3. 得益于多尺度思想的生成方式，时间复杂度和计算开销显著降低。以生成 $n^2$ 个 image tokens 为例，传统的视觉 Autoregressive 生成需要 $\mathcal{O}(n^2)$ 次解码迭代和 $\mathcal{O}(n^6)$ 次总计算。相比之下，本文提出的 VAR 只需要 $\mathcal{O}(log(n))$ 次迭代和 $\mathcal{O}(n^4)$​ 次总计算量。
 
