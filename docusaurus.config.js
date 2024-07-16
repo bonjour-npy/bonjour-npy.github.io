@@ -154,27 +154,27 @@ const config = {
         items: [
           {
             to: '/docs/Deep-Learning/intro',
-            label: '🤖深度学习',
+            label: '🤖 深度学习',
           },
           {
             to: '/docs/Tui-Mian/intro',
-            label: '🤡推免',
+            label: '🤡 推免',
           },
           {
             to: '/docs/Algorithms/intro',
-            label: '🎰算法',
+            label: '🎰 算法',
           },
           {
             to: '/docs/Curriculum/intro',
-            label: '📖课程学习',
+            label: '📖 课程学习',
           },
           {
             to: '/docs/Others/intro',
-            label: '☃️其他',
+            label: '☃️ 其他',
           },
           {
             to: '/docs/Acknowledgement/intro',
-            label: '🍺饮水思源',
+            label: '🍺 饮水思源',
           },
           {
             href: 'https://github.com/bonjour-npy',
@@ -187,7 +187,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '👋联系我',
+            title: '👋 联系我',
             items: [
               {
                 label: 'WeChat',
@@ -204,7 +204,7 @@ const config = {
             ],
           },
           {
-            title: '✈️外部链接',
+            title: '✈️ 外部链接',
             items: [
               {
                 label: '共和国国防部',
@@ -221,7 +221,7 @@ const config = {
             ],
           },
           {
-            title: '🎅彩蛋',
+            title: '🎅 彩蛋',
             items: [
               {
                 label: '欢迎来到洛圣都',
@@ -238,7 +238,7 @@ const config = {
             ],
           },
           {
-            title: '🦄教育官网',
+            title: '🦄 教育官网',
             items: [
               {
                 label: '电子科技大学',
