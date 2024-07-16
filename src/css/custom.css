@@ -74,6 +74,13 @@ div[class^='announcementBar_'] {
     font-weight: 700;
 }
 
+/* 修改渲染 markdown 中图片的样式 */
+.markdown img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* 修改页脚的背景颜色 */
 /* .footer {
   background-color: var(--ifm-color-primary-lightest);

@@ -27,6 +27,14 @@ PixelRNN 是早期的自回归模型之一，它使用循环神经网络（RNN�
 
 ### VQ-VAE（2017）
 
+:::tip学习链接
+
+[Variant AutoEncoder(VAE)和 VQVAE 学习笔记和代码](https://blog.csdn.net/Je1zvz/article/details/136398797)
+
+[68、VQVAE预训练模型的论文原理及PyTorch代码逐行讲解](https://www.bilibili.com/video/BV14Y4y1X7wb/?spm_id_from=333.880.my_history.page.click&vd_source=f7612ffc8ec6f523824661106b4c304f)
+
+:::
+
 在[科学空间：VQ-VAE 的简明介绍](https://www.spaces.ac.cn/archives/6760)中，提到了 VQ-VAE 与之前的 PixelCNN 和 PixelRNN 的关系。
 
 受 PixelCNN 和 PixelRNN 专注于像素级的生成的启发，VQ-VAE（Vector Quantized Variational Autoencoder）提出了另一种方法，通过离散的潜在空间来建模数据。VQ-VAE 的主要贡献在于引入了向量量化层，将连续的潜在变量映射到一组离散的嵌入向量上，从而能够更高效地学习复杂的数据分布。
