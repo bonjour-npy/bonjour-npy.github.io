@@ -79,6 +79,8 @@ div[class^='announcementBar_'] {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* 修改页脚的背景颜色 */
