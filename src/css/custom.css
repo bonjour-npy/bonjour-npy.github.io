@@ -85,7 +85,7 @@ div[class^='announcementBar_'] {
 
 .footer {
   background-image: url('../../static/img/footer.png');
-  background-color: #d4d4d4a9;
+  /* background-color: #d4d4d4a9; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; /* 或者使用contain, auto等其他值 */

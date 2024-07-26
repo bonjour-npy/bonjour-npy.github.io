@@ -150,7 +150,7 @@ const config = {
           // src: 'img/UESTC_logo.png',
           // src: 'img/CFM_Circle.png',
           // src: 'img/motto.png',
-          src: 'img/Combined_Logo.png',
+          src: 'img/navbar.png',
         },
         items: [
           {
@@ -185,7 +185,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'light',
+        style: 'dark',
         links: [
           {
             title: '👋 联系我',
