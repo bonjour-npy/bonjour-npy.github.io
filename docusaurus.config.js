@@ -125,7 +125,7 @@ const config = {
       },
       announcementBar: {
         id: 'announcementBar-3',
-        content: '求实求真，大气大为',
+        content: '✨ 求实求真，大气大为 ✨',
         isCloseable: false,
       },
       // 调整sidebar为可收回
@@ -147,9 +147,10 @@ const config = {
         title: '培洋的笔记本',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/UESTC_logo.png',
+          // src: 'img/UESTC_logo.png',
           // src: 'img/CFM_Circle.png',
-          // src: 'img/OpenAI.svg',
+          // src: 'img/motto.png',
+          src: 'img/Combined_Logo.png',
         },
         items: [
           {
@@ -184,7 +185,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: '👋 联系我',

@@ -83,6 +83,15 @@ div[class^='announcementBar_'] {
   margin-bottom: 1.5rem;
 }
 
+.footer {
+  background-image: url('../../static/img/footer.png');
+  background-color: #d4d4d4a9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* 或者使用contain, auto等其他值 */
+  /* border-top: 10px solid #eaeaea; */
+}
+
 /* 修改页脚的背景颜色 */
 /* .footer {
   background-color: var(--ifm-color-primary-lightest);
@@ -90,5 +99,5 @@ div[class^='announcementBar_'] {
 
 /* 修改页脚文字的颜色 */
 /* .footer a {
-  color: white;
+  color: black;
 } */
