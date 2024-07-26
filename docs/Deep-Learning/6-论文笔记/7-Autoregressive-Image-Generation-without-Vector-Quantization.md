@@ -1,4 +1,4 @@
-# 自回归模型：MAR
+# Autoregressive Image Generation without Vector Quantization
 
 原文链接：https://arxiv.org/pdf/2406.11838
 
