@@ -1,6 +1,6 @@
 # 生成模型中的采样技巧
 
-参考文献：[Sampling for Text Generation](https://huyenchip.com/2024/01/16/sampling.html#temperature)
+参考资料：[Sampling for Text Generation](https://huyenchip.com/2024/01/16/sampling.html#temperature)
 
 ## 引言
 

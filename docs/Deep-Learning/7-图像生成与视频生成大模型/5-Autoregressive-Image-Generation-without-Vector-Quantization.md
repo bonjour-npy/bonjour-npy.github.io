@@ -2,6 +2,8 @@
 
 原文链接：https://arxiv.org/pdf/2406.11838
 
+参考资料：[何恺明：Autoregressive Image Generation without Vector Quantization.](https://www.bilibili.com/video/BV1nz421q7PQ/?vd_source=f7612ffc8ec6f523824661106b4c304f)
+
 ## 摘要
 
 > Conventional wisdom holds that autoregressive models for image generation are typically accompanied by vector-quantized tokens. We observe that while a discrete-valued space can facilitate representing a categorical distribution, it is not a necessity for autoregressive modeling. In this work, we propose to model the per-token probability distribution using a diffusion procedure, which allows us to apply autoregressive models in a continuous-valued space. Rather than using categorical cross-entropy loss, we define a Diffusion Loss function to model the per-token probability. This approach eliminates the need for discrete-valued tokenizers. We evaluate its effectiveness across a wide range of cases, including standard autoregressive models and generalized masked autoregressive (MAR) variants. By removing vector quantization, our image generator achieves strong results while enjoying the speed advantage of sequence modeling. We hope this work will motivate the use of autoregressive generation in other continuous-valued domains and applications.
