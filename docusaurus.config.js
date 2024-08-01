@@ -67,7 +67,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          // editUrl: 'https://github.com/bonjour-npy/',
+          editUrl: 'https://github.com/bonjour-npy/bonjour-npy.github.io/tree/master/',
         },
         blog: {
           showReadingTime: true,
