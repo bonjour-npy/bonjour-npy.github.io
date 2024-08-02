@@ -68,13 +68,31 @@
 
 ##### [CVPR 2023, Imagic: Text-Based Real Image Editing with Diffusion Models](https://arxiv.org/abs/2210.09276)
 
-模型接受真实图像（参考图像）和目标文本提示作为输入。
+模型接受真实图像（参考图像）和目标图像文本描述 $T$ 作为输入。
 
-1. 模型首先对目标文本进行编码，得到初始嵌入表示 $e_{tgt}$，然后优化 $e_{tgt}$ 对原始图像进行重构，得到优化后的目标文本嵌入表示 $e_{opt}$
+1. 模型首先对目标文本进行编码，得到初始嵌入表示 $e_{tgt}$，然后优化 $e_{tgt}$ 对原始图像进行重构，得到优化后的目标文本嵌入表示 $e_{opt}$。​
 
-2. 固定优化后的目标文本嵌入表示 $e_{opt}$​，同时使用 Reconstrcution Loss 对第一步使用的预训练 Diffusion Model 进行微调
+   目标文本首先通过一个文本编码器，该编码器输出其对应的文本嵌入 $\mathbf{e}_{t g t} \in \mathbb{R}^{T \times d}$，其中 $T$ 是给定目标文本中的 token 数量，而 $d$ 是 token 的嵌入维度。固定生成扩散模型 $f_0$ 的参数，并使用重构损失来优化目标文本嵌入 ：
+   $$
+   \mathcal{L}(\mathbf{x}, \mathbf{e}, \theta)=\mathbb{E}_{t, \epsilon}\left[\left\|\boldsymbol{\epsilon}-f_\theta\left(\mathbf{x}_t, t, \mathbf{e}\right)\right\|_2^2\right]
+   $$
+   其中 $t \sim \operatorname{Uniform}[1, T]$，$\mathbf{x}_t$ 是输入图像 $\mathbf{x}$ 的噪声版本，$\theta$ 是预训练的扩散模型权重。这使输入的图像尽可能接近的文本嵌入表示，即只更新 Text Embedding 的参数，从而得到 $\mathbf{e}_{\text {opt}}$​。
 
-3. 使用初始目标文本嵌入表示 $e_{tgt}$ 插值优化后的目标文本表示 $e_{opt}$，最终通过 fine-tuning 后的 Diffusion Model 生成最终的目标图像
+   这种邻近性使得在嵌入空间中进行有意义的线性插值成为可能，而对于远距离的嵌入表示来说并不表现出线性行为。
+
+   此时使用的是低分辨率版本的 Diffusion Model，分辨率 $64 \times 64$，训练设定为 100 次迭代。
+
+2. 由于第一步进行的 Text Embedding Optimization 步数较少，优化后的 $e_{opt}$ 并不能直接与输入图像对齐。
+
+   因此第二步固定优化后的目标文本嵌入表示 $e_{opt}$​，仍使用第一步中的 Reconstrcution Loss 对第一步使用的 $64 \times 64$ 分辨率的预训练 Diffusion Model 进行微调，设定为 1500 次迭代。
+
+   同时，为了捕获原始图像中的细节，保持高保真度，文章还会使用初始的 Text Embedding 层，即 $e_{tgt}$ 以及原始图像通过 Reconstruction Loss 再 fine-tune 一个从 $64 \times 64$ 到 $256 \times 256$ 的超分辨率 Diffusion Model，设定为 1500 次迭代。
+
+3. 使用初始目标文本嵌入表示 $e_{tgt}$ 插值优化后的目标文本表示 $e_{opt}$​​，插值方式如下：
+   $$
+   \bar{\mathbf{e}}=\eta\cdot\mathbf{e}_{tgt}+(1-\eta)\cdot\mathbf{e}_{opt}
+   $$
+   插值得到的文本嵌入表示分别通过 $64 \times 64$ 的基础 Diffusion Model、从 $64 \times 64$ 到 $256 \times 256$ 的超分辨率 Diffusion Model，以及最终的从 $256 \times 256$ 到 $1024 \times 1024$ 的超分辨率 Diffusion Model 得到最终的目标图像。
 
 ![Imagic 原理描述](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesa63ebdaaf7691f50349d43fa374fe69e.png)
 
