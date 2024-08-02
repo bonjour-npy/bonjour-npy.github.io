@@ -111,13 +111,13 @@
 
    在微调之前，预训练扩散模型通过 Stable Diffusion v1.5 checkpoint 进行初始化，额外增加通道数的卷积参数都被初始化为 0。
 
-   ###### 训练设置与参数
+###### 训练设置与参数
 
-   模型在 $256 \times 256$​ 分辨率上的 batch size 为 1024，Stable Diffusion 的扩散步数设置为 10, 000，在 8 张 40 GB 显存的 NVIDIA A100 GPU 上训练了 25.5 小时。
+模型在 $256 \times 256$​ 分辨率上的 batch size 为 1024，Stable Diffusion 的扩散步数设置为 10, 000，在 8 张 40 GB 显存的 NVIDIA A100 GPU 上训练了 25.5 小时。
 
-   ###### 推理设置与参数
+###### 推理设置与参数
 
-   虽然训练过程在 $256 \times 256$ 分辨率上进行，但是在推理阶段直接生成 $512 \times 512$ 分辨率的图像效果仍然很好，推理过程扩散步数设置为 100，在 NVIDIA A100 GPU 上推理速度为 9 秒。 
+虽然训练过程在 $256 \times 256$ 分辨率上进行，但是在推理阶段直接生成 $512 \times 512$ 分辨率的图像效果仍然很好，推理过程扩散步数设置为 100，在 NVIDIA A100 GPU 上推理速度为 9 秒。 
 
 ![image-20240801172101515](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240801172101515.png)
 
@@ -125,4 +125,83 @@
 
 ##### [CVPR 2023, DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation](https://arxiv.org/pdf/2208.12242)
 
-![image-20240801185222122](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240801185222122.png)
+![image-20240802104029756](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240802104029756.png)
+
+通过接收一组（3~5 张）相同目标（文中称为主题 Subject）的图像，模型可以根据用户提供的 Text Guidance 生成统一主题但不同姿势、不同场景的语义上新的图像。
+
+###### Text-to-Image Diffusion Model
+
+本文首先使用了一个预训练的 Text-to-Image Diffusion Model $\hat{x}_\theta$，该模型在给定初始噪声图 $\epsilon \sim \mathcal{N}(0, \mathbf{I})$ 和由文本编码器 $\Gamma$ 和文本提示 $P$ 生成的条件向量 $\mathbf{c} = \Gamma(P)$ 的情况下，生成图像 $x_{gen} = \hat{x}_\theta(\epsilon, \mathbf{c})$。使用平方误差损失计算重构损失进行训练，以对噪声图像 $z_t := \alpha_t \mathbf{x} + \sigma_t \epsilon$ 进行去噪，如下所示：
+$$
+\mathbb{E}_{\mathbf{x}, \mathbf{c}, \epsilon, t} \left[ w_t \| \tilde{x}_\theta (\alpha_t \mathbf{x} + \sigma_t \epsilon, \mathbf{c}) - \mathbf{x} \|_2^2 \right] \quad
+$$
+
+其中 $\mathbf{x}$ 是训练集中的 ground-truth 图像，$\mathbf{c}$ 是文本提示 $P$​ 生成的条件向量。
+
+###### Unique Subject Identifier
+
+> Our first task is to implant the subject instance into the output domain of the model such that we can query the model for varied novel images of the subject.
+
+为了使生成模型生成更多主题不变的相关图像，首要的任务是将参考图像的主题植入到生成模型的输出域中。
+
+一种自然的想法就是微调模型，然而在大规模语料库上预训练的 LLMs 在少量样本上进行 few-shot 微调时很容易产生**过拟合（overfitting）**以及**语言漂移（language drift）**问题，因此本文设计了一种新颖的微调方法，为输入的每组主题图像匹配 Subject Indentifier。
+
+![image-20240802115816203](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240802115816203.png)
+
+具体而言，首先模型为每一组特定主题的图像产生一个形如“**A [identifier] [class noun]**”的标签，其中：
+
+- [identifier] 是与主题相关的唯一标识，也是模型可以保存主题特征的重要原因。
+
+  本文提出的 Subject Identifier 产生方法是从 Vocabulary 中找出罕见的 tokens，并将其映射到文字空间，以减少 identifier 中包含的先验。
+
+  > For Imagen, we find that using uniform random sampling of tokens that correspond to 3 or fewer Unicode characters (without spaces) and using tokens in the T5-XXL tokenizer range of {5000, ..., 10000} works well.
+
+  对于 Imagen 作为生成模型的情况，作者发现 identifier 所包含的 token 数小于等于 3 时效果最好，当使用 T5-XXL Tokenizer 时，选择 {5000, ... , 10000} 的 token 效果较好。
+
+- [class noun] 是类别标签，可以通过用户提供或分类器生成，将模型对类别具有的先验融合到主题标识中。
+
+###### Class-specific Prior Preservation Loss
+
+在微调生成模型时会面临两个主要的问题：语言漂移（Language Drift）和多样性下降。
+
+为了解决上述问题，作者提出了 Class-specific Prior Preservation Loss。
+
+首先使用使用固定参数的 Text-to-Image Diffusion Model 产生 ground-truth 图像 $x_{pr} = \hat{x}_\theta(z_{t_1}, c_{pr})$，其中随机初始噪声 $z_{t_1} \sim \mathcal{N}(0, \mathbf{I})$ 和条件向量 $\mathbf{c}_{\mathrm{pr}}:=\Gamma(f($"A [class noun]" $))$。损失变为：
+
+$$
+\mathbb{E}_{\mathbf{x}, \mathbf{c}, \epsilon, \epsilon', t} \left[ w_t \| \hat{x}_\theta (\alpha_t \mathbf{x} + \sigma_t \epsilon, \mathbf{c}) - \mathbf{x} \|_2^2 + \lambda w_{t'} \| \hat{x}_\theta (\alpha_{t'} x_{pr} + \sigma_{t'} \epsilon', c_{pr}) - x_{pr} \|_2^2 \right]
+$$
+
+其中第二项是作者提出的用于保持模型对类别先验的损失函数，$\lambda$ 控制该项的相对权重。
+
+###### 微调 Diffusion Model
+
+在微调过程中，每次迭代输入 3~5 张主题图像，进行 1000 次迭代就可以达到比较好的效果。
+
+当生成模型为 Imagen 时，在 TPUv4 上耗时 5 min；当生成模型为 Stable Diffusion 时，在 NVIDIA A100 GPU 上耗时 5 min。
+
+![image-20240802115816203](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240802115816203.png)
+
+###### 其他细节
+
+本文使用的 Tokenizer 是 SentencePiece，编码文本的语言模型是 T5-XXL。
+
+训练数据来自于作者的搜集，共包含 30 个主题，其中 21 个主题是物体，其余 9 个主题是动物。
+
+## Diffusion Models 在视频中的应用
+
+### 视频生成模型
+
+#### [NeurIPS 2022, Video Diffusion Models](https://arxiv.org/abs/2204.03458)
+
+#### [2022, Imagen Video: High Definition Video Generation with Diffusion Models](https://imagen.research.google/video/paper.pdf)
+
+#### [ICLR 2023, Make-A-Video: Text-to-Video Generation without Text-Video Data](https://arxiv.org/abs/2209.14792)
+
+#### [CVPR 203, Align your Latents: High-Resolution Video Synthesis with Latent Diffusion Models (Video LDM)](https://arxiv.org/abs/2304.08818)
+
+### 视频的风格转换（Style Transfer）和编辑（editing）方法
+
+#### [arXiv 2023, Structure and Content-Guided Video Synthesis with Diffusion Models (Gen-1)](https://arxiv.org/abs/2302.03011)
+
+#### [arXiv 2023, Pix2Video: Video Editing Using Image Diffusion](https://arxiv.org/abs/2303.12688)
