@@ -1,6 +1,6 @@
 # 生成式对抗网络（GAN）
 
-:::tip正确发音
+:::tip[正确发音]
 
 How to pronounce Adversarial?
 

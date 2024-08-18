@@ -1,6 +1,6 @@
 # CVPR 2023: Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
 
-:::tip相关链接
+:::tip[相关链接]
 
 论文：[CVPR 2023 open access](https://openaccess.thecvf.com/content/CVPR2023/papers/Guo_Zero-Shot_Generative_Model_Adaptation_via_Image-Specific_Prompt_Learning_CVPR_2023_paper.pdf)
 
@@ -30,7 +30,7 @@ Generative Model Adaption的任务是使在大规模源域图片上训练的生�
 
 然而，fine-tune通常会导致过拟合。为了解决过拟合问题，通常使用的方法是施加强正则化、使用扰动法、跨域对齐或数据增强。
 
-:::info相关文献方法
+:::info[相关文献方法]
 
 - 强正则化：Han Zhang, Zizhao Zhang, Augustus Odena, and Honglak Lee. Consistency regularization for generative adversarial networks. In ICLR, 2019.
 - 扰动法：Sangwoo Mo, Minsu Cho, and Jinwoo Shin. Freeze the discriminator: a simple baseline for fine-tuning GANs. In CVPR Workshops, 2020.

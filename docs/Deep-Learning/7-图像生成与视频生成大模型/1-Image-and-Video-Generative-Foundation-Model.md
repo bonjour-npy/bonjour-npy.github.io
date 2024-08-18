@@ -2,7 +2,7 @@
 
 ## 图像生成基座模型
 
-:::tip参考链接
+:::tip[参考链接]
 
 原文 URL：[Recent Advances in (Image) Generative Foundation Models](https://datarelease.blob.core.windows.net/tutorial/vision_foundation_models_2024/Zhengyuan_Image_Generation.pdf)
 
@@ -22,7 +22,7 @@
 
 ##### 代表模型：VAE、VQVAE（2017）
 
-:::tip参考资料
+:::tip[参考资料]
 
 [VQ-VAE 的简明介绍：量子化子编码器](https://www.spaces.ac.cn/archives/6760)
 
@@ -58,7 +58,7 @@ VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示�
 
 #### Masked-prediction model（Non-AR）
 
-:::tip参考资料
+:::tip[参考资料]
 
 [生成周刊·第一期](https://wrong.wang/blog/20230107-%E7%94%9F%E6%88%90%E5%91%A8%E5%88%8A%E7%AC%AC%E4%B8%80%E6%9C%9F/)
 
@@ -80,7 +80,7 @@ VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示�
 
 #### Diffusion Model
 
-:::tip参考链接
+:::tip[参考链接]
 
 [深度理解变分自编码器(VAE) | 从入门到精通 ](https://www.cnblogs.com/wxkang/p/17128108.html)
 
@@ -96,7 +96,7 @@ VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示�
 
 ## 视频生成基座模型
 
-:::tip参考链接
+:::tip[参考链接]
 
 原文 URL：[Video and 3D Generation](https://datarelease.blob.core.windows.net/tutorial/vision_foundation_models_2024/Kevin_Video_3D_Generation.pdf)
 

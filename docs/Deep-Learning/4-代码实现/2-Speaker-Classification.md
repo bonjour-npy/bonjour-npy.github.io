@@ -1,6 +1,6 @@
 # Speaker Classification
 
-:::tip实战练习
+:::tip[实战练习]
 
 Transformer实战练习，代码见[Github仓库](https://github.com/bonjour-npy/Speaker-Classification)。
 

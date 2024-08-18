@@ -139,7 +139,7 @@ for item in unzipped_lists:
 
 ## 对batch_first参数的理解
 
-:::info参考资料
+:::info[参考资料]
 
 https://www.jianshu.com/p/41c15d301542
 

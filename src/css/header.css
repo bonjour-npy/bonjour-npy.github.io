@@ -64,52 +64,57 @@ h6 {
 
 /* Add List Number for each Heder here. */
 
+/* Add List Number for each Header */
+
 h1 {
-    counter-reset: h2;
+    /* 不需要重置h2的计数器 */
 }
 
 h2 {
-    counter-reset: h3;
+    counter-increment: h2; /* 每次h2出现时，h2计数器加1 */
+    counter-reset: h3; /* 重置h3的计数器 */
 }
 
 h3 {
-    counter-reset: h4;
+    counter-increment: h3; /* 每次h3出现时，h3计数器加1 */
+    counter-reset: h4; /* 重置h4的计数器 */
 }
 
 h4 {
-    counter-reset: h5;
+    counter-increment: h4; /* 每次h4出现时，h4计数器加1 */
+    counter-reset: h5; /* 重置h5的计数器 */
 }
 
 h5 {
-    counter-reset: h6;
+    counter-increment: h5; /* 每次h5出现时，h5计数器加1 */
+    counter-reset: h6; /* 重置h6的计数器 */
+}
+
+h6 {
+    counter-increment: h6; /* 每次h6出现时，h5计数器加1 */
 }
 
 h2:before {
-    counter-increment: h2;
-    content: counter(h2);
+    content: counter(h2); /* 显示h2的编号 */
     margin-right: 0.5em;
 }
   
-h3:before, h3.md-focus.md-heading:before {
-    counter-increment: h3;
-    content: counter(h2) "." counter(h3);
+h3:before {
+    content: counter(h2) "." counter(h3); /* 显示h2.h3的编号 */
     margin-right: 0.5em;
 }
   
-h4:before, h4.md-focus.md-heading:before {
-    counter-increment: h4;
-    content: counter(h2) "." counter(h3) "." counter(h4);
+h4:before {
+    content: counter(h2) "." counter(h3) "." counter(h4); /* 显示h2.h3.h4的编号 */
     margin-right: 0.5em;
 }
   
-h5:before, h5.md-focus.md-heading:before {
-    counter-increment: h5;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+h5:before {
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5); /* 显示h2.h3.h4.h5的编号 */
     margin-right: 0.5em;
 }
   
-h6:before, h6.md-focus.md-heading:before {
-    counter-increment: h6;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
+h6:before {
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6); /* 显示h2.h3.h4.h5.h6的编号 */
     margin-right: 0.5em;
 }

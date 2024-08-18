@@ -1,6 +1,6 @@
 # NeurIPS 2020: Denoising Diffusion Probabilistic Models
 
-:::tip相关链接
+:::tip[相关链接]
 
 论文：[arXiv](https://arxiv.org/pdf/2006.11239.pdf)
 

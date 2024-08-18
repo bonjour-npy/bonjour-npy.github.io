@@ -172,9 +172,9 @@ $$
 
   本文提出的 Subject Identifier 产生方法是从 Vocabulary 中找出罕见的 tokens，并将其映射到文字空间，以减少 identifier 中包含的先验。
 
-  > For Imagen, we find that using uniform random sampling of tokens that correspond to 3 or fewer Unicode characters (without spaces) and using tokens in the T5-XXL tokenizer range of {5000, ..., 10000} works well.
+  > For Imagen, we find that using uniform random sampling of tokens that correspond to 3 or fewer Unicode characters (without spaces) and using tokens in the T5-XXL tokenizer range of \{5000, ..., 10000\} works well.
 
-  对于 Imagen 作为生成模型的情况，作者发现 identifier 所包含的 token 数小于等于 3 时效果最好，当使用 T5-XXL Tokenizer 时，选择 {5000, ... , 10000} 的 token 效果较好。
+  对于 Imagen 作为生成模型的情况，作者发现 identifier 所包含的 token 数小于等于 3 时效果最好，当使用 T5-XXL Tokenizer 时，选择 \{5000, ... , 10000\} 的 token 效果较好。
 
 - [class noun] 是类别标签，可以通过用户提供或分类器生成，将模型对类别具有的先验融合到主题标识中。
 

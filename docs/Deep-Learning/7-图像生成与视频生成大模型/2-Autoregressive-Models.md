@@ -27,7 +27,7 @@ PixelRNN 是早期的自回归模型之一，它使用循环神经网络（RNN�
 
 ### VQ-VAE（2017）
 
-:::tip学习链接
+:::tip[学习链接]
 
 [Variant AutoEncoder(VAE)和 VQVAE 学习笔记和代码](https://blog.csdn.net/Je1zvz/article/details/136398797)
 

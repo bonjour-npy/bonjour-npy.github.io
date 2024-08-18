@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Ignore macOS resource fork files
+._*
