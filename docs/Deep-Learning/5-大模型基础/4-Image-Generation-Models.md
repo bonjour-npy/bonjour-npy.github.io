@@ -82,7 +82,7 @@ Stable Diffusion是目前图像生成的SOTA模型之一，在本章中我们快
 
 FID提供一个Pre-trained的CNN，该CNN通常使用预训练的Inception v3模型。在计算FID时，生成图像和真实图像分别输入到预训练的CNN中，提取出各自的特征表示向量（Representation）。这两个Representation越接近，代表输出的图像越像预期的“真实”图片。
 
-在FID中，做出了如下重要的假设：**将生成的图像真实的图像经过CNN输出的Representation看作是sample自两个高斯分布的随机变量**。然后，通过计算两个特征向量的均值和协方差矩阵来得到两个高斯分布的参数。最后，利用两个高斯分布之间的Fréchet距离来衡量生成图像与真实图像之间的差异。
+在FID中，做出了如下重要的假设**：将生成的图像真实的图像经过CNN输出的Representation看作是sample自两个高斯分布的随机变量**。然后，通过计算两个特征向量的均值和协方差矩阵来得到两个高斯分布的参数。最后，利用两个高斯分布之间的Fréchet距离来衡量生成图像与真实图像之间的差异。
 $$
 \mathrm{FID}=\left\|\mu_1-\mu_2\right\|_2^2+\mathrm{tr}\left(\Sigma_1+\Sigma_2-2\left(\Sigma_1\Sigma_2\right)^{\frac12}\right)\tag{1}
 $$

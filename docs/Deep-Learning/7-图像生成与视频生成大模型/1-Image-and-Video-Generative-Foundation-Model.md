@@ -46,7 +46,7 @@ VQ-VAE 的工作原理与 VAE 类似，但它使用离散的代码簿来表示�
 
 **GAN (Generative Adversarial Network) 的结合**：将 VQ 和 GAN 结合，利用 Style-GAN 的判别器来提升生成图像的细节和逼真度。
 
-**Transformer 的使用：**将 VQ-VAE 和 VQGAN 的 Encoder、Decoder 中原来使用的 CNN 结构替换为 ViT。一是因为数据量丰富，二是 CNN 的归纳偏置对模型的约束是有限的，三是计算效率和重建质量更显著。
+**Transformer 的使用**：将 VQ-VAE 和 VQGAN 的 Encoder、Decoder 中原来使用的 CNN 结构替换为 ViT。一是因为数据量丰富，二是 CNN 的归纳偏置对模型的约束是有限的，三是计算效率和重建质量更显著。
 
 ##### 代表模型：[VAR](https://arxiv.org/pdf/2404.02905)
 
