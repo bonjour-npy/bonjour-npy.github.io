@@ -12,11 +12,9 @@
 
 作者认为，生成模型可以分为三大类：
 
-1. GAN：通过对抗的方式进行学习，本文不会讲这块
+1. GAN：通过对抗的方式进行学习
 2. likelihood-based：学习一个使得当前数据集出现概率最高的模型，包括 autoregressive models，normalizing flows 和 VAEs 等等
 3. energy-based：将分布学习为任意灵活的能量函数，然后归一化。score-based 和 energy-based 很相似，学习的是 energy-based model 的 score。
-
-其中，2 和 3 都统称为 likelihood-based models，而将 GAN 方法称为 implicit generative models。
 
 本文重点讨论的 Diffusion Model，既可以用 likelihood-based 的观点来解释，也可以使用 score-based 的观点来解释。
 
@@ -182,12 +180,105 @@ $$
 
 在这里，通过原始图像 $x_0$ 和时间步的参数 $t$，我们可以直接获得任意时间步对应的原始图像加噪版本，换句话说，DM 的扩散过程是确定的，不需要根据时间步一步一步迭代得到相应的结果。
 
+### 三种等价的解释
+
+通过对 denoising matching term 进行不同侧重的进一步推导，可以得到对扩散模型的三种等价的解释。
+
+1. 训练扩散模型等价于训练一个模型来预测原始图片 $x_0$：
+
+   ![image-20240927133134163](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927133134163.png)
+
+2. 训练扩散模型等价于训练一个模型来预测初始噪声 $\epsilon_0$：
+
+   ![image-20240927133040542](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927133040542.png)
+
+3. 训练扩散模型等价于训练一个模型来预测 score function，即任意噪声等级下的图像的分数 $\nabla_{x_t}log\space p(x_t)$：
+
+   ![image-20240927133100708](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927133100708.png)
+
 ## 基于分数的生成模型 Score-based Generative Models
 
+首先从 Yann LeCun 等人提出的 energy-based models 开始分析，任意概率分布可由如下形式表示：
 
+![image-20240927134212315](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927134212315.png)
+
+其中，$f_\theta(x)$ 是 energy function， $Z_\theta$ 是标准化常量。
+
+标准化常量的作用是确保：
+
+![image-20240927135130673](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927135130673.png)
+
+从而得出：
+
+![image-20240927135219078](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927135219078.png)
+
+直接对 $p_\theta(x)$ 进行最大似然估计是不现实的，因为对于复杂的 energy function，很难找出对应的标准化常量来进行优化，因此一种可能的解决方式是，使用神经网络 $s_\theta(x)$ 来学习 score function。
+
+![image-20240927135438697](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927135438697.png)
+
+分数模型可以通过最小化二者之间的 Fisher Divergence 来优化：
+
+![image-20240927140005620](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927140005620.png)
+
+其中，score function 的真实标签 $\nabla_{x}log \space p(x)$ 描述在数据空间中使似然增加的方向。
+
+引入朗格文动力学公式：
+
+![image-20240927140255564](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927140255564.png)
+
+使用 score function 来表示分布并通过马尔可夫蒙特卡罗技巧进行采样成为 Score-based Generative Modeling。
 
 ## 引导 Guidance
 
+到目前为止，文章的重心都放在真实数据的分布 $p(x)$ 上，但我们通常更加关注某些条件下的真实数据分布 $p(x | y)$ 。这可以让我们在一定程度上控制生成的图片。
+
+一个很自然的想法就是在每一噪声等级的时间步上都加上条件信息，于是有
+$$
+p\left(x_{0: T} | y\right)=p\left(x_T\right) \prod_{t=1}^T p_\theta\left(x_{t-1} | x_t, y\right)
+$$
+$y$ 可以是文本，可以是其他图片，也可以是一个类别。对应到上述阐明的 VDM 的三种解释，VDM的目标就变成了：
+
+1. $\hat{x}_\theta\left(x_t, t, y\right) \approx x_0$
+2. $\hat{\epsilon}_\theta\left(x_t, t, y\right) \approx \epsilon$
+3. $s_\theta\left(x_t, t, y\right) \approx \nabla \log p\left(x_t | y\right)$ 
+
+目前有两种主流的 Guidance 方式，分别是 Classifier Guidance 和 Classifier-Free Guidance。
+
 ### Classifier Guidance
 
+以 score-based model 为例，通过贝叶斯法则，可以得到：
+
+![image-20240927140953200](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20240927140953200.png)
+
+该式可以理解为无条件分数和一个分类器 $p\left(y|x_t\right)$ 的梯度。
+
+为了更加细粒度地控制条件的重要程度，还会加上一个超参数 $\gamma$，于是就有
+$$
+\nabla \log p\left(x_t | y\right)=\nabla \log p\left(x_t\right)+\gamma \nabla \log p\left(y | x_t\right)
+$$
+
+当 $\gamma=0$ 时，就是无条件的扩散生成；当 $\gamma$ 很大时，模型的生成会更加依赖于条件信息，同时会损失生成结果的多样性。
+
+Classifier Guidance 的缺点是需要处理任意噪声输入，因此没有可以直接使用的预训练好的 classifier，需要和 VDM 一起进行训练。
+
 ### Classifier-Free Guidance
+
+Classifier-Free Guidance 的方案不需要单独的分类模型。对 Classifier Guidance 的公式进行移项得到：
+$$
+\nabla \log p\left(y | x_t\right)=\nabla \log p\left(x_t | y\right)-\nabla \log p\left(x_t\right)
+$$
+
+将其代入 Classfier Guidance 的公式中，消去 noisy classifier 项可以得到：
+$$
+\begin{aligned}
+\nabla \log p\left(\boldsymbol{x}_t | y\right) & =\nabla \log p\left(\boldsymbol{x}_t\right)+\gamma\left(\nabla \log p\left(\boldsymbol{x}_t | y\right)-\nabla \log p\left(\boldsymbol{x}_t\right)\right) \\
+& =\nabla \log p\left(\boldsymbol{x}_t\right)+\gamma \nabla \log p\left(\boldsymbol{x}_t | y\right)-\gamma \nabla \log p\left(\boldsymbol{x}_t\right) \\
+& =\underbrace{\gamma \nabla \log p\left(\boldsymbol{x}_t | y\right)}_{\text {conditional score }}+\underbrace{(1-\gamma) \nabla \log p\left(\boldsymbol{x}_t\right)}_{\text {unconditional score }}
+\end{aligned}
+$$
+
+同样， $\gamma$ 是一个控制学习的条件模型对条件信息的关注程度的超参数。
+
+当 $\gamma=0$ 时，学习的条件模型完全忽略条件器并学习无条件扩散模型；当 $\gamma=1$ 时，该模型在没有指导的情况下显式地学习条件分布；当 $\gamma>1$ 时，扩散模型不仅优先考虑条件得分函数，而且在远离无条件得分函数的方向上移动。换句话说，它降低了生成不使用条件信息的样本的概率，有利于显式地使用条件信息的样本。
+
+由于学习两个独立的扩散模型开销过大，利用 Classifer-Free Guidance 可以同时训练条件依赖和无条件扩散模型。无条件扩散模型可以通过用诸如零的固定常数值替换条件信息来训练，本质上是对条件信息进行 dropout。
