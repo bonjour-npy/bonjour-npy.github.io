@@ -42,6 +42,78 @@ Movie Gen 实现的主要功能来自于提出的两个 foundation model，分�
 </video>
 
 
-## 图像和视频联合生成（Joint Image and Video Generation）
+## Movie Gen Video
+
+###  Joint Image and Video Generation（图像视频联合生成）
+
+Meta 提出了 Movie Gen Video 这个统一的大模型来同时完成 T2I 以及 T2V 任务，模型将静态图像视为视频中的一帧，从而进行图像和视频生成的联合训练，即 Joint Image and Video Generation，使得模型可以同时生成图像和视频。
+
+作者认为视频数据较为复杂，文本图像对的训练数据可以更好地帮助模型提高泛化性能。
+
+下图展示了图像和视频联合生成的 pipeline。
+
+![image-20241010225513173](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagestypora_imagesimage-20241010225513173.png)
+
+### 多阶段训练策略
+
+为了提高训练效率和模型的扩展能力，作者采用了多阶段的训练过程。
+
+- 首先是 T2I 预热训练阶段。作者发现直接从头训练图像视频联合生成模型 T2I/V 会导致拟合缓慢，因此首先单独对 T2I 模型进行训练，作为预热阶段，并且在预热训练在较低分辨率（256 px）上进行，可以在相同的计算开销上以更大的 batch size 训练更多的数据。
+
+- 其次是图像视频联合生成模型 T2I/V 训练阶段。
+
+  为了可以成功实现联合训练，作者双倍增加了的空间位置编码层（spatial positional embedding layers）来适应更丰富的宽高比，同时增加了更多的时间位置编码层（temporal positional embedding layers）来支持多帧数图像（视频）的输入。
+
+  然后进行高分辨率的 T2I/V 联合训练。
+
+  ![image-20241010223251874](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagestypora_imagesimage-20241010223251874.png)
+
+- 在高质量的视频数据集上通过 Supervised Finetuing（监督微调，SFT）来优化生成质量。
+
+- 最后可以后训练（Post Training）的方式来为 Movie Gen 增加个性化角色视频生成以及视频精确编辑等能力。
 
 ![image-20241010215842535](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20241010215842535.png)
+
+### TAE（Temporal AutoEncoder）
+
+为了提高效率，作者提出了 TAE 模型将像素空间的视频和图像压缩到经过学习的时空压缩隐式空间（learned spatial-temporally compreseed latent space），并且学习从隐空间中生成视频。
+
+![image-20241010230313008](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20241010230313008.png)
+
+#### TAE Architecture（TAE 结构）
+
+TAE 的设计采用了 LDM 使用的 Image Encoder 结构并且在**时间维度**进行扩展：
+
+1. **1D 时间卷积（Temporal Convolution）**：在每个二维空间卷积（2D spatial convolution）之后加入 1D 的时间卷积。这使得模型能够捕捉数据的时间变化特征，从而适应视频的帧间动态变化。
+
+   在视频生成中，帧之间存在时间上的连续性，时间卷积通过沿时间维度进行卷积操作，使得模型能够从连续帧中提取时间相关的信息。每一帧不仅通过空间卷积捕捉其内容，还通过时间卷积捕捉其与前后帧之间的动态关系。这种操作通过引入 1D 卷积来进行，保证了时间维度上的特征捕获。
+
+2. **1D 时间注意力机制（Temporal Attention）**：在每次空间注意力（spatial attention）之后加入 1D 的时间注意力机制，帮助模型更好地关注视频序列中不同时间点的重要特征。在每个 2D 的空间卷积之后加入了 1D 的时间卷机，在每个 2D 的空间注意力之后加入了 1D 的时间注意力。
+
+   通过在空间注意力之后加入 1D 的时间注意力，模型可以更好地理解视频序列中的时间依赖关系，即哪些时间点的特征对最终生成结果至关重要。这种注意力机制使模型能够在生成过程中关注到不同帧之间的关键时刻，提高视频的生成质量。
+
+在降采样过程中，模型采用**步长为 2 的卷积操作**对视频数据进行压缩，通过这种方式减少时间维度上的冗余信息。而在上采样过程中，模型使用最近邻插值法恢复时间维度的信息，再通过卷积来平滑和补充细节。这一过程保证了视频长度的灵活性，能够处理不同长度的视频序列。
+
+在下采样中采用在时间维度进行有步长的卷积方式来完成可以使模型能够处理任意帧长度的视频，包括图像（单帧视频），下图展示了时间维度卷积下采样的流程以及计算。
+
+![image-20241011090436354](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20241011090436354.png)
+
+#### Improvements to the Training Objective（损失函数的优化）
+
+作者发现如果 TAE 使用经典的 VAE 损失函数（Reconstruction Loss、Discriminator Loss、Perceptual Loss）进行训练会在数据空间解码出的视频中出现伪影点，如下图所示。
+
+在 Latent Code 中伪影点位置出现了方差较大的取值
+
+![image-20241011095152080](https://raw.githubusercontent.com/bonjour-npy/Image-Hosting-Service/main/typora_imagesimage-20241011095152080.png)
+
+### Training Objective（训练目标与损失函数）
+
+### Joint Image and Video Generation Backbone Architecture（骨干网络）
+
+### Rich Text Embedding and Visual-text Generation（丰富的文本嵌入以及视觉文本生成）
+
+### Spatial Upsampling（空间上采样）
+
+
+
+## Movie Gen Audio
