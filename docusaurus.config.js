@@ -164,6 +164,10 @@ const config = {
             label: '🤖 深度学习',
           },
           {
+            to: '/docs/GPU-Server/intro',
+            label: '🌍 服务器使用',
+          },
+          {
             to: '/docs/Tui-Mian/intro',
             label: '🤡 推免',
           },
