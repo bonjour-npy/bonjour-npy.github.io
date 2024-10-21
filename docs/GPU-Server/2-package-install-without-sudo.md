@@ -16,7 +16,7 @@
 
 5. `make -h` 并行进行编译
 
-6. `make install` 完成安装
+6. `make install` 完成安装，若源码中未提供 `configure` 脚本，可以使用 `make install DESTDIR=/home/nipeiyang/` 来指定安装目录
 
 7. 最后在 shell 的对应配置文件中添加环变量，例如，使用 `echo` 命令将安装软件的 bin 目录追加到 `.bashrc` 中
 
