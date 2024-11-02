@@ -10,7 +10,7 @@
 
 :::danger[说明]
 
-点击浏览笔记 Slides：[Text2LiDAR](./Text2LiDAR.pdf)
+点击浏览笔记 Slides：[Text2LiDAR](./11-Text2LiDAR.pdf)
 
 :::
 
@@ -18,7 +18,7 @@
 
 :::danger[说明]
 
-点击浏览笔记 Slides：[Dataset Analysis nuLiDARtext](./Dataset%20Analysis%20nuLiDARtext.pdf)
+点击浏览笔记 Slides：[Dataset Analysis nuLiDARtext](./11-Dataset-Analysis-nuLiDARtext.pdf)
 
 :::
 
