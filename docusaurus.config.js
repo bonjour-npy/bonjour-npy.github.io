@@ -12,6 +12,7 @@ const rehypeKatex = require('rehype-katex');
 /** @type {import('@docusaurus/types').Config} */
 
 const config = {
+  titleDelimiter: '⚡️',
   markdown:{
     format: "detect"
   },
