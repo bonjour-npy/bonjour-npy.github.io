@@ -31,7 +31,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: '培洋的笔记本📒',
+  title: '培洋的主页 🏠',
   // tagline: 'Bonjour',
   favicon: 'img/rockstar-games.svg',
   
@@ -150,7 +150,7 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '培洋的笔记本',
+        title: '培洋的主页 🌐',
         logo: {
           alt: 'My Site Logo',
           // src: 'img/UESTC_logo.png',
@@ -165,7 +165,7 @@ const config = {
           },
           {
             to: '/docs/GPU-Server/intro',
-            label: '🌍 服务器使用',
+            label: '🌍 服务器相关',
           },
           {
             to: '/docs/Tui-Mian/intro',
