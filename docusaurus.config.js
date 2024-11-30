@@ -31,9 +31,9 @@ const config = {
     },
   },
   // redefine ends here
-  title: '培洋的主页 🏠',
+  title: '培洋的主页 🤗',
   // tagline: 'Bonjour',
-  favicon: 'img/rockstar-games.svg',
+  favicon: 'img/icons8-mac-logo.svg',
   
   // Set the production url of your site here
   url: 'https://bonjour-npy.github.io',
@@ -150,12 +150,9 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: '培洋的主页 🌐',
+        title: '🏠 返回首页',
         logo: {
-          alt: 'My Site Logo',
-          // src: 'img/UESTC_logo.png',
-          // src: 'img/CFM_Circle.png',
-          // src: 'img/motto.png',
+          alt: '培洋的主页',
           src: 'img/navbar.png',
         },
         items: [
@@ -181,7 +178,7 @@ const config = {
           },
           {
             to: '/docs/Others/intro',
-            label: '☃️ 其他',
+            label: '😆 其他',
           },
           {
             to: '/docs/Acknowledgement/intro',
@@ -215,7 +212,7 @@ const config = {
             ],
           },
           {
-            title: '✈️ 外部链接',
+            title: '🔗 外部链接',
             items: [
               {
                 label: '共和国国防部',

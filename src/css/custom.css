@@ -92,6 +92,10 @@ div[class^='announcementBar_'] {
   /* border-top: 10px solid #eaeaea; */
 }
 
+.navbar__logo {
+  margin-right: 2rem;
+}
+
 /* 修改页脚的背景颜色 */
 /* .footer {
   background-color: var(--ifm-color-primary-lightest);

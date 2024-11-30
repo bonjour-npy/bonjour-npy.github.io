@@ -23,8 +23,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className={clsx("button button--secondary button--lg", styles.buttonFonts)}
-            to="/docs/Deep-Learning/intro">
-            📖 从深度学习开始浏览 🚀
+            to="/docs/GPU-Server/Guides/intro">
+            🚀 点击查看 CFM 图像视频计算课题组服务器使用指南
           </Link>
         </div>
       </div>
@@ -36,7 +36,7 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
+      // title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
       <HomepageHeader />
