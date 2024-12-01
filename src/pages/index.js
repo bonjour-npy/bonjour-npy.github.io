@@ -23,8 +23,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className={clsx("button button--secondary button--lg", styles.buttonFonts)}
-            to="/docs/GPU-Server/Guides/intro">
-            🚀 点击查看 CFM 图像视频计算课题组服务器使用指南
+            to="/docs/GPU-Server/Guides/welcome">
+            🚀 点击查看图像视频计算课题组服务器使用指南
           </Link>
         </div>
       </div>

@@ -1,4 +1,4 @@
-# 终端复用器：Tmux
+# 终端复用器 Tmux 使用教程
 
 :::info[参考资料]
 [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
