@@ -58,7 +58,7 @@
 
 5. A100 服务器已提前内置了常用工具，如 `vim`、`git`、`tmux`、`gcc`、`g++`、`nodejs` 等，若有其他需求，请联系管理员全局安装或自行通过源码编译，在用户个人目录下安装。
 
-   无 sudo 权限用户的个人安装可以参考本栏目下的文档：[非 sudo 用户安装软件](../3-package-install-without-sudo.md)
+   无 sudo 权限用户的个人安装可以参考本栏目下的文档：[非 sudo 用户安装软件](https://bonjour-npy.github.io/docs/GPU-Server/package-install-without-sudo)
 
 ## 易用性配置
 
