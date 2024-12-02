@@ -8,28 +8,28 @@ body {
 }
 
 h1 {
-    font-size: 2.4em;
+    font-size: 1.7em;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.5;
 }
 
 h2 {
-    font-size: 2.0em;
+    font-size: 1.6em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 h3 {
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 h4 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.5;
@@ -43,23 +43,23 @@ h5 {
 }
 
 h6 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 .university_title {
-    font-size: 100px;
+    font-size: 1em;
     line-height: 1.5;
 }
 
 .navbar {
-    font-size: 1.0rem;
+    font-size: 1em;
 }
 
 .table-of-contents {
-    font-size: 0.9rem;
+    font-size: 0.9em;
 }
 
 /* Add List Number for each Heder here. */
