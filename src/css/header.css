@@ -55,20 +55,16 @@ h6 {
 }
 
 .navbar {
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .table-of-contents {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 /* Add List Number for each Heder here. */
 
 /* Add List Number for each Header */
-
-h1 {
-    /* 不需要重置h2的计数器 */
-}
 
 h2 {
     counter-increment: h2; /* 每次h2出现时，h2计数器加1 */
