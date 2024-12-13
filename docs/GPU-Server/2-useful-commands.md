@@ -26,3 +26,45 @@
    ```sh
    rm -rf ./{dataset_name}
    ```
+
+4. 显卡开启 Persistence Mode：
+   
+   使用 sudo 权限创建守护进程 daemon：
+
+   ```sh
+   sudo vim /etc/systemd/system/nvidia-persistenced.service
+   ```
+
+   输入以下内容：
+
+   ```sh
+   [Unit] 
+   Description=NVIDIA Persistence Daemon
+   Wants=syslog.target 
+
+   [Service] 
+   Type=exec
+   Restart=always
+   ExecStart=/usr/bin/nvidia-persistenced --verbose
+
+   [Install] 
+   WantedBy=multi-user.target
+   ```
+
+   更新守护进程：
+
+   ```sh
+   sudo systemctl daemon-reload
+   ```
+
+   启用该服务：
+
+   ```sh
+   sudo systemctl enable nvidia-persistenced.service
+   ```
+
+   开始该服务：
+
+   ```sh
+   sudo systemctl start nvidia-persistenced.service
+   ```
