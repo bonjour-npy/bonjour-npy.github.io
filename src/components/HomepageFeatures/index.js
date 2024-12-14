@@ -39,7 +39,7 @@ const FeatureList = [
     link: 'https://www.guet.edu.cn/'
   },
   {
-    title: '桂电三院科协',
+    title: '三院科协',
     img: KEXIELogo,
     description: (
       <>
