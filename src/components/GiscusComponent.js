@@ -7,9 +7,8 @@ export default function GiscusComponent() {
   return (
     // 前面放一个带 margin 的 div，美观
     <div style={{
-        marginTop: "20px",
-        width: "100%",
-        maxWidth: "inherit",
+        marginTop: "3rem",
+        width: "75%",
         overflow: "hidden",}}>
       <Giscus
         repo="bonjour-npy/bonjour-npy.github.io"
@@ -23,7 +22,6 @@ export default function GiscusComponent() {
         emitMetadata="0"
         inputPosition="top"
         theme={colorMode} // 根据当前主题设置
-        
         lang="zh-CN"
         crossorigin="anonymous"
         async
