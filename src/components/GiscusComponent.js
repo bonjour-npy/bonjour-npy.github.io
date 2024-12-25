@@ -12,10 +12,10 @@ export default function GiscusComponent() {
         maxWidth: "inherit",
         overflow: "hidden",}}>
       <Giscus
-        repo="bonjour-npy/docusaurus-giscus"
-        repoId="R_kgDONgL_2Q"
+        repo="bonjour-npy/bonjour-npy.github.io"
+        repoId="R_kgDOJYO9Pw"
         category="Announcements"
-        categoryId="DIC_kwDONgL_2c4ClY-M"
+        categoryId="DIC_kwDOJYO9P84ClgTn"
         mapping="title"
         term="Welcome to @giscus/react component!"
         strict="0"
