@@ -44,8 +44,9 @@
 
    [Service] 
    Type=exec
-   Restart=always
+   Restart=on-failure
    ExecStart=/usr/bin/nvidia-persistenced --verbose
+   RestartSec=10
 
    [Install] 
    WantedBy=multi-user.target
@@ -67,4 +68,10 @@
 
    ```sh
    sudo systemctl start nvidia-persistenced.service
+   ```
+
+   手动开启 persistence mode：
+
+   ```sh
+   sudo /usr/bin/nvidia-persistenced --verbose
    ```
