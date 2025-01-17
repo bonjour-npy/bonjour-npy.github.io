@@ -1,4 +1,4 @@
-# Text2LiDAR: Text-guided LiDAR Point Cloud Generation via Equirectangular Transformer
+# [ECCV 2024] Text2LiDAR: Text-guided LiDAR Point Cloud Generation via Equirectangular Transformer
 
 :::tip[参考资料]
 

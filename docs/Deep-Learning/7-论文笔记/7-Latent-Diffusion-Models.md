@@ -1,4 +1,4 @@
-# CVPR 2022: High-Resolution Image Synthesis with Latent Diffusion Models
+# [CVPR 2022] High-Resolution Image Synthesis with Latent Diffusion Models
 
 :::tip[相关链接]
 

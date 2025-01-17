@@ -1,4 +1,4 @@
-# CVPR 2023: Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
+# [CVPR 2023] Zero-shot Generative Model Adaptation via Image-specific Prompt Learning
 
 :::tip[相关链接]
 

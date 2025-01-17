@@ -1,4 +1,4 @@
-# NeurIPS 2020: Denoising Diffusion Probabilistic Models
+# [NeurIPS 2020] Denoising Diffusion Probabilistic Models
 
 :::tip[相关链接]
 

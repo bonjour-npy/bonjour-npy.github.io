@@ -1,4 +1,4 @@
-# LiDAR Data Synthesis with Denoising Diffusion Probabilistic Models
+# [ICRA 2024] R2DM: LiDAR Data Synthesis with Denoising Diffusion Probabilistic Models
 
 :::tip[说明]
 
