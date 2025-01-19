@@ -10,7 +10,7 @@
 
 :::danger[说明]
 
-点击浏览笔记 Slides：[Text2LiDAR](./11-Text2LiDAR.pdf)
+点击浏览笔记 Slides：[Text2LiDAR](./11-Text2LiDAR-Text-guided-LiDAR-Point-Cloud-Generation-via-Equirectangular-Transformer.pdf)
 
 :::
 
@@ -18,7 +18,7 @@
 
 :::danger[说明]
 
-点击浏览笔记 Slides：[Dataset Analysis nuLiDARtext](./11-Dataset-Analysis-nuLiDARtext.pdf)
+点击浏览数据集分析笔记 Slides：[Dataset Analysis nuLiDARtext](./11-Dataset-Analysis-nuLiDARtext.pdf)
 
 :::
 
