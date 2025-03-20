@@ -87,6 +87,8 @@
    # 输出类似 /home/{user_name}/{conda_path}/env/{conda_env_name}/bin/nvcc
    ```
 
+   - 当 conda 环境被 deactivate 后，该 CUDA 环境以及 nvcc 将检索不到。
+
 7. R5300-G5（A100）以及 server-l40s（L40S）服务器已提前内置了常用工具，如 `vim`、`git`、`tmux`、`gcc`、`g++`、`nodejs` 等，若有其他需求，请联系管理员全局安装或自行通过源码编译，在用户个人目录下安装。
 
    无 sudo 权限用户的个人安装可以参考本栏目下的文档：[非 sudo 用户安装软件](https://bonjour-npy.github.io/docs/GPU-Server/package-install-without-sudo)
