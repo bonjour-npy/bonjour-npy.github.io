@@ -80,12 +80,12 @@
 
    - 在激活该 conda 环境时，执行 `nvcc --version` 也可以查看到对应的 CUDA 版本。
 
-   - 执行 `which nvcc` 可以检查 CUDA 版本安装在某个具体 env 中
+   - 执行 `which nvcc` 可以检查 CUDA 版本以及具体的安装位置。
    
-   ```bash
-   which nvcc
-   # 输出类似 /home/{user_name}/{conda_path}/env/{conda_env_name}/bin/nvcc
-   ```
+      ```bash
+      which nvcc
+      # 输出类似 /home/{user_name}/{conda_path}/env/{conda_env_name}/bin/nvcc
+      ```
 
    - 当 conda 环境被 deactivate 后，该 CUDA 环境以及 nvcc 将检索不到。
 
