@@ -75,3 +75,10 @@
    ```sh
    sudo /usr/bin/nvidia-persistenced --verbose
    ```
+
+5. Ubuntu 禁用自动更新：
+   
+   ```sh
+   sudo systemctl disable apt-daily.timer apt-daily-upgrade.timer
+   sudo systemctl disable apt-daily.service apt-daily-upgrade.service
+   ```
