@@ -15,6 +15,7 @@
     --ifm-color-primary-lightest: #e3f2fd; /* 最浅的蓝色，可以用于突出显示和背景 */
     --ifm-code-font-size: 16px; /* 代码字体大小，你可以根据需要调整 */
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); /* 高亮代码行的背景颜色 */
+    --ifm-announcement-bar-background: transparent;
     /* --ifm-color-primary: #2196f3;
     --ifm-color-primary-dark: #2196f3;
     --ifm-color-primary-darker: #2196f3;
@@ -64,14 +65,18 @@
 } */
 
 div[class^='announcementBar_'] {
-    background: repeating-linear-gradient(
-      -35deg,
-      var(--ifm-color-primary-lighter),
-      var(--ifm-color-primary-lighter) 20px,
-      var(--ifm-color-primary-lightest) 10px,
-      var(--ifm-color-primary-lightest) 40px
-  );
-    font-weight: 700;
+  --announce-stripe-1: rgba(90, 165, 255, 0.65);
+  --announce-stripe-2: rgba(223, 237, 255, 0.95);
+  background: repeating-linear-gradient(
+      -45deg,
+      var(--announce-stripe-1),
+      var(--announce-stripe-1) 28px,
+      var(--announce-stripe-2) 28px,
+      var(--announce-stripe-2) 56px
+    )
+    !important;
+  font-weight: 700;
+  border-bottom: 1px solid var(--ifm-color-primary-light);
 }
 
 /* 修改渲染 markdown 中图片的样式 */
@@ -94,6 +99,18 @@ div[class^='announcementBar_'] {
 
 .navbar__logo {
   margin-right: 2rem;
+}
+
+.navbar__locale-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-primary-light);
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-font-color-base);
 }
 
 /* 修改页脚的背景颜色 */

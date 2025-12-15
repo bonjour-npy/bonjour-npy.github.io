@@ -1,3 +1,40 @@
 .features {
   margin-top: 2rem;
 }
+
+.featureRow {
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.logoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1.25rem;
+}
+
+.featureImage {
+  /* width: 185px; */
+  width: 168px;
+  max-width: 100%;
+  height: auto;
+}
+
+.featureContent {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.featureTitle {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
