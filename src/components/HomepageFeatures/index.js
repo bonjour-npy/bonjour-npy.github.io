@@ -1,30 +1,35 @@
-import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 
-import UESTCLogo from "@site/static/img/UESTC_logo.png";
 import CFMLogo from "@site/static/img/CFM_Circle.png";
+import GitHubLogo from "@site/static/img/GitHub_Invertocat_Black.svg";
+import UESTCLogo from "@site/static/img/UESTC_logo.png";
+import VSCodeLogo from "@site/static/img/vscode.svg";
 
 const FeatureList = [
   {
     title: "电子科技大学",
     img: UESTCLogo,
-    description: (
-      <>
-        求实求真，大气大为
-      </>
-    ),
+    description: <>求实求真，大气大为</>,
     link: "https://www.uestc.edu.cn/",
   },
   {
     title: "未来媒体研究中心",
     img: CFMLogo,
-    description: (
-      <>
-        CENTER FOR FUTURE MEDIA
-      </>
-    ),
+    description: <>CENTER FOR FUTURE MEDIA</>,
     link: "https://cfm.uestc.edu.cn/index",
+  },
+  {
+    title: "GitHub",
+    img: GitHubLogo,
+    description: <>Build Software Better Together</>,
+    link: "https://github.com/",
+  },
+  {
+    title: "VS Code",
+    img: VSCodeLogo,
+    description: <>Code Editing Redefined</>,
+    link: "https://github.com/",
   },
   // {
   //   title: '桂林电子科技大学',
@@ -53,11 +58,7 @@ function Feature({ img, title, description, link }) {
     <div className={clsx("col col--5", styles.featureCard)}>
       <div className={styles.logoWrapper}>
         <a href={link} target="_blank" rel="noopener noreferrer">
-          <img
-            src={img}
-            alt={title}
-            className={styles.featureImage}
-          />
+          <img src={img} alt={title} className={styles.featureImage} />
         </a>
       </div>
       <div className={clsx("text--center", styles.featureContent)}>

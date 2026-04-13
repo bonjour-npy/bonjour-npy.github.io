@@ -35,7 +35,8 @@ const config = {
   // redefine ends here
   title: "培洋的主页 🤗",
   // tagline: 'Bonjour',
-  favicon: "img/icons8-mac-logo.svg",
+  // favicon: "img/icons8-mac-logo.svg",
+  favicon: "img/npy_logo.png",
 
   // Set the production url of your site here
   url: "https://bonjour-npy.github.io",
