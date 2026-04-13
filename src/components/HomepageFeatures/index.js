@@ -2,9 +2,9 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 
 import CFMLogo from "@site/static/img/CFM_Circle.png";
-import GitHubLogo from "@site/static/img/GitHub_Invertocat_Black.svg";
+import GitHubLogo from "@site/static/img/GitHub_Invertocat_Black.png";
 import UESTCLogo from "@site/static/img/UESTC_logo.png";
-import VSCodeLogo from "@site/static/img/vscode.svg";
+import VSCodeLogo from "@site/static/img/vscode.png";
 
 const FeatureList = [
   {
@@ -55,7 +55,7 @@ const FeatureList = [
 
 function Feature({ img, title, description, link }) {
   return (
-    <div className={clsx("col col--5", styles.featureCard)}>
+    <div className={clsx("col", styles.featureCard)}>
       <div className={styles.logoWrapper}>
         <a href={link} target="_blank" rel="noopener noreferrer">
           <img src={img} alt={title} className={styles.featureImage} />
@@ -67,7 +67,7 @@ function Feature({ img, title, description, link }) {
             {title}
           </a>
         </div>
-        <p>{description}</p>
+        {/* <p>{description}</p> */}
       </div>
     </div>
   );
