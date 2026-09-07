@@ -1,0 +1,415 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+<title>Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation - Peiyang Ni</title>
+
+
+
+<meta name="description" content="Adverse-weather LiDAR point cloud generation is challenged by complex weather-induced degradations. These degradations affect geometry and reflectance in fundamentally different ways, making joint modeling difficult and ambiguous, especially when diverse real-world training data is limited. To address this, we propose Structure-to-Intensity Diffusion (SiD), a diffusion-based framework that explicitly factorizes the denoising process at each time step: it first reconstructs the geometric structure, then conditions reflectance intensity denoising on the estimated structure. This structure-conditioned design decomposes the joint distribution, reduces modeling ambiguity, and leads to point clouds that are both geometrically coherent and radiometrically realistic. To mitigate data scarcity, we introduce Real-Prior Weather Simulation (RPWS), a degradation module that leverages real-world sensor statistics to synthesize physically plausible adverse-weather point clouds from clear scans. Extensive experiments demonstrate that, with similar model complexity, our approach outperforms the previous state-of-the-art in generating adverse-weather LiDAR scans with both structural and radiometric properties more closely aligned with real-world data.">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
+
+
+
+  <link rel="canonical" href="https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "Person",
+      "name" : "Peiyang Ni",
+      "alternateName" : "倪培洋",
+      "jobTitle" : "Master's student in Computer Science",
+      "affiliation" : {
+        "@type" : "CollegeOrUniversity",
+        "name" : "University of Electronic Science and Technology of China",
+        "alternateName" : "UESTC",
+        "url" : "https://en.uestc.edu.cn/"
+      },
+      "url" : "https://bonjour-npy.github.io",
+      "sameAs" : ["https://scholar.google.com/citations?user=6KWnnUQAAAAJ","https://orcid.org/0009-0002-6217-6880","https://github.com/bonjour-npy"]
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+<!-- Open Graph protocol data (https://ogp.me/), used by social media -->
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Peiyang Ni"> 
+<meta property="og:title" content="Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation">
+
+  <meta property="og:type" content="article">
+
+
+  <meta property="og:description" name="description" content="Adverse-weather LiDAR point cloud generation is challenged by complex weather-induced degradations. These degradations affect geometry and reflectance in fundamentally different ways, making joint modeling difficult and ambiguous, especially when diverse real-world training data is limited. To address this, we propose Structure-to-Intensity Diffusion (SiD), a diffusion-based framework that explicitly factorizes the denoising process at each time step: it first reconstructs the geometric structure, then conditions reflectance intensity denoising on the estimated structure. This structure-conditioned design decomposes the joint distribution, reduces modeling ambiguity, and leads to point clouds that are both geometrically coherent and radiometrically realistic. To mitigate data scarcity, we introduce Real-Prior Weather Simulation (RPWS), a degradation module that leverages real-world sensor statistics to synthesize physically plausible adverse-weather point clouds from clear scans. Extensive experiments demonstrate that, with similar model complexity, our approach outperforms the previous state-of-the-art in generating adverse-weather LiDAR scans with both structural and radiometric properties more closely aligned with real-world data.">
+
+
+  <meta property="og:url" content="https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026">
+
+
+
+
+
+<!-- end Open Graph protocol -->
+
+
+<link href="https://bonjour-npy.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Peiyang Ni Feed">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://bonjour-npy.github.io/assets/css/main.css">
+
+    
+
+<!-- start custom head snippets -->
+
+<!-- Support for Academicons -->
+<link rel="stylesheet" href="https://bonjour-npy.github.io/assets/css/academicons.css"/>
+
+<!-- Self-hosted Libertinus: preload the two most frequently used faces. -->
+<link rel="preload" href="https://bonjour-npy.github.io/assets/fonts/libertinus/libertinus-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://bonjour-npy.github.io/assets/fonts/libertinus/libertinus-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Browser and device icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://bonjour-npy.github.io/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/svg+xml" href="https://bonjour-npy.github.io/images/lucky_0.svg"/>
+<link rel="manifest" href="https://bonjour-npy.github.io/images/manifest.json"/>
+<meta name="theme-color" content="#ffffff"/>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><span class="navicon"></span></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg persist">
+            <a href="https://bonjour-npy.github.io/#top">Home</a>
+            <!-- <a href="https://bonjour-npy.github.io/">Peiyang Ni</a> -->
+          </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/#biography">Biography</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/#publications">Publications</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/#experience">Experience</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/#awards">Awards</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/#academic-services">Academic Service</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item ">
+              <a href="https://bonjour-npy.github.io/blog/">Blog</a>
+            </li>
+          
+          <li id="theme-toggle" class="masthead__menu-item persist tail">
+            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+          </li>
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="https://bonjour-npy.github.io/images/my_profile.png" class="author__avatar" alt="Peiyang Ni"  fetchpriority="high" />
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">
+      <span>Peiyang Ni</span>
+      
+        <span class="author__name-divider" aria-hidden="true"></span>
+        <span lang="zh-CN">倪培洋</span>
+      
+    </h3>
+    <p class="author__pronouns">he/him</p>
+    <p class="author__bio">Master's student in Computer Science</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      <!-- Font Awesome icons / Biographic information  -->
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i><span class="author__url-text">Chengdu, China</span></li>
+      
+      
+        <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i><span class="author__url-text">UESTC</span></li>
+      
+      
+      
+        
+        <li class="author__url author__url--email"><a href="mailto:peiyangni@std.uestc.edu.cn"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>peiyangni@std.uestc.edu.cn</a></li>
+      
+
+      <!-- Font Awesome and Academicons icons / Academic websites -->
+      
+            
+      
+        <li><a href="https://scholar.google.com/citations?user=6KWnnUQAAAAJ"><i class="ai ai-google-scholar ai-fw icon-pad-right"></i>Google Scholar</a></li>
+      
+            
+      
+      
+        <li><a href="https://orcid.org/0009-0002-6217-6880"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
+      
+                              
+      
+      
+      
+      
+      
+
+      <!-- Font Awesome icons / Repositories and software development -->
+      
+            
+            
+      
+        
+        
+        <li class="author__url author__url--github"><a href="https://github.com/bonjour-npy"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>github.com/bonjour-npy</a></li>
+      
+            
+            
+
+      <!-- Font Awesome icons / Social media -->
+              
+      
+      
+            
+      
+                  
+                  
+      
+            
+            
+            
+      
+            
+                  
+            
+      
+            
+            
+      
+              
+      
+                      
+      
+      
+            
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation">
+    <meta itemprop="description" content="Adverse-weather LiDAR point cloud generation is challenged by complex weather-induced degradations. These degradations affect geometry and reflectance in fundamentally different ways, making joint modeling difficult and ambiguous, especially when diverse real-world training data is limited. To address this, we propose Structure-to-Intensity Diffusion (SiD), a diffusion-based framework that explicitly factorizes the denoising process at each time step: it first reconstructs the geometric structure, then conditions reflectance intensity denoising on the estimated structure. This structure-conditioned design decomposes the joint distribution, reduces modeling ambiguity, and leads to point clouds that are both geometrically coherent and radiometrically realistic. To mitigate data scarcity, we introduce Real-Prior Weather Simulation (RPWS), a degradation module that leverages real-world sensor statistics to synthesize physically plausible adverse-weather point clouds from clear scans. Extensive experiments demonstrate that, with similar model complexity, our approach outperforms the previous state-of-the-art in generating adverse-weather LiDAR scans with both structural and radiometric properties more closely aligned with real-world data.">
+    <meta itemprop="datePublished" content="March 14, 2026">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation
+</h1>
+          
+        
+        
+        
+          <p>Published in <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</i>, 2026 </p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="abstract">Abstract</h2>
+
+<p>Adverse-weather LiDAR point cloud generation is challenged by complex weather-induced degradations. These degradations affect geometry and reflectance in fundamentally different ways, making joint modeling difficult and ambiguous, especially when diverse real-world training data is limited. To address this, we propose Structure-to-Intensity Diffusion (SiD), a diffusion-based framework that explicitly factorizes the denoising process at each time step: it first reconstructs the geometric structure, then conditions reflectance intensity denoising on the estimated structure. This structure-conditioned design decomposes the joint distribution, reduces modeling ambiguity, and leads to point clouds that are both geometrically coherent and radiometrically realistic. To mitigate data scarcity, we introduce Real-Prior Weather Simulation (RPWS), a degradation module that leverages real-world sensor statistics to synthesize physically plausible adverse-weather point clouds from clear scans. Extensive experiments demonstrate that, with similar model complexity, our approach outperforms the previous state-of-the-art in generating adverse-weather LiDAR scans with both structural and radiometric properties more closely aligned with real-world data.</p>
+
+<h2 id="bibtex">BibTeX</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">ni2026structure</span><span class="p">,</span>
+  <span class="na">title</span>     <span class="p">=</span> <span class="s">{Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation}</span><span class="p">,</span>
+  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Ni, Peiyang and others}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}</span><span class="p">,</span>
+  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        
+          <p style="font-size: smaller">Recommended citation: Peiyang Ni, et al. (2026). "Structure-to-Intensity Diffusion for Adverse-Weather LiDAR Generation." In <i>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</i>.</p>
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://bsky.app/intent/compose?text=https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026" class="btn btn--bluesky" title="Share on Bluesky"><i class="fab fa-bluesky" aria-hidden="true"></i><span> Bluesky</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.addtoany.com/add_to/mastodon?linkurl=https%3A%2F%2Fbonjour-npy.github.io%2Fpublication%2Fstructure-to-intensity-diffusion-cvpr-2026" class="btn btn--mastodon" title="Share on Mastodon"><i class="fab fa-mastodon" aria-hidden="true"></i><span> Mastodon</span></a>
+
+  <a href="https://x.com/intent/post?text=https://bonjour-npy.github.io/publication/structure-to-intensity-diffusion-cvpr-2026" class="btn btn--x" title="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span> X (formerly Twitter)</span></a>
+</section>
+
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- Custom footer snippets intentionally left blank. -->
+
+        
+
+<div class="page__footer-copyright">
+  &copy; 2026 Peiyang Ni.
+  Powered by
+  <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
+  <a href="https://github.com/academicpages/academicpages.github.io" rel="nofollow">AcademicPages</a>.
+  <br />
+  Last updated 2026-09-07.
+</div>
+
+      </footer>
+    </div>
+
+    <script type="module" src="https://bonjour-npy.github.io/assets/js/main.min.js"></script>
+<script src="https://bonjour-npy.github.io/assets/js/section-nav.js" defer></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,2 @@
+Sitemap: https://bonjour-npy.github.io/sitemap.xml
+Sitemap: https://bonjour-npy.github.io/blog/sitemap.xml
