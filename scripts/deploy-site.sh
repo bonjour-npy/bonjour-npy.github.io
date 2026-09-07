@@ -8,6 +8,10 @@ codes_dir="$(cd -- "$root_repo/.." && pwd)"
 academic_repo="${ACADEMIC_PAGE_DIR:-$codes_dir/academic-page}"
 output_dir="$root_repo/build-combined"
 
+if [[ -z "${GIT_SSH_COMMAND:-}" ]]; then
+  export GIT_SSH_COMMAND="ssh -o ConnectTimeout=20 -o ServerAliveInterval=5 -o ServerAliveCountMax=3"
+fi
+
 require_clean_master() {
   local repository="$1"
   local label="$2"
