@@ -2,7 +2,7 @@ import React from "react";
 import Giscus from "@giscus/react";
 import {useColorMode} from "@docusaurus/theme-common"; // 导入当前主题 API
 
-export default function GiscusComponent() {
+export default function GiscusComponent({discussionTerm}) {
   const {colorMode} = useColorMode(); // 获取当前主题
   return (
     // 前面放一个带 margin 的 div，美观
@@ -15,8 +15,8 @@ export default function GiscusComponent() {
         repoId="R_kgDOJYO9Pw"
         category="Announcements"
         categoryId="DIC_kwDOJYO9P84ClgTn"
-        mapping="title"
-        term="Welcome to @giscus/react component!"
+        mapping="specific"
+        term={discussionTerm}
         strict="0"
         reactionsEnabled="1"
         emitMetadata="0"
