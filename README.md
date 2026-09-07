@@ -1,4 +1,29 @@
-# 培洋的主页
+# 培洋的博客
+
+本仓库的 `master` 分支保存 Docusaurus 博客源码，`gh-pages` 分支保存组合后的静态网站：
+
+- `https://bonjour-npy.github.io/`：学术主页，源码来自相邻的 `../academic-page`
+- `https://bonjour-npy.github.io/blog/`：本仓库的 Docusaurus 博客
+- `https://bonjour-npy.github.io/academic-page/`：学术主页的兼容旧地址
+
+## 开发与发布
+
+首次使用先运行 `npm ci`。单独预览博客可运行 `npm start`；预览最终组合站点运行：
+
+```bash
+npm run build:combined
+npm run serve:combined
+```
+
+浏览器打开 `http://localhost:4000/`，并检查 `/blog/`。
+
+发布前先分别提交并推送两个仓库的 `master`，然后在本目录执行：
+
+```bash
+npm run deploy
+```
+
+该命令会构建主页和博客，将它们组合后提交到本仓库的 `gh-pages` 分支并推送。不要手动修改 `gh-pages`。
 
 ## 饮水思源
 

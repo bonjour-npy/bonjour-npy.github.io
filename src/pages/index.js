@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <Layout
       // title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description="倪培洋关于深度学习、计算机视觉与计算基础设施的技术笔记。"
     >
       <HomepageHeader />
       <main>

@@ -33,7 +33,7 @@ const config = {
     },
   },
   // redefine ends here
-  title: "培洋的主页 🤗",
+  title: "培洋的博客 🤗",
   // tagline: 'Bonjour',
   // favicon: "img/icons8-mac-logo.svg",
   favicon: "img/npy_logo.png",
@@ -42,7 +42,7 @@ const config = {
   url: "https://bonjour-npy.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: process.env.DOCUSAURUS_BASE_URL || "/blog/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -151,7 +151,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "./static/img/intro.png",
+      image: "img/intro.png",
       title: {
         autoNumberHeadings: true,
       },
@@ -177,12 +177,16 @@ const config = {
       },
       navbar: {
         hideOnScroll: false,
-        title: "🏠 返回首页",
+        title: "博客",
         logo: {
-          alt: "培洋的主页",
+          alt: "培洋的博客",
           src: "img/navbar.png",
         },
         items: [
+          {
+            href: "https://bonjour-npy.github.io/",
+            label: "🏠 个人主页",
+          },
           {
             to: "/docs/Deep-Learning/intro",
             label: "⚛️ 深度学习",
