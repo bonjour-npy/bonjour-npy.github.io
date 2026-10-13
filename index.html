@@ -121,177 +121,58 @@
 
   </head>
 
-  <body>
+  <body class="homepage">
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
     
-<div class="masthead">
+
+<div class="masthead masthead--homepage">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><span class="navicon"></span></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist">
-            <a href="https://bonjour-npy.github.io/#top">Home</a>
-            <!-- <a href="https://bonjour-npy.github.io/">Peiyang Ni</a> -->
-          </li>
+    <nav class="homepage-nav" aria-label="Main navigation">
+      <a class="homepage-nav__home" href="/#top" aria-label="Peiyang Ni — back to top">Peiyang Ni</a>
+      <ul id="homepage-nav-links" class="homepage-nav__links">
+        
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/#biography">Biography</a>
-            </li>
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/#publications">Publications</a>
-            </li>
+          <li class="masthead__menu-item"><a href="/#publications">Publications</a></li>
+        
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/#experience">Experience</a>
-            </li>
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/#awards">Awards</a>
-            </li>
+          <li class="masthead__menu-item"><a href="/#experience">Experience</a></li>
+        
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/#academic-services">Academic Service</a>
-            </li>
           
-            
-            <li class="masthead__menu-item ">
-              <a href="https://bonjour-npy.github.io/blog/" target="_blank" rel="noopener noreferrer">Blog<i class="fa-solid fa-arrow-up-right-from-square masthead__external-icon" aria-hidden="true"></i></a>
-            </li>
+          <li class="masthead__menu-item"><a href="/#awards">Awards</a></li>
+        
           
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+          
+          <li class="masthead__menu-item"><a href="/#academic-services">Academic Service</a></li>
+        
+          
+          
+          <li class="masthead__menu-item"><a href="https://bonjour-npy.github.io/blog/" target="_blank" rel="noopener noreferrer">Blog<i class="fa-solid fa-arrow-up-right-from-square masthead__external-icon" aria-hidden="true"></i></a></li>
+        
+      </ul>
+      <button id="theme-toggle" class="homepage-nav__theme" type="button" aria-label="Toggle light or dark theme"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"></i></button>
+      <button class="homepage-nav__toggle" type="button" aria-expanded="false" aria-controls="homepage-nav-links" aria-label="Open navigation menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    </nav>
   </div>
 </div>
 
 
+
+
     
 
 
 
 
 
-<div id="main" role="main">
+<div id="main" class="homepage-main" role="main">
   
 
-
-  <div class="sidebar sticky">
-  
-
-
-
-<div itemscope itemtype="http://schema.org/Person">
-
-  <div class="author__avatar">
-    
-    	<img src="https://bonjour-npy.github.io/images/my_profile.png" class="author__avatar" alt="Peiyang Ni"  fetchpriority="high" />
-    
-  </div>
-
-  <div class="author__content">
-    <h3 class="author__name">
-      <span>Peiyang Ni</span>
-      
-        <span class="author__name-divider" aria-hidden="true"></span>
-        <span lang="zh-CN">倪培洋</span>
-      
-    </h3>
-    <p class="author__pronouns">he/him</p>
-    <p class="author__bio">Master's student in Computer Science</p>
-  </div>
-
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
-      <!-- Font Awesome icons / Biographic information  -->
-      
-        <li class="author__desktop"><i class="fas fa-fw fa-location-dot icon-pad-right" aria-hidden="true"></i><span class="author__url-text">Chengdu, China</span></li>
-      
-      
-        <li class="author__desktop"><i class="fas fa-fw fa-building-columns icon-pad-right" aria-hidden="true"></i><span class="author__url-text">UESTC</span></li>
-      
-      
-      
-        
-        <li class="author__url author__url--email"><a href="mailto:peiyangni@std.uestc.edu.cn"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>peiyangni@std.uestc.edu.cn</a></li>
-      
-
-      <!-- Font Awesome and Academicons icons / Academic websites -->
-      
-            
-      
-        <li><a href="https://scholar.google.com/citations?user=6KWnnUQAAAAJ"><i class="ai ai-google-scholar ai-fw icon-pad-right"></i>Google Scholar</a></li>
-      
-            
-      
-      
-        <li><a href="https://orcid.org/0009-0002-6217-6880"><i class="ai ai-orcid ai-fw icon-pad-right"></i>ORCID</a></li>
-      
-                              
-      
-      
-      
-      
-      
-
-      <!-- Font Awesome icons / Repositories and software development -->
-      
-            
-            
-      
-        
-        
-        <li class="author__url author__url--github"><a href="https://github.com/bonjour-npy"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>github.com/bonjour-npy</a></li>
-      
-            
-            
-
-      <!-- Font Awesome icons / Social media -->
-              
-      
-      
-            
-      
-                  
-                  
-      
-            
-            
-            
-      
-            
-                  
-            
-      
-            
-            
-      
-              
-      
-                      
-      
-      
-            
-    </ul>
-  </div>
-</div>
-
-  
-  </div>
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
@@ -304,10 +185,31 @@
       
 
       <section class="page__content" itemprop="text">
-        <div id="top" class="homepage-intro" aria-hidden="true"></div>
+        
+<div id="top" class="profile-intro">
+  
+<div class="profile-intro__contact">
+<img class="profile-intro__portrait" src="/images/my_profile.png" alt="Peiyang Ni" width="160" height="200" fetchpriority="high" />
+  <ul class="profile-intro__links" aria-label="Contact and academic profiles">
+    <li><a href="mailto:peiyangni@std.uestc.edu.cn"><i class="fa-solid fa-envelope" aria-hidden="true"></i> peiyangni@std.uestc.edu.cn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=6KWnnUQAAAAJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i> Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0002-6217-6880" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+    <li><a href="https://github.com/bonjour-npy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
+  </ul>
+</div>
+<div class="profile-intro__main">
+<header class="profile-intro__identity">
+  <div class="profile-intro__name-row">
+    <h1>Peiyang Ni<span class="profile-intro__name-zh" lang="zh">倪培洋</span></h1>
+    <span class="profile-intro__pronouns">he/him</span>
+  </div>
+  <p class="profile-intro__details">
+    <span>Master's student in Computer Science</span>
+    <a href="https://en.uestc.edu.cn/"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> University of Electronic Science and Technology of China</a>
+  </p>
+</header>
 
-<section id="biography" class="home-section home-section--first" aria-labelledby="biography-title">
-  <h1 id="biography-title">Biography</h1>
+<section id="biography" class="home-section home-section--first profile-intro__biography" aria-label="Introduction">
   <p>
     I am Peiyang Ni (倪培洋), a Master's student in Computer Science at the
     <a href="https://en.uestc.edu.cn/">University of Electronic Science and Technology of China (UESTC)</a>,
@@ -327,6 +229,10 @@
     <a href="mailto:peiyangni@std.uestc.edu.cn">contact me</a>.
   </p>
 </section>
+
+</div>
+
+</div>
 
 <section id="publications" class="home-section" aria-labelledby="publications-title">
   <h2 id="publications-title">Publications</h2>
@@ -402,8 +308,8 @@
           <h4>University of Electronic Science and Technology of China</h4>
           <span class="experience-item__date">2024–Present</span>
         </div>
-        <p class="experience-item__role">M.Eng. in Computer Science · Chengdu, China</p>
-        <p>GPA: 3.98 / 4.00 · Advisors: Prof. <a href="https://feinanshan.github.io/">Ping Hu</a> and Prof. <a href="https://scholar.google.com/citations?user=-bk1CrcAAAAJ">Xiaofeng Zhu</a></p>
+        <p class="experience-item__role">M.Eng. in Computer Science · Advisors: Prof. <a href="https://feinanshan.github.io/">Ping Hu</a> and Prof. <a href="https://scholar.google.com/citations?user=-bk1CrcAAAAJ">Xiaofeng Zhu</a></p>
+        <p>GPA: 3.98 / 4.00 ｜ National Scholarship (approx. 2% nationally) ｜ Outstanding Graduate Student</p>
       </div>
     </article>
 
@@ -414,8 +320,8 @@
           <h4>Guilin University of Electronic Technology</h4>
           <span class="experience-item__date">2020–2024</span>
         </div>
-        <p class="experience-item__role">B.Eng. in Computer Science · Guilin, China</p>
-        <p>Average: 89.8 / 100</p>
+        <p class="experience-item__role">B.Eng. in Computer Science</p>
+        <p>Weighted Average: 89.8 / 100 ｜ National Scholarship (approx. 0.2% nationally) ｜ Province Outstanding Graduate</p>
       </div>
     </article>
   </div>
@@ -424,10 +330,11 @@
 <section id="awards" class="home-section" aria-labelledby="awards-title">
   <h2 id="awards-title">Awards</h2>
   <ul class="award-list">
-    <li><span><strong>National Scholarship for Undergraduate Students (0.2%)</strong>, <em>Ministry of Education of China</em></span><time>2022–2023</time></li>
+    <li><span><strong>National Scholarship for Graduate Students (approx. 2% nationally)</strong>, <em>Ministry of Education of China</em></span><time>2026</time></li>
+    <li><span><strong>National Scholarship for Undergraduate Students (approx. 0.2% nationally)</strong>, <em>Ministry of Education of China</em></span><time>2023</time></li>
     <li><span><strong>CASC Scholarship (Third Prize)</strong>, <em>China Aerospace Science and Technology Corporation</em></span><time>2022</time></li>
     <li><span><strong>Guangxi Zhuang Autonomous Region People's Government Scholarship</strong></span><time>2021</time></li>
-    <li><span>Outstanding Graduate of Guangxi Zhuang Autonomous Region</span><time>2024</time></li>
+    <li><span>Province Outstanding Graduate</span><time>2024</time></li>
     <li><span>Outstanding Graduate Student, <em>University of Electronic Science and Technology of China</em></span><time>2025, 2026</time></li>
   </ul>
 </section>
@@ -488,7 +395,7 @@
   <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
   <a href="https://github.com/academicpages/academicpages.github.io" rel="nofollow">AcademicPages</a>.
   <br />
-  Last updated 2026-10-10.
+  Last updated 2026-10-13.
 </div>
 
       </footer>
