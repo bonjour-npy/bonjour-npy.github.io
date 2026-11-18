@@ -16,10 +16,10 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "latest",
-    "@docusaurus/plugin-content-docs": "latest",
-    "@docusaurus/preset-classic": "latest",
-    "@docusaurus/theme-common": "latest",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/plugin-content-docs": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
+    "@docusaurus/theme-common": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "latest",
     "@giscus/react": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
@@ -37,8 +37,8 @@
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "latest",
-    "@docusaurus/types": "latest"
+    "@docusaurus/module-type-aliases": "^3.10.2",
+    "@docusaurus/types": "^3.10.2"
   },
   "browserslist": {
     "production": [
